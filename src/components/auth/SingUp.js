@@ -43,13 +43,11 @@ const SignUp = () => {
           onChange={(e) => onPasswordEnterHandler(e.target.value)}
           placeholder="Enter Your Password"
         />
-        <button onClick={() => onCreateAccountClickHandler()}>
-          Create Accout
-        </button>
+        <button onClick={onCreateAccountClickHandler}>Create Accout</button>
 
         <h1>Or</h1>
 
-        <button onClick={() => onLoginWithGoogleClickHandler()}>
+        <button onClick={onLoginWithGoogleClickHandler}>
           SignUpWithGoogle
         </button>
       </div>
