@@ -1,6 +1,25 @@
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+
+import {
+  updateDoc,
+  deleteDoc,
+  doc,
+  getFirestore,
+  serverTimestamp,
+  setDoc,
+  getDoc,
+  addDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAG7aYqGunCEEqMePnR7YN_uMsn8yvwtcM",
@@ -14,7 +33,87 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getFirestore();
+const provider = new GoogleAuthProvider();
 
-import { GoogleAuthProvider } from "firebase/auth";
+export const checkIfUserExist = async (uid) => {
+  const docRef = doc(database, "Users", uid);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-// const analytics = getAnalytics(app);
+export const createUserWithEmailPassword = (email, password) => {
+  return createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signIn = (email, password) => {
+  return signInWithEmailAndPassword(auth, email, password);
+};
+
+export const signOutUser = () => signOut(auth);
+
+export const signInWithGoogle = () => {
+  return signInWithPopup(auth, provider);
+};
+
+export const addUserInDatabase = async (uid, data) => {
+  try {
+    return await setDoc(doc(database, "Users", uid), {
+      ...data,
+      createdAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+export const addEntryInDatabase = async (uid, entryData) => {
+  try {
+    return await setDoc(
+      doc(database, `Users/${uid}/Entry`, `${entryData.id}`),
+      {
+        ...entryData,
+      }
+    );
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+export const updateEntryInDatabase = async (uid, curCardId, entriesData) => {
+  try {
+    return await updateDoc(
+      doc(database, `Users/${uid}/Entry`, `${curCardId}`),
+      entriesData
+    );
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+export const deleteEntryInDatabse = async (uid, entryId) => {
+  try {
+    return await deleteDoc(doc(database, `Users/${uid}/Entry`, `${entryId}`));
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+export const getUserEntryFromDatabase = async (uid) => {
+  try {
+    let userTasks = [];
+    await (
+      await getDocs(collection(database, `Users/${uid}/Entry`))
+    ).forEach((doc) => {
+      userTasks.push({ ...doc.data() });
+    });
+    return userTasks.reverse();
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
