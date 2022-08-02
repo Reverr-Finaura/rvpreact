@@ -1,9 +1,10 @@
 import { signIn, signInWithGoogle } from "../../firebase/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "../../Global.css";
+import "./index.css";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 

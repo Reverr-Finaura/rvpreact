@@ -4,7 +4,7 @@ import {
 } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../../Global.css";
+import "./index.css";
 
 const SignUp = () => {
   const [email, setemail] = useState("");
