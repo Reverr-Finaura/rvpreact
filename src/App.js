@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
+import SignIn from "./components/auth/SignIn";
 
 function App() {
   return (
-    <React.Fragment>
-      <h1>Hello Reverr</h1>
-      <h2>Testing local setup</h2>
-    </React.Fragment>
+    <>
+      <SignIn />
+    </>
   );
 }
 
