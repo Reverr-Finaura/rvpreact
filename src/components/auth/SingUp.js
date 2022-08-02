@@ -2,8 +2,9 @@ import {
   createUserWithEmailPassword,
   signInWithGoogle,
 } from "../../firebase/firebase";
-
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import "../../Global.css";
 
 const SignUp = () => {
   const [email, setemail] = useState("");
@@ -34,15 +35,18 @@ const SignUp = () => {
 
   return (
     <>
-      <div>
+      <div className="main">
         <input
           onChange={(e) => onEmailEnterHandler(e.target.value)}
           placeholder="Enter Your Email"
         />
+        <br />
         <input
           onChange={(e) => onPasswordEnterHandler(e.target.value)}
+          type="password"
           placeholder="Enter Your Password"
         />
+        <br />
         <button onClick={onCreateAccountClickHandler}>Create Accout</button>
 
         <h1>Or</h1>
@@ -50,6 +54,12 @@ const SignUp = () => {
         <button onClick={onLoginWithGoogleClickHandler}>
           SignUpWithGoogle
         </button>
+
+        <h1>----------</h1>
+
+        <div>
+          Already have an account? <Link to="/">Sign In</Link>
+        </div>
       </div>
     </>
   );
