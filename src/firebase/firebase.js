@@ -8,6 +8,8 @@ import {
   signOut,
 } from "firebase/auth";
 
+import { getFirestore, doc, serverTimestamp, setDoc } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAG7aYqGunCEEqMePnR7YN_uMsn8yvwtcM",
   authDomain: "reverr-25fb3.firebaseapp.com",
@@ -35,4 +37,18 @@ export const signOutUser = () => signOut(auth);
 
 export const signInWithGoogle = () => {
   return signInWithPopup(auth, provider);
+};
+
+// Firestore
+const database = getFirestore();
+
+export const addUserInDatabase = async (uid, data) => {
+  try {
+    return await setDoc(doc(database, "Users", uid), {
+      ...data,
+      createdAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.log("Err: ", err);
+  }
 };

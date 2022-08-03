@@ -1,6 +1,7 @@
 import {
   createUserWithEmailPassword,
   signInWithGoogle,
+  addUserInDatabase,
 } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -24,9 +25,14 @@ const SignUp = () => {
   // };
 
   const onCreateAccountClickHandler = async () => {
-    createUserWithEmailPassword(email, password).then((data) =>
-      console.log(data)
-    );
+    createUserWithEmailPassword(email, password).then((data) => {
+      const { user } = data;
+      addUserInDatabase(user.uid, {
+        uid: user.uid,
+        email: user.email,
+        userType: "Investor",
+      });
+    });
   };
 
   const onLoginWithGoogleClickHandler = async () => {

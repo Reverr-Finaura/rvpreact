@@ -45,7 +45,6 @@ const SignIn = () => {
         <button onClick={onLoginWithGoogleClickHandler}>
           SignInWithGoogle
         </button>
-
         <h1>----------</h1>
 
         <div>
