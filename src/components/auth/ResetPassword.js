@@ -1,17 +1,45 @@
-import { useNavigate } from "react-router-dom";
+import { confirmPaswdReset } from "../../firebase/firebase";
+import { useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import "./index.css";
 
-const EmailVerification = () => {
+const ResetPassword = ({ location }) => {
+  const [password, setpassword] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  setTimeout(() => {
-    navigate("/");
-  }, 3000);
+
+  const onPasswordEnterHandler = (value) => {
+    setpassword(value);
+  };
+
+  const onResetPasswordClickHandler = () => {
+    const oobCode = searchParams.get("oobCode");
+
+    confirmPaswdReset(oobCode, password)
+      .then(() => {
+        console.log("Passoword reset successful, redirecting in 3 seconds...");
+      })
+      .catch((err) => console.log(err.message));
+
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
+
   return (
-    <div className="main">
-      <h4>Email successfully verified</h4>
-      <h4>Redirecting in 3 seconds...</h4>
-    </div>
+    <>
+      <div className="main">
+        <br />
+        <input
+          onChange={(e) => onPasswordEnterHandler(e.target.value)}
+          type="password"
+          placeholder="Enter your new Password"
+        />
+        <br />
+        <button onClick={onResetPasswordClickHandler}>Reset Password</button>
+      </div>
+    </>
   );
 };
 
-export default EmailVerification;
+export default ResetPassword;

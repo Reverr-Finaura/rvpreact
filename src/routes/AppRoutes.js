@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import ForgotPassword from "../components/auth/ForgotPassword";
+import ResetPassword from "../components/auth/ResetPassword";
 import SignIn from "../components/auth/SignIn";
 import SignUp from "../components/auth/SingUp";
-import ResetPassword from "../components/auth/UserActions";
 
 const AppRoutes = () => {
   return (
