@@ -1,19 +1,34 @@
+import { sendPasswordResetMail } from "../../firebase/firebase";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { confirmPaswdReset } from "../../firebase/firebase";
+import "./index.css";
+
 const ForgotPassword = () => {
-  const [newPassword, setNewPassword] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const forgotPasswordHandler = async () => {
-    const oobCode = searchParams.get("oobCode");
-    confirmPaswdReset(oobCode, newPassword)
-      .then(() => alert("Password Reset Successfully!"))
+  const [email, setemail] = useState("");
+
+  const onEmailEnterHandler = (value) => {
+    setemail(value);
+  };
+
+  const onSendEmailClickHandler = () => {
+    sendPasswordResetMail(email)
+      .then(() => {
+        alert("Email sent successfully");
+      })
       .catch((err) => console.log(err.message));
   };
+
   return (
     <>
-      <input onChange={(e) => setNewPassword(e.target.value)} />
-      <button onClick={forgotPasswordHandler}>Set Password</button>
+      <div className="main">
+        <input
+          onChange={(e) => onEmailEnterHandler(e.target.value)}
+          placeholder="Enter Your Email"
+        />
+        <br />
+
+        <br />
+        <button onClick={onSendEmailClickHandler}>Send Email</button>
+      </div>
     </>
   );
 };

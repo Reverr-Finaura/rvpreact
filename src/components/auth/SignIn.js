@@ -1,10 +1,9 @@
 import { signIn, signInWithGoogle } from "../../firebase/firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./index.css";
 
 const SignIn = () => {
-  const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
@@ -23,8 +22,6 @@ const SignIn = () => {
   const onLoginWithGoogleClickHandler = async () => {
     signInWithGoogle().then((data) => console.log(data));
   };
-
-  
 
   return (
     <>
@@ -52,6 +49,8 @@ const SignIn = () => {
         <div>
           Don't have an account? <Link to="/signup">Create One</Link>
         </div>
+
+        <Link to="/forgot-password">Forgot Password?</Link>
       </div>
     </>
   );

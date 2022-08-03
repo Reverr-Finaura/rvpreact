@@ -36,6 +36,7 @@ const SignUp = () => {
         userType: "Investor",
       });
     });
+    console.log("Email verification link sent");
   };
 
   const onLoginWithGoogleClickHandler = async () => {
