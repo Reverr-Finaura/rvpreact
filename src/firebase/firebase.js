@@ -6,6 +6,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  sendPasswordResetEmail,
+  confirmPasswordReset,
 } from "firebase/auth";
 
 import { getFirestore, doc, serverTimestamp, setDoc } from "firebase/firestore";
@@ -25,6 +27,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
+// Authentication
+
 export const createUserWithEmailPassword = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
@@ -37,6 +41,16 @@ export const signOutUser = () => signOut(auth);
 
 export const signInWithGoogle = () => {
   return signInWithPopup(auth, provider);
+};
+
+// Forgot Password
+
+export const sendPasswordResetMail = (email) => {
+  return sendPasswordResetEmail(auth, email);
+};
+
+export const confirmPaswdReset = (oobCode, newPassword) => {
+  return confirmPasswordReset(auth, oobCode, newPassword);
 };
 
 // Firestore

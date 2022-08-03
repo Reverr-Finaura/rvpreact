@@ -24,6 +24,8 @@ const SignIn = () => {
     signInWithGoogle().then((data) => console.log(data));
   };
 
+  
+
   return (
     <>
       <div className="main">

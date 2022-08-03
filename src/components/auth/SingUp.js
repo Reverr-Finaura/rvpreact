@@ -27,6 +27,9 @@ const SignUp = () => {
   const onCreateAccountClickHandler = async () => {
     createUserWithEmailPassword(email, password).then((data) => {
       const { user } = data;
+
+      // Adding User In Database
+
       addUserInDatabase(user.uid, {
         uid: user.uid,
         email: user.email,
