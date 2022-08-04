@@ -6,6 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./index.css";
+import { sendOtpToMail } from "../../emailJs/emailjs";
 
 const SignUp = () => {
   const [email, setemail] = useState("");
@@ -43,6 +44,10 @@ const SignUp = () => {
     signInWithGoogle().then((data) => console.log(data));
   };
 
+  const sendEmailVerficationOtp = async () => {
+    sendOtpToMail().then(() => console.log("Email Sent"));
+  };
+
   return (
     <>
       <div className="main">
@@ -57,8 +62,12 @@ const SignUp = () => {
           placeholder="Enter Your Password"
         />
         <br />
+        <button onClick={sendEmailVerficationOtp}>
+          Send Verification Mail
+        </button>
+        <br />
         <button onClick={onCreateAccountClickHandler}>Create Accout</button>
-
+        <br />
         <h1>Or</h1>
 
         <button onClick={onLoginWithGoogleClickHandler}>
