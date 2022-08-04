@@ -18,12 +18,11 @@ const ResetPassword = ({ location }) => {
     confirmPaswdReset(oobCode, password)
       .then(() => {
         console.log("Passoword reset successful, redirecting in 3 seconds...");
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       })
       .catch((err) => console.log(err.message));
-
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
   };
 
   return (
