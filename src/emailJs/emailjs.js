@@ -15,3 +15,20 @@ export const sendOtpToMail = () => {
     "user_FR6AulWQMZry87FBzhKNu"
   );
 };
+
+export const sendAccountHasBeenCreatedMail = () => {
+  let templateParams = {
+    subject: "Account Verfication Confirmed",
+    name: "Kunal Rajput",
+    email: "kunalrajput7656@gmail.com",
+    message:
+      "Congratulations ! Welcome to reverr your account has been created successfully",
+  };
+
+  return emailjs.send(
+    "service_lfmmz8k",
+    "template_6lqwjap",
+    templateParams,
+    "user_FR6AulWQMZry87FBzhKNu"
+  );
+};
