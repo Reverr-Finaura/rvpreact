@@ -1,7 +1,6 @@
 import { confirmPaswdReset } from "../../firebase/firebase";
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import "./index.css";
 
 const ResetPassword = ({ location }) => {
   const [password, setpassword] = useState("");
@@ -27,7 +26,16 @@ const ResetPassword = ({ location }) => {
 
   return (
     <>
-      <div className="main">
+      <div
+        className="main"
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "cen",
+        }}
+      >
         <br />
         <input
           onChange={(e) => onPasswordEnterHandler(e.target.value)}

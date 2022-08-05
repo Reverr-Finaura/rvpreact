@@ -1,6 +1,5 @@
 import { sendPasswordResetMail } from "../../firebase/firebase";
 import { useState } from "react";
-import "./index.css";
 
 const ForgotPassword = () => {
   const [email, setemail] = useState("");
@@ -19,7 +18,16 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className="main">
+      <div
+        className="main"
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "cen",
+        }}
+      >
         <input
           onChange={(e) => onEmailEnterHandler(e.target.value)}
           placeholder="Enter Your Email"
