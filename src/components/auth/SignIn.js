@@ -2,6 +2,7 @@ import { signIn, signInWithGoogle } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./index.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const SignIn = () => {
   const [email, setemail] = useState("");
@@ -19,7 +20,7 @@ const SignIn = () => {
     signIn(email, password).then((data) => console.log(data));
   };
 
-  const onLoginWithGoogleClickHandler = async () => {
+  const onSignInWithGoogleClickHandler = async () => {
     signInWithGoogle().then((data) => console.log(data));
   };
 
@@ -41,7 +42,7 @@ const SignIn = () => {
 
         <h1>Or</h1>
 
-        <button onClick={onLoginWithGoogleClickHandler}>
+        <button onClick={onSignInWithGoogleClickHandler}>
           SignInWithGoogle
         </button>
         <h1>----------</h1>

@@ -12,7 +12,7 @@ export const sendOtpToMail = () => {
     "service_lfmmz8k",
     "template_n3pcht5",
     templateParams,
-    "user_FR6AulWQMZry87FBzhKNu"
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY
   );
 };
 
@@ -29,6 +29,6 @@ export const sendAccountHasBeenCreatedMail = () => {
     "service_lfmmz8k",
     "template_6lqwjap",
     templateParams,
-    "user_FR6AulWQMZry87FBzhKNu"
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY
   );
 };

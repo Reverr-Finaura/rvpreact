@@ -39,7 +39,7 @@ const SignUp = () => {
     console.log("Email verification link sent");
   };
 
-  const onLoginWithGoogleClickHandler = async () => {
+  const onSignInWithGoogleClickHandler = async () => {
     signInWithGoogle().then((data) => console.log(data));
   };
 
@@ -61,7 +61,7 @@ const SignUp = () => {
         <br />
         <h1>Or</h1>
 
-        <button onClick={onLoginWithGoogleClickHandler}>
+        <button onClick={onSignInWithGoogleClickHandler}>
           SignUpWithGoogle
         </button>
 
