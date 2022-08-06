@@ -15,6 +15,10 @@
     rgba(9, 36, 94, 0.59) 64.83%
   );
   transform: translateY(-60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-heading {
@@ -32,6 +36,7 @@
   justify-content: space-between;
   text-decoration: none;
   margin: 1rem 0.5rem;
+  text-align: center;
 }
 
 .personal-details__tab-button {
@@ -89,13 +94,13 @@ label {
 .personal-details {
   display: flex;
   flex-direction: column;
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 }
 
 .investment-details {
   display: flex;
   flex-direction: column;
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 }
 
 .input-box {
@@ -337,8 +342,17 @@ label {
   transform: translateY(-12rem);
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 700px) {
   .signup-card {
-    width: 300px;
+    width: 500px;
+  }
+}
+
+@media screen and (width <570px) {
+  .signup-card {
+    width: 400px;
+  }
+  .details-tab {
+    flex-direction: column;
   }
 }
