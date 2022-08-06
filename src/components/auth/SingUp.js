@@ -6,12 +6,14 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./index.css";
-
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/user/userSlice";
 const SignUp = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   // const [confirmPassword, setconfirmPassword] = useState("");
 
+  const dipatch = useDispatch();
   const onPasswordEnterHandler = (value) => {
     setpassword(value);
   };
@@ -27,9 +29,7 @@ const SignUp = () => {
   const onCreateAccountClickHandler = async () => {
     createUserWithEmailPassword(email, password).then((data) => {
       const { user } = data;
-
       // Adding User In Database
-
       addUserInDatabase(user.uid, {
         uid: user.uid,
         email: user.email,
@@ -40,7 +40,10 @@ const SignUp = () => {
   };
 
   const onSignInWithGoogleClickHandler = async () => {
-    signInWithGoogle().then((data) => console.log(data));
+    signInWithGoogle().then((data) => {
+      const { user } = data;
+      dipatch(login({ user }));
+    });
   };
 
   return (
