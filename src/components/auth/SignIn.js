@@ -10,6 +10,10 @@ import google from "../../assets/vectors/google.svg";
 import linkedin from "../../assets/vectors/linkedin.svg";
 import twitter from "../../assets/vectors/twitter.svg";
 import Footer from "../footer/Footer";
+import ellipse3 from "../../assets/img/ellipse3.png";
+import ellipse4 from "../../assets/img/ellipse4.png";
+import ellipse5 from "../../assets/img/ellipse5.png";
+import ellipse6 from "../../assets/img/ellipse6.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -56,22 +60,9 @@ const SignIn = () => {
       </div>
       <div className="main">
         <div className="login-left">
-          <div
-            style={{ color: "#0077B7", fontSize: "40px", fontWeight: "600" }}
-          >
-            Welcome !
-          </div>
-          <div
-            style={{
-              color: "#fff",
-              fontSize: "28px",
-              fontWeight: "600",
-              marginTop: "0.8rem",
-              marginBottom: "2rem",
-            }}
-          >
-            Log in to your account
-          </div>
+          <div className="welcome-heading">Welcome !</div>
+          <div className="login-to-account">Log in to your account</div>
+
           <div className="login-card">
             <div className="label">Your Email</div>
             <input
@@ -124,9 +115,15 @@ const SignIn = () => {
             </button>
           </div>
         </div>
-        <div className="login-right"></div>
-        <Footer />
+        <div className="login-right">
+          <img src={ellipse3} alt="handshake" className="ellipse3" />
+          <img src={ellipse4} alt="hand" className="ellipse4" />
+          <br />
+          <img src={ellipse6} alt="man2" className="ellipse6" />
+          <img src={ellipse5} alt="man" className="ellipse5" />
+        </div>
       </div>
+      <Footer />
     </>
   );
 };
