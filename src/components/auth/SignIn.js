@@ -15,7 +15,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onPasswordEnterHandler = (value) => {
     setpassword(value);
