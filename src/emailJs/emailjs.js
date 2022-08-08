@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 export const sendOtpToMail = (userName, email, otp) => {
   let templateParams = {
     from_name: "Reverr",
-    to_name: email,
+    to_name: userName,
     to_email: email,
     otp: otp,
   };
