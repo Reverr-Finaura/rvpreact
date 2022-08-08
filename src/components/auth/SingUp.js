@@ -6,10 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../redux/user/userSlice";
-<<<<<<< HEAD
 
-=======
->>>>>>> c5af89d588927272e488f23c8b535f861ddb00c2
 import "./SignUp.css";
 import Navbar from "../navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
@@ -17,7 +14,7 @@ import Footer from "../footer/Footer";
 import { generateOtp } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../emailJs/emailJs";
+import { sendOtpToMail } from "../../emailJs/emailjs";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
