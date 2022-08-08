@@ -17,7 +17,6 @@ import { sendOtpToMail } from "../../emailJs/emailjs";
 import ellipseTop from "../../assets/img/ellipse_top.png";
 import ellipseBottom from "../../assets/img/ellipse_bottom.png";
 import OtpVerification from "./OtpVerification";
-import { sendOtpToMail } from "../../emailJs/emailJs";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
