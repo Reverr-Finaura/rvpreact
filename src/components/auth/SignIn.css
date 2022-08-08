@@ -116,6 +116,7 @@
 
 .email__input-box {
   all: unset;
+  color: white;
   width: 363px;
   margin: 0 2rem;
   margin-bottom: 0.5rem;
@@ -126,6 +127,7 @@
 
 .password__input-box {
   all: unset;
+  color: white;
   width: 330px;
   margin: 0 2rem;
   margin-bottom: 0.5rem;
@@ -161,6 +163,9 @@
   align-items: center;
   margin: 0 6rem;
   margin-top: 1rem;
+}
+
+.social-login-icons__image:hover {
   cursor: pointer;
 }
 

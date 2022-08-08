@@ -5,17 +5,13 @@ import {
 } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// <<<<<<< HEAD
-import "./index.css";
-// import { useDispatch } from "react-redux";
 import { login } from "../../redux/user/userSlice";
-// =======
+
 import "./SignUp.css";
 import Navbar from "../navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
 import Footer from "../footer/Footer";
 
-// >>>>>>> aeba8e29785ebd2dfaa14dbeba078e30a27bc724
 const SignUp = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");

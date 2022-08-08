@@ -6,9 +6,9 @@ import logo from "../../assets/vectors/logo.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { BiHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
-import google from "../../assets/vectors/google.svg";
-import linkedin from "../../assets/vectors/linkedin.svg";
-import twitter from "../../assets/vectors/twitter.svg";
+import google from "../../assets/img/login_icons/google.png";
+import linkedin from "../../assets/img/login_icons/linkedin.png";
+import twitter from "../../assets/img/login_icons/twitter.png";
 import Footer from "../footer/Footer";
 import ellipse3 from "../../assets/img/ellipse3.png";
 import ellipse4 from "../../assets/img/ellipse4.png";
@@ -81,7 +81,7 @@ const SignIn = () => {
               />
               <button
                 className="show-password"
-                style={{ borderRadius: "0px 4px 4px 0px" }}
+                style={{ borderRadius: "0px 4px 4px 0px", color: "white" }}
                 onClick={() => {
                   setShowPassword(!showPassword);
                 }}
@@ -106,9 +106,21 @@ const SignIn = () => {
                 alt="google"
                 onClick={onSignInWithGoogleClickHandler}
                 width="40px"
+                height="34px"
+                className="social-login-icons__image"
               />
-              <img src={linkedin} alt="linkedin" width="50px" />
-              <img src={twitter} alt="twitter" width="50px" />
+              <img
+                src={linkedin}
+                alt="linkedin"
+                width="50px"
+                className="social-login-icons__image"
+              />
+              <img
+                src={twitter}
+                alt="twitter"
+                width="50px"
+                className="social-login-icons__image"
+              />
             </div>
             <button className="login-button" onClick={onSignInClickHandler}>
               Log in
