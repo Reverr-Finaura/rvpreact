@@ -6,45 +6,55 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../redux/user/userSlice";
+<<<<<<< HEAD
 
+=======
+>>>>>>> c5af89d588927272e488f23c8b535f861ddb00c2
 import "./SignUp.css";
 import Navbar from "../navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
 import Footer from "../footer/Footer";
+import { generateOtp } from "../../utils/utils";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser } from "../../redux/auth/newUserSlice";
+import { sendOtpToMail } from "../../emailJs/emailJs";
 
 const SignUp = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [country, setCountry] = useState("");
+  const [linkedInUrl, setLinkedInUrl] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   const [personalDetailsTabActive, setPersonalDetailsTabActive] =
     useState(true);
   const [investmentDetailsTabActive, setInvestmentDetailsTabActive] =
     useState(false);
-  // const [confirmPassword, setconfirmPassword] = useState("");
-
-  // const dipatch = useDispatch();
-  const onPasswordEnterHandler = (value) => {
-    setpassword(value);
-  };
-
-  const onEmailEnterHandler = (value) => {
-    setemail(value);
-  };
-
+  const newUser = useSelector((state) => state.newUser);
   // const onConfirmPasswordEnterHandler = (value) => {
   //   setconfirmPassword(value);
   // };
 
   const onCreateAccountClickHandler = async () => {
-    createUserWithEmailPassword(email, password).then((data) => {
-      const { user } = data;
-      // Adding User In Database
-      addUserInDatabase(user.uid, {
-        uid: user.uid,
-        email: user.email,
-        userType: "Investor",
-      });
-    });
-    console.log("Email verification link sent");
+    const otp = generateOtp();
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password,
+      gender,
+      country,
+      linkedInUrl,
+      phoneNumber,
+      password,
+      otp,
+    };
+    const userName = firstName + " " + lastName;
+    dispatch(createUser(user));
+    sendOtpToMail(userName, email, otp);
   };
 
   const onSignInWithGoogleClickHandler = async () => {
@@ -95,17 +105,29 @@ const SignUp = () => {
             <label>
               First Name <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="John" />
+            <input
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              className="input-box"
+              placeholder="John"
+            />
             <label>
               Last Name <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="Doe" />
+            <input
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+              className="input-box"
+              placeholder="Doe"
+            />
             <label>
               Email ID <span className="important">*</span>
             </label>
             <input
+              onChange={(e) => setEmail(e.target.value)}
               className="input-box"
-              onChange={(e) => onEmailEnterHandler(e.target.value)}
               placeholder="example@reverr.com"
             />
             <label>
@@ -113,6 +135,7 @@ const SignUp = () => {
             </label>
             <div className="genders">
               <input
+                onClick={(e) => setGender(e.target.value)}
                 type="radio"
                 value="Male"
                 name="gender"
@@ -120,6 +143,7 @@ const SignUp = () => {
               />
               <span className="gender">Male</span>
               <input
+                onClick={(e) => setGender(e.target.value)}
                 type="radio"
                 value="Female"
                 name="gender"
@@ -127,6 +151,7 @@ const SignUp = () => {
               />
               <span className="gender">Female</span>
               <input
+                onClick={(e) => setGender(e.target.value)}
                 type="radio"
                 value="Non Binary"
                 name="gender"
@@ -134,6 +159,7 @@ const SignUp = () => {
               />
               <span className="gender">Non Binary</span>
               <input
+                onClick={(e) => setGender(e.target.value)}
                 type="radio"
                 value="Other"
                 name="gender"
@@ -144,23 +170,32 @@ const SignUp = () => {
             <label>
               Country <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="Enter your country" />
+            <input
+              onChange={(e) => setCountry(e.target.value)}
+              className="input-box"
+              placeholder="Enter your country"
+            />
             <label>
               LinkedIn URL <span className="important">*</span>
             </label>
             <input
+              onChange={(e) => setLinkedInUrl(e.target.value)}
               className="input-box"
               placeholder="Enter your LinkedIn URL"
             />
             <label>
               Phone Number <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="Enter Your Phone No." />
+            <input
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              className="input-box"
+              placeholder="Enter Your Phone No."
+            />
             <label>
               Password <span className="important">*</span>
             </label>
             <input
-              onChange={(e) => onPasswordEnterHandler(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="input-box"
               type="password"
               placeholder="Enter Your Password"
@@ -202,11 +237,7 @@ const SignUp = () => {
             <label>
               Email ID <span className="important">*</span>
             </label>
-            <input
-              className="input-box"
-              onChange={(e) => onEmailEnterHandler(e.target.value)}
-              placeholder="example@reverr.com"
-            />
+            <input className="input-box" placeholder="example@reverr.com" />
             <label>
               Contact Number <span className="important">*</span>
             </label>
