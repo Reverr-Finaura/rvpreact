@@ -16,12 +16,16 @@ const ForgotPassword = () => {
   };
 
   const onSendEmailClickHandler = () => {
-    sendPasswordResetMail(email)
-      .then(() => {
-        toast("✅ Email sent successfully");
-        console.log("sent");
-      })
-      .catch((err) => toast(err.message));
+    if (email) {
+      sendPasswordResetMail(email)
+        .then(() => {
+          toast("✅ Email sent successfully");
+          console.log("sent");
+        })
+        .catch((err) => toast(err.message));
+    } else {
+      toast.error("Please enter a valid email");
+    }
   };
 
   return (
