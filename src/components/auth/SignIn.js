@@ -14,6 +14,7 @@ import ellipse3 from "../../assets/img/ellipse3.png";
 import ellipse4 from "../../assets/img/ellipse4.png";
 import ellipse5 from "../../assets/img/ellipse5.png";
 import ellipse6 from "../../assets/img/ellipse6.png";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -30,7 +31,19 @@ const SignIn = () => {
   };
 
   const onSignInClickHandler = async () => {
-    signIn(email, password).then((data) => console.log(data));
+    if (email && password) {
+      signIn(email, password)
+        .then((data) => console.log(data))
+        .catch((err) =>
+          toast.error(err.message, {
+            autoClose: 2000,
+          })
+        );
+    } else {
+      toast.error("Please enter a valid email or password !", {
+        autoClose: 2000,
+      });
+    }
   };
 
   const onSignInWithGoogleClickHandler = async () => {
@@ -136,6 +149,7 @@ const SignIn = () => {
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };

@@ -14,8 +14,7 @@ import Footer from "../footer/Footer";
 import { generateOtp } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../emailJs/emailjs";
-
+import { sendOtpToMail } from "../../emailJs/emailJs";
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
