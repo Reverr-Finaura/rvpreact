@@ -4,6 +4,8 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import logo from "../../assets/vectors/logo.svg";
 import Footer from "../footer/Footer";
 import "./ResetPassword.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ResetPassword = ({ location }) => {
   const [password, setpassword] = useState("");
@@ -19,12 +21,14 @@ const ResetPassword = ({ location }) => {
 
     confirmPaswdReset(oobCode, password)
       .then(() => {
-        console.log("Passoword reset successful, redirecting in 3 seconds...");
+        toast(
+          "🔑 Password reset successful, redirecting to Log-in page in 3 seconds..."
+        );
         setTimeout(() => {
           navigate("/");
         }, 3000);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast(err.message));
   };
 
   return (
@@ -57,6 +61,15 @@ const ResetPassword = ({ location }) => {
         </div>
       </div>
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        newestOnTop={false}
+        hideProgressBar={true}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
     </>
   );
 };

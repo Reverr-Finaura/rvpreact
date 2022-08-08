@@ -14,6 +14,7 @@ import ellipse3 from "../../assets/img/ellipse3.png";
 import ellipse4 from "../../assets/img/ellipse4.png";
 import ellipse5 from "../../assets/img/ellipse5.png";
 import ellipse6 from "../../assets/img/ellipse6.png";
+import ellipseLogin from "../../assets/img/ellipse_login.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ const SignIn = () => {
         </div>
       </div>
       <div className="main">
+        <img src={ellipseLogin} alt="ellipse" className="ellipse-login" />
         <div className="login-left">
           <div className="welcome-heading">Welcome !</div>
           <div className="login-to-account">Log in to your account</div>
@@ -72,22 +74,22 @@ const SignIn = () => {
             />
             <div className="label">You Password</div>
             <div>
-              <input
-                onChange={(e) => onPasswordEnterHandler(e.target.value)}
-                placeholder="Enter Your Password"
-                className="password__input-box"
-                type={showPassword ? "text" : "password"}
-                style={{ marginRight: "0", borderRadius: "4px 0px 0px 4px" }}
-              />
-              <button
-                className="show-password"
-                style={{ borderRadius: "0px 4px 4px 0px", color: "white" }}
-                onClick={() => {
-                  setShowPassword(!showPassword);
-                }}
-              >
-                {showPassword ? <BiShow size={18} /> : <BiHide size={18} />}
-              </button>
+              <div className="password-wrap">
+                <input
+                  onChange={(e) => onPasswordEnterHandler(e.target.value)}
+                  placeholder="Enter Your Password"
+                  className="password__input-box"
+                  type={showPassword ? "text" : "password"}
+                />
+                <button
+                  className="show-password"
+                  onClick={() => {
+                    setShowPassword(!showPassword);
+                  }}
+                >
+                  {showPassword ? <BiShow size={20} /> : <BiHide size={20} />}
+                </button>
+              </div>
             </div>
             <span
               className="forgot-password"
