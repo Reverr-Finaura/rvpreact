@@ -1,11 +1,11 @@
 import emailjs from "@emailjs/browser";
 
-export const sendOtpToMail = () => {
+export const sendOtpToMail = (userName, email, otp) => {
   let templateParams = {
     from_name: "Reverr",
-    to_name: "Kunal Rajput",
-    to_email: "Kunalrajput7656@gmail.com",
-    otp: 569876,
+    to_name: email,
+    to_email: email,
+    otp: otp,
   };
 
   return emailjs.send(
