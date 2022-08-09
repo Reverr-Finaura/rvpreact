@@ -9,7 +9,7 @@ import { BiShow } from "react-icons/bi";
 import google from "../../assets/img/login_icons/google.png";
 import linkedin from "../../assets/img/login_icons/linkedin.png";
 import twitter from "../../assets/img/login_icons/twitter.png";
-import Footer from "../footer/Footer";
+import Footer from "../../components/footer/Footer";
 import ellipse3 from "../../assets/img/ellipse3.png";
 import ellipse4 from "../../assets/img/ellipse4.png";
 import ellipse5 from "../../assets/img/ellipse5.png";

@@ -6,16 +6,16 @@ import { useState } from "react";
 import { login } from "../../redux/user/userSlice";
 // >>>>>>> 994813b7a4e05a5e2b3baacc3483a5607e1c9013
 import "./SignUp.css";
-import Navbar from "../navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
-import Footer from "../footer/Footer";
 import { generateOtp } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../redux/auth/newUserSlice";
-import {sendOtpToMail} from "../../emailJs/emailJs"
+import { sendOtpToMail } from "../../emailJs/emailJs";
 import ellipseTop from "../../assets/img/ellipse_top.png";
 import ellipseBottom from "../../assets/img/ellipse_bottom.png";
 import OtpVerification from "./OtpVerification";
+import Footer from "../../components/footer/Footer";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");

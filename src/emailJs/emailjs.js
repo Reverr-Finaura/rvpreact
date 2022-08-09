@@ -18,7 +18,7 @@ export const sendOtpToMail = (userName, email, otp) => {
 
 export const sendAccountHasBeenCreatedMail = (name, email) => {
   let templateParams = {
-    subject: "Account Verfication Confirmed",
+    subject: "Account Verification Confirmed",
     name: name,
     email: email,
     message:

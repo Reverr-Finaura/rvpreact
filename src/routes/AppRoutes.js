@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import ForgotPassword from "../components/auth/ForgotPassword";
-import OtpVerification from "../components/auth/OtpVerification";
-import ResetPassword from "../components/auth/ResetPassword";
-import SignIn from "../components/auth/SignIn";
-import SignUp from "../components/auth/SingUp";
+import SignIn from "../pages/auth/SignIn";
+import SignUp from "../pages/auth/SingUp";
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import ResetPassword from "../pages/auth/ResetPassword";
+import OtpVerification from "../pages/auth/OtpVerification";
 
 const AppRoutes = () => {
   return (

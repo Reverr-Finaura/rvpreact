@@ -2,7 +2,7 @@ import logo from "../../assets/vectors/logo.svg";
 import "./OtpVerification.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Footer from "../footer/Footer";
+import Footer from "../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { delUser } from "../../redux/auth/newUserSlice";
@@ -22,14 +22,14 @@ const OtpVerification = () => {
       const { otp, firstName, lastName, email } = user;
       const name = `${firstName} ${lastName}`;
       if (otp === otpInput) {
-        await sendAccountHasBeenCreatedMail(name, email);
+        sendAccountHasBeenCreatedMail(name, email);
         toast.success(
           "Your account created successfully ! please login to continue !",
           setTimeout(() => {
             navigate("/");
+            dispatch(delUser());
           }, 3000)
         );
-        dispatch(delUser());
       } else {
         toast.error("Please enter a valid otp !", { autoClose: 1500 });
       }
