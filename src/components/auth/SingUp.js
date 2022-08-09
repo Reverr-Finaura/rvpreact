@@ -1,11 +1,6 @@
-import {
-  createUserWithEmailPassword,
-  signInWithGoogle,
-  addUserInDatabase,
-} from "../../firebase/firebase";
+import { signInWithGoogle } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { login } from "../../redux/user/userSlice";
 
 import "./SignUp.css";
 import Navbar from "../navbar/Navbar";
@@ -55,7 +50,6 @@ const SignUp = () => {
 
   const onSignInWithGoogleClickHandler = async () => {
     signInWithGoogle().then((data) => {
-      const { user } = data;
       // dipatch(login({ user }));
     });
   };
