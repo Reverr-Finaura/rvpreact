@@ -30,10 +30,10 @@ const OtpVerification = () => {
           }, 3000)
         );
       } else {
-        toast.error("Please enter a valid otp !", { autoClose: 1500 });
+        toast.error("Please enter a valid OTP!", { autoClose: 1500 });
       }
     } else {
-      toast.error("No otp sent yet !", { autoClose: 1500 });
+      toast.error("No OTP sent yet!", { autoClose: 1500 });
     }
   };
 
@@ -46,7 +46,7 @@ const OtpVerification = () => {
       <div className="otp-verify__card-wrap">
         {user && (
           <h3 style={{ margin: 0, width: "25%" }}>
-            an otp has been sent to your mail please check and verify !
+            An otp has been sent to your mail please check and verify!
           </h3>
         )}
         <div className="otp-verify__card">
@@ -69,7 +69,15 @@ const OtpVerification = () => {
         </div>
       </div>
       <Footer />
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        newestOnTop={false}
+        hideProgressBar={true}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
     </>
   );
 };
