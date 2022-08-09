@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import SignIn from "../pages/auth/SignIn";
-import SignUp from "../pages/auth/SingUp";
-import ForgotPassword from "../pages/auth/ForgotPassword";
-import ResetPassword from "../pages/auth/ResetPassword";
-import OtpVerification from "../pages/auth/OtpVerification";
-
+import SignIn from "../pages/auth/signin/SignIn";
+import SignUp from "../pages/auth/signup/SingUp";
+import ForgotPassword from "../pages/auth/forgotpassword/ForgotPassword";
+import ResetPassword from "../pages/auth/resetpassword/ResetPassword";
+import OtpVerification from "../pages/auth/otpverification/OtpVerification";
+import Deals from "../pages/home/deals/Deals";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -13,6 +13,7 @@ const AppRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path="/otp-verify" element={<OtpVerification />} />
+      <Route path="/deals" element={<Deals />} />
     </Routes>
   );
 };

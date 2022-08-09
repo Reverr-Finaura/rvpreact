@@ -1,8 +1,8 @@
-import { confirmPaswdReset } from "../../firebase/firebase";
+import { confirmPaswdReset } from "../../../firebase/firebase";
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import logo from "../../assets/vectors/logo.svg";
-import Footer from "../../components/footer/Footer";
+import logo from "../../../assets/vectors/logo.svg";
+import Footer from "../../../components/footer/Footer";
 import "./ResetPassword.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -1,0 +1,48 @@
+.deal-wrap {
+  width: 75%;
+  margin: auto;
+  margin-right: 20px;
+  margin-bottom: 2rem;
+}
+
+.deal-wrap h1 {
+  margin: 0;
+}
+
+.deal-wrap__search {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.deal-search__input {
+  all: unset;
+  color: white;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background: rgba(217, 217, 217, 0.6);
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 80%;
+}
+
+.badge {
+  color: #0077b7;
+}
+
+.live-deal__wrap {
+}
+
+.deal__content {
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.deal__card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.uder-due-diligence__deal__wrap-center {
+  margin: 40px 0px;
+}

@@ -1,23 +1,24 @@
-import { signIn, signInWithGoogle } from "../../firebase/firebase";
+import { signIn, signInWithGoogle } from "../../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./SignIn.css";
-import logo from "../../assets/vectors/logo.svg";
+import logo from "../../../assets/vectors/logo.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { BiHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
-import google from "../../assets/img/login_icons/google.png";
-import linkedin from "../../assets/img/login_icons/linkedin.png";
-import twitter from "../../assets/img/login_icons/twitter.png";
-import Footer from "../../components/footer/Footer";
-import ellipse3 from "../../assets/img/ellipse3.png";
-import ellipse4 from "../../assets/img/ellipse4.png";
-import ellipse5 from "../../assets/img/ellipse5.png";
-import ellipse6 from "../../assets/img/ellipse6.png";
+import google from "../../../assets/img/login_icons/google.png";
+import linkedin from "../../../assets/img/login_icons/linkedin.png";
+import twitter from "../../../assets/img/login_icons/twitter.png";
+import Footer from "../../../components/footer/Footer";
+import ellipse3 from "../../../assets/img/ellipse3.png";
+import ellipse4 from "../../../assets/img/ellipse4.png";
+import ellipse5 from "../../../assets/img/ellipse5.png";
+import ellipse6 from "../../../assets/img/ellipse6.png";
 
-import ellipseLogin from "../../assets/img/ellipse_login.png";
+import ellipseLogin from "../../../assets/img/ellipse_login.png";
 
 import { ToastContainer, toast } from "react-toastify";
+import DealCard from "../../../components/dealCard/DealCard";
 
 const SignIn = () => {
   const navigate = useNavigate();

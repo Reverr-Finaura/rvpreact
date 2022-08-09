@@ -1,12 +1,12 @@
-import logo from "../../assets/vectors/logo.svg";
+import logo from "../../../assets/vectors/logo.svg";
 import "./OtpVerification.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { delUser } from "../../redux/auth/newUserSlice";
-import { sendAccountHasBeenCreatedMail } from "../../emailJs/emailJs";
+import { delUser } from "../../../redux/auth/newUserSlice";
+import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
 
 const OtpVerification = () => {
   const navigate = useNavigate();

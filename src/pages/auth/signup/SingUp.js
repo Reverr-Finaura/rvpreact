@@ -1,23 +1,24 @@
 // <<<<<<< HEAD
-import { signInWithGoogle } from "../../firebase/firebase";
+import { signInWithGoogle } from "../../../firebase/firebase";
 // =======
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { login } from "../../redux/user/userSlice";
+import { login } from "../../../redux/user/userSlice";
 // >>>>>>> 994813b7a4e05a5e2b3baacc3483a5607e1c9013
 import "./SignUp.css";
-import Navbar from "../../components/navbar/Navbar";
-import topImage from "../../assets/img/top-image.png";
-import { generateOtp } from "../../utils/utils";
+import Navbar from "../../../components/navbar/Navbar";
+import topImage from "../../../assets/img/top-image.png";
+import { generateOtp } from "../../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../emailJs/emailJs";
-import ellipseTop from "../../assets/img/ellipse_top.png";
-import ellipseBottom from "../../assets/img/ellipse_bottom.png";
-import OtpVerification from "./OtpVerification";
-import Footer from "../../components/footer/Footer";
+import { createUser } from "../../../redux/auth/newUserSlice";
+import { sendOtpToMail } from "../../../emailJs/emailJs";
+import ellipseTop from "../../../assets/img/ellipse_top.png";
+import ellipseBottom from "../../../assets/img/ellipse_bottom.png";
+import OtpVerification from "../otpverification/OtpVerification";
+import Footer from "../../../components/footer/Footer";
 
 const SignUp = () => {
+  // personal deatails
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +27,14 @@ const SignUp = () => {
   const [linkedInUrl, setLinkedInUrl] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+
+  // investment deatails :
+  const [investment, setInvestment] = useState({});
+  const [stage, setStage] = useState({});
+  const [amount, setAmount] = useState("");
+  const [experience, setExperience] = useState("");
+  const [investingText, setInvestingText] = useState("");
+
   const dispatch = useDispatch();
   const [personalDetailsTabActive, setPersonalDetailsTabActive] =
     useState(true);
@@ -106,6 +115,7 @@ const SignUp = () => {
               First Name <span className="important">*</span>
             </label>
             <input
+              value={firstName}
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -116,6 +126,7 @@ const SignUp = () => {
               Last Name <span className="important">*</span>
             </label>
             <input
+              value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
@@ -126,6 +137,7 @@ const SignUp = () => {
               Email ID <span className="important">*</span>
             </label>
             <input
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input-box"
               placeholder="example@reverr.com"
@@ -171,6 +183,7 @@ const SignUp = () => {
               Country <span className="important">*</span>
             </label>
             <input
+              value={country}
               onChange={(e) => setCountry(e.target.value)}
               className="input-box"
               placeholder="Enter your country"
@@ -179,6 +192,7 @@ const SignUp = () => {
               LinkedIn URL <span className="important">*</span>
             </label>
             <input
+              value={linkedInUrl}
               onChange={(e) => setLinkedInUrl(e.target.value)}
               className="input-box"
               placeholder="Enter your LinkedIn URL"
@@ -187,6 +201,7 @@ const SignUp = () => {
               Phone Number <span className="important">*</span>
             </label>
             <input
+              value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               className="input-box"
               placeholder="Enter Your Phone No."
@@ -195,16 +210,21 @@ const SignUp = () => {
               Password <span className="important">*</span>
             </label>
             <input
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="input-box"
               type="password"
               placeholder="Enter Your Password"
             />
             <button
-              onClick={onCreateAccountClickHandler}
+              onClick={() => {
+                setPersonalDetailsTabActive(false);
+                setInvestmentDetailsTabActive(true);
+                window.scrollTo(0, 0);
+              }}
               className="signup-button"
             >
-              Sign Up
+              Next
             </button>
             <h3 style={{ textAlign: "center", color: "white" }}>OR</h3>
             <button
@@ -233,15 +253,24 @@ const SignUp = () => {
             <label>
               Full Name <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="John Doe" />
+            <input
+              value={firstName.length ? `${firstName} ${lastName}` : null}
+              className="input-box"
+              placeholder="John Doe"
+            />
             <label>
               Email ID <span className="important">*</span>
             </label>
-            <input className="input-box" placeholder="example@reverr.com" />
+            <input
+              value={email}
+              className="input-box"
+              placeholder="example@reverr.com"
+            />
             <label>
               Contact Number <span className="important">*</span>
             </label>
             <input
+              value={phoneNumber}
               className="input-box"
               placeholder="Enter your contact number"
             />
@@ -251,7 +280,7 @@ const SignUp = () => {
             <div className="sectors-for-investment">
               <label class="container">
                 Lorem Ipsum
-                <input type="checkbox" />
+                <input type="checkbox" onClick={(e) => console.log(e.target.name)} />
                 <span class="checkmark"></span>
               </label>
 
@@ -423,9 +452,20 @@ const SignUp = () => {
             <button
               onClick={onCreateAccountClickHandler}
               className="signup-button"
-              style={{ marginBottom: "2rem" }}
+              style={{ marginBottom: "0rem" }}
             >
               Sign Up
+            </button>
+            <button
+              onClick={() => {
+                setPersonalDetailsTabActive(true);
+                setInvestmentDetailsTabActive(false);
+                window.scrollTo(0, 0);
+              }}
+              className="signup-button"
+              style={{ marginBottom: "2rem" }}
+            >
+              Back
             </button>
           </div>
         )}

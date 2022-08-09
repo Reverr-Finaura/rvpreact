@@ -66,3 +66,5 @@ export const addUserInDatabase = async (uid, data) => {
     console.log("Err: ", err);
   }
 };
+
+

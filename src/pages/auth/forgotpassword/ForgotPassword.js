@@ -1,11 +1,11 @@
-import { sendPasswordResetMail } from "../../firebase/firebase";
+import { sendPasswordResetMail } from "../../../firebase/firebase";
 import { useState } from "react";
-import logo from "../../assets/vectors/logo.svg";
+import logo from "../../../assets/vectors/logo.svg";
 import "./ForgotPassword.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../../components/footer/Footer";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
