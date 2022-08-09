@@ -16,11 +16,11 @@ export const sendOtpToMail = (userName, email, otp) => {
   );
 };
 
-export const sendAccountHasBeenCreatedMail = () => {
+export const sendAccountHasBeenCreatedMail = (name, email) => {
   let templateParams = {
     subject: "Account Verfication Confirmed",
-    name: "Kunal Rajput",
-    email: "kunalrajput7656@gmail.com",
+    name: name,
+    email: email,
     message:
       "Congratulations ! Welcome to reverr your account has been created successfully",
   };

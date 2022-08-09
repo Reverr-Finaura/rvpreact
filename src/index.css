@@ -16,8 +16,8 @@ body {
     rgba(0, 135, 203, 0.21896) 86.48%,
     rgba(0, 170, 255, 0) 100%
   );
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: repeat;
   font-family: "Poppins", sans-serif;
 }
 

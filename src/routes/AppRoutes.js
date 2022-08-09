@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ForgotPassword from "../components/auth/ForgotPassword";
+import OtpVerification from "../components/auth/OtpVerification";
 import ResetPassword from "../components/auth/ResetPassword";
 import SignIn from "../components/auth/SignIn";
 import SignUp from "../components/auth/SingUp";
@@ -11,6 +12,7 @@ const AppRoutes = () => {
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset" element={<ResetPassword />} />
+      <Route path="/otp-verify" element={<OtpVerification />} />
     </Routes>
   );
 };

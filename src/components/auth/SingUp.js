@@ -1,7 +1,10 @@
+// <<<<<<< HEAD
 import { signInWithGoogle } from "../../firebase/firebase";
-import { Link } from "react-router-dom";
+// =======
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { login } from "../../redux/user/userSlice";
+// >>>>>>> 994813b7a4e05a5e2b3baacc3483a5607e1c9013
 import "./SignUp.css";
 import Navbar from "../navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
@@ -9,7 +12,11 @@ import Footer from "../footer/Footer";
 import { generateOtp } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../emailJs/emailJs";
+import {sendOtpToMail} from "../../emailJs/emailJs"
+import ellipseTop from "../../assets/img/ellipse_top.png";
+import ellipseBottom from "../../assets/img/ellipse_bottom.png";
+import OtpVerification from "./OtpVerification";
+
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -25,6 +32,7 @@ const SignUp = () => {
   const [investmentDetailsTabActive, setInvestmentDetailsTabActive] =
     useState(false);
   const newUser = useSelector((state) => state.newUser);
+  const navigate = useNavigate();
   // const onConfirmPasswordEnterHandler = (value) => {
   //   setconfirmPassword(value);
   // };
@@ -46,6 +54,7 @@ const SignUp = () => {
     const userName = firstName + " " + lastName;
     dispatch(createUser(user));
     sendOtpToMail(userName, email, otp);
+    navigate("/otp-verify");
   };
 
   const onSignInWithGoogleClickHandler = async () => {
@@ -58,6 +67,7 @@ const SignUp = () => {
     <>
       <Navbar />
       <img src={topImage} alt="growth" className="top-image" />
+      <img src={ellipseTop} alt="ellipse" className="ellipse-top" />
       <div className="signup-card">
         <div className="card-heading">Let's get started!</div>
 
