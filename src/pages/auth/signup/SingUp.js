@@ -218,28 +218,10 @@ const SignUp = () => {
                 setInvestmentDetailsTabActive(true);
                 window.scrollTo(0, 0);
               }}
-              className="signup-button"
-            >
-              Next
-            </button>
-            <h3 style={{ textAlign: "center", color: "white" }}>OR</h3>
-            <button
-              onClick={onSignInWithGoogleClickHandler}
-              className="signup-with-google"
-            >
-              Sign Up with Google
-            </button>
-            <h3 style={{ textAlign: "center", color: "white" }}>- - - - -</h3>
-            <div
-              style={{
-                textAlign: "center",
-                color: "white",
-                marginBottom: "2rem",
-              }}
               className="next-button"
             >
               Next
-            </div>
+            </button>
           </div>
         )}
         {investmentDetailsTabActive && (
@@ -459,8 +441,7 @@ const SignUp = () => {
                 setInvestmentDetailsTabActive(false);
                 window.scrollTo(0, 0);
               }}
-              className="signup-button"
-              style={{ marginBottom: "2rem" }}
+              className="back-button"
             >
               Back
             </button>

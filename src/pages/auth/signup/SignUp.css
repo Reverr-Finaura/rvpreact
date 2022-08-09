@@ -307,6 +307,10 @@ label {
   cursor: pointer;
 }
 
+.next-button:hover {
+  opacity: 0.8;
+}
+
 .signup-button {
   font-size: 22px;
   font-weight: 600;
@@ -326,7 +330,7 @@ label {
   opacity: 0.8;
 }
 
-.signup-with-google {
+.back-button {
   font-size: 22px;
   font-weight: 600;
   width: 300px;
@@ -336,7 +340,25 @@ label {
   color: white;
   border: none;
   margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
 
+.back-button:hover {
+  opacity: 0.8;
+}
+
+.signup-with-google {
+  font-size: 22px;
+  font-weight: 600;
+  width: 300px;
+  height: 50px;
+  background: #0077b7;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  margin: 2rem auto;
   cursor: pointer;
 }
 
