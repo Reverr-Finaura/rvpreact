@@ -5,8 +5,13 @@ import { useState } from "react";
 import Footer from "../../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+<<<<<<< HEAD:src/pages/auth/otpverification/OtpVerification.js
 import { delUser } from "../../../redux/auth/newUserSlice";
 import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
+=======
+import { delUser } from "../../redux/auth/newUserSlice";
+import { sendAccountHasBeenCreatedMail } from "../../emailJs/emailjs";
+>>>>>>> f440dddbcebdf2b2d70c63a4ddd01f070b0e61eb:src/pages/auth/OtpVerification.js
 
 const OtpVerification = () => {
   const navigate = useNavigate();

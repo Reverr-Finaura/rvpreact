@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/pages/auth/signup/SingUp.js
 // <<<<<<< HEAD
 import { signInWithGoogle } from "../../../firebase/firebase";
 // =======
@@ -5,17 +6,32 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../../redux/user/userSlice";
 // >>>>>>> 994813b7a4e05a5e2b3baacc3483a5607e1c9013
+=======
+import { signInWithGoogle } from "../../firebase/firebase";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { login } from "../../redux/user/userSlice";
+>>>>>>> f440dddbcebdf2b2d70c63a4ddd01f070b0e61eb:src/pages/auth/SingUp.js
 import "./SignUp.css";
 import Navbar from "../../../components/navbar/Navbar";
 import topImage from "../../../assets/img/top-image.png";
 import { generateOtp } from "../../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD:src/pages/auth/signup/SingUp.js
 import { createUser } from "../../../redux/auth/newUserSlice";
 import { sendOtpToMail } from "../../../emailJs/emailJs";
 import ellipseTop from "../../../assets/img/ellipse_top.png";
 import ellipseBottom from "../../../assets/img/ellipse_bottom.png";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
+=======
+import { createUser } from "../../redux/auth/newUserSlice";
+import { sendOtpToMail } from "../../emailJs/emailjs";
+import ellipseTop from "../../assets/img/ellipse_top.png";
+import ellipseBottom from "../../assets/img/ellipse_bottom.png";
+import OtpVerification from "./OtpVerification";
+import Footer from "../../components/footer/Footer";
+>>>>>>> f440dddbcebdf2b2d70c63a4ddd01f070b0e61eb:src/pages/auth/SingUp.js
 
 const SignUp = () => {
   // personal deatails
@@ -220,6 +236,7 @@ const SignUp = () => {
               onClick={() => {
                 setPersonalDetailsTabActive(false);
                 setInvestmentDetailsTabActive(true);
+<<<<<<< HEAD:src/pages/auth/signup/SingUp.js
                 window.scrollTo(0, 0);
               }}
               className="signup-button"
@@ -239,13 +256,13 @@ const SignUp = () => {
                 textAlign: "center",
                 color: "white",
                 marginBottom: "2rem",
+=======
+>>>>>>> f440dddbcebdf2b2d70c63a4ddd01f070b0e61eb:src/pages/auth/SingUp.js
               }}
+              className="next-button"
             >
-              Already have an account?{" "}
-              <Link to="/" className="bottom-sign-in-link">
-                Sign In
-              </Link>
-            </div>
+              Next
+            </button>
           </div>
         )}
         {investmentDetailsTabActive && (
@@ -456,6 +473,7 @@ const SignUp = () => {
             >
               Sign Up
             </button>
+<<<<<<< HEAD:src/pages/auth/signup/SingUp.js
             <button
               onClick={() => {
                 setPersonalDetailsTabActive(true);
@@ -467,6 +485,20 @@ const SignUp = () => {
             >
               Back
             </button>
+=======
+            <div
+              style={{
+                textAlign: "center",
+                color: "white",
+                marginBottom: "2rem",
+              }}
+            >
+              Already have an account?{" "}
+              <Link to="/" className="bottom-sign-in-link">
+                Sign In
+              </Link>
+            </div>
+>>>>>>> f440dddbcebdf2b2d70c63a4ddd01f070b0e61eb:src/pages/auth/SingUp.js
           </div>
         )}
       </div>

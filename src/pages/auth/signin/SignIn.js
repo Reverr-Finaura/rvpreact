@@ -37,7 +37,10 @@ const SignIn = () => {
   const onSignInClickHandler = async () => {
     if (email && password) {
       signIn(email, password)
-        .then((data) => console.log(data))
+        .then((data) => {
+          console.log(data);
+          navigate("/home");
+        })
         .catch((err) =>
           toast.error(err.message, {
             autoClose: 2000,

@@ -1,0 +1,226 @@
+.landing__top-section-wrap {
+  background: linear-gradient(
+    63.18deg,
+    #000c12 0%,
+    rgba(0, 6, 10, 0.7) 43.89%,
+    rgba(0, 100, 151, 0.440331) 78.03%,
+    rgba(0, 135, 203, 0.21896) 86.48%,
+    rgba(0, 170, 255, 0) 100%
+  );
+  padding-bottom: 1rem;
+}
+
+.landing__top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem 5rem;
+}
+
+.group-image-wrap {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.landing__top-section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+.landing__top-section-heading {
+  color: white;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.landing__top-section-para {
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.landing__achievements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem;
+}
+
+.achievements-card {
+  width: max-content;
+  background: linear-gradient(
+    236.51deg,
+    #012437 24.72%,
+    rgba(140, 150, 253, 0.42) 100%
+  );
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+  padding: 2rem 3rem;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.lading-page__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.lading-page__main-heading {
+  font-size: 35px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+}
+
+.landing__investor-content-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+
+.landing__investor-card-wrap {
+  width: 50%;
+  margin: 3rem;
+}
+
+.landing__investor-card {
+  width: max-content;
+  background: rgba(255, 255, 255, 0.6);
+  border: 12px solid #0077b7;
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__investor-card-content-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.landing-page__signup-button {
+  font-size: 22px;
+  font-weight: 600;
+  width: 250px;
+  height: 50px;
+  background: #0077b7;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.landing-page__signup-button:hover {
+  opacity: 0.8;
+}
+
+.landing__investor-options {
+  width: 50%;
+  margin: 3rem;
+}
+
+.landing__investor-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 3rem 0;
+}
+
+.landing-page__partner-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem 0;
+  margin-bottom: 5rem;
+}
+
+.landing-page__partner-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page__partner-cards-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0077b7;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 900;
+  z-index: 5;
+  margin-top: 20%;
+}
+
+.landing-page__partner-cards-details-para {
+  color: white;
+  font-size: 18px;
+  width: 250px;
+  font-weight: normal;
+  margin-top: 2rem;
+}
+
+@media screen and (width<1280px) {
+  .landing__achievements {
+    flex-direction: column;
+  }
+  .achievements-card {
+    margin: 2rem 0;
+  }
+  .landing__investor-content-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .landing__investor-card-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (width<1028px) {
+  .landing__top-section {
+    flex-direction: column;
+  }
+  .landing__top-section-content {
+    width: 100%;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (width<1366px) {
+  .landing-page__partner-cards {
+    flex-direction: column;
+  }
+  .landing-page__partner-wrap {
+    margin: 5rem 0;
+    margin-top: 2rem;
+  }
+}

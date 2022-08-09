@@ -1,0 +1,53 @@
+.partner-card__wrap {
+  width: max-content;
+  height: max-content;
+}
+
+.partner-card__background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 119, 183, 0.23);
+  width: 300px;
+  height: 300px;
+  border-radius: 47px;
+  transform: rotateY(0deg) rotate(45deg);
+  margin: 0 5rem;
+}
+
+.partner-card__main {
+  transform: rotateY(0deg) rotate(-45deg);
+  width: 230px;
+  background: rgba(255, 255, 255, 0.91);
+  border-radius: 31px;
+  padding: 1rem;
+}
+
+.partner-card__main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-card__main-top {
+  width: 230px;
+  background-color: #33363b;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  padding: 3rem 1rem;
+  transform: translate(-1rem, -0.9rem);
+}
+
+.partner-card__achievements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-card__achievement {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
