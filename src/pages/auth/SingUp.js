@@ -11,7 +11,7 @@ import topImage from "../../assets/img/top-image.png";
 import { generateOtp } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../emailJs/emailJs";
+import { sendOtpToMail } from "../../emailJs/emailjs";
 import ellipseTop from "../../assets/img/ellipse_top.png";
 import ellipseBottom from "../../assets/img/ellipse_bottom.png";
 import OtpVerification from "./OtpVerification";

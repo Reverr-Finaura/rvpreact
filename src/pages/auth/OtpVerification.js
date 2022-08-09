@@ -6,7 +6,7 @@ import Footer from "../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { delUser } from "../../redux/auth/newUserSlice";
-import { sendAccountHasBeenCreatedMail } from "../../emailJs/emailJs";
+import { sendAccountHasBeenCreatedMail } from "../../emailJs/emailjs";
 
 const OtpVerification = () => {
   const navigate = useNavigate();
