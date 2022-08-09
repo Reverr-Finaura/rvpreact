@@ -1,3 +1,6 @@
+.deal {
+  display: flex;
+}
 .deal-wrap {
   width: 75%;
   margin: auto;
@@ -46,3 +49,4 @@
 .uder-due-diligence__deal__wrap-center {
   margin: 40px 0px;
 }
+

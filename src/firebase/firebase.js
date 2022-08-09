@@ -10,7 +10,7 @@ import {
   confirmPasswordReset,
 } from "firebase/auth";
 
-import { getFirestore, doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { getFirestore, doc, serverTimestamp, setDoc, getDocs, collection } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -56,6 +56,22 @@ export const confirmPaswdReset = (oobCode, newPassword) => {
 // Firestore
 const database = getFirestore();
 
+// getInverstoDeals
+export const getInvestorDeals = async () => {
+  try {
+    let investorDeals = [];
+    await (
+      await getDocs(collection(database, `InvestorDeals`))
+    ).forEach((doc) => {
+      investorDeals.push({ ...doc.data() });
+    });
+    return investorDeals;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+// addUser
 export const addUserInDatabase = async (uid, data) => {
   try {
     return await setDoc(doc(database, "Users", uid), {
@@ -66,5 +82,3 @@ export const addUserInDatabase = async (uid, data) => {
     console.log("Err: ", err);
   }
 };
-
-
