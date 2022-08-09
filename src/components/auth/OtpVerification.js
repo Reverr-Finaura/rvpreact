@@ -22,7 +22,7 @@ const OtpVerification = () => {
       const { otp, firstName, lastName, email } = user;
       const name = `${firstName} ${lastName}`;
       if (otp === otpInput) {
-        sendAccountHasBeenCreatedMail(name, email);
+        await sendAccountHasBeenCreatedMail(name, email);
         toast.success(
           "Your account created successfully ! please login to continue !",
           setTimeout(() => {
