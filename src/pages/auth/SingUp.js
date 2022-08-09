@@ -1,10 +1,7 @@
-// <<<<<<< HEAD
 import { signInWithGoogle } from "../../firebase/firebase";
-// =======
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../redux/user/userSlice";
-// >>>>>>> 994813b7a4e05a5e2b3baacc3483a5607e1c9013
 import "./SignUp.css";
 import Navbar from "../../components/navbar/Navbar";
 import topImage from "../../assets/img/top-image.png";
@@ -201,31 +198,14 @@ const SignUp = () => {
               placeholder="Enter Your Password"
             />
             <button
-              onClick={onCreateAccountClickHandler}
-              className="signup-button"
-            >
-              Sign Up
-            </button>
-            <h3 style={{ textAlign: "center", color: "white" }}>OR</h3>
-            <button
-              onClick={onSignInWithGoogleClickHandler}
-              className="signup-with-google"
-            >
-              Sign Up with Google
-            </button>
-            <h3 style={{ textAlign: "center", color: "white" }}>- - - - -</h3>
-            <div
-              style={{
-                textAlign: "center",
-                color: "white",
-                marginBottom: "2rem",
+              onClick={() => {
+                setPersonalDetailsTabActive(false);
+                setInvestmentDetailsTabActive(true);
               }}
+              className="next-button"
             >
-              Already have an account?{" "}
-              <Link to="/" className="bottom-sign-in-link">
-                Sign In
-              </Link>
-            </div>
+              Next
+            </button>
           </div>
         )}
         {investmentDetailsTabActive && (
@@ -427,6 +407,18 @@ const SignUp = () => {
             >
               Sign Up
             </button>
+            <div
+              style={{
+                textAlign: "center",
+                color: "white",
+                marginBottom: "2rem",
+              }}
+            >
+              Already have an account?{" "}
+              <Link to="/" className="bottom-sign-in-link">
+                Sign In
+              </Link>
+            </div>
           </div>
         )}
       </div>

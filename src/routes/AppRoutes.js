@@ -4,6 +4,7 @@ import SignUp from "../pages/auth/SingUp";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
 import OtpVerification from "../pages/auth/OtpVerification";
+import { LandingPage } from "../pages/landingPage/LandingPage";
 
 const AppRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path="/otp-verify" element={<OtpVerification />} />
+      <Route path="/home" element={<LandingPage />} />
     </Routes>
   );
 };
