@@ -1,5 +1,5 @@
 .deal-card__wrap {
-  width: 280px;
+  width: 300px;
   background-color: white;
   border-radius: 0px 30px 30px;
   padding-bottom: 5px;
@@ -49,6 +49,8 @@ p {
   display: flex;
   justify-content: space-around;
   text-align: center;
+  width: 85%;
+  margin: auto;
 }
 
 .deal-card__contentwrap h5 {
