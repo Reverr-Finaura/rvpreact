@@ -116,7 +116,7 @@
 
 .email__input-box {
   all: unset;
-  color: white;
+  color: black;
   width: 350px;
   margin: 0 2rem;
   margin-bottom: 0.5rem;
@@ -132,7 +132,7 @@
 
 .password__input-box {
   all: unset;
-  color: white;
+  color: black;
   width: 350px;
   margin: 0 2rem;
   margin-bottom: 0.5rem;
@@ -146,7 +146,7 @@
   background: transparent;
   padding: 0.5rem;
   margin: -4.3rem;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 

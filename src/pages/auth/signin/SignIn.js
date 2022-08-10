@@ -40,6 +40,7 @@ const SignIn = () => {
         .then((data) => {
           console.log(data);
           navigate("/home");
+          window.scrollTo(0, 0);
         })
         .catch((err) =>
           toast.error(err.message, {
