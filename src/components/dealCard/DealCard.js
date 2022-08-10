@@ -17,17 +17,31 @@ const DealCard = () => {
       <div className="deal-card__contentwrap">
         <div className="deal-card__content">
           <h4>Raised</h4>
-          <h5>42.75%</h5>
+          <h5 style={{ margin: -10 }}>42.75%</h5>
         </div>
-
+        <hr
+          style={{
+            marginTop: "25px",
+            height: "60px",
+            borderLeft: "1px solid #0077B7",
+            background: "#0077B7",
+          }}
+        />
         <div className="deal-card__content">
           <h4>Closes in</h4>
-          <h5>23 days</h5>
+          <h5 style={{ margin: -10 }}>23 days</h5>
         </div>
-
+        <hr
+          style={{
+            marginTop: "25px",
+            height: "60px",
+            borderLeft: "1px solid #0077B7",
+            background: "#0077B7",
+          }}
+        />
         <div className="deal-card__content">
           <h4>Investors</h4>
-          <h5>120</h5>
+          <h5 style={{ margin: -10 }}>120</h5>
         </div>
       </div>
     </div>

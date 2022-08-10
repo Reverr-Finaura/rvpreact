@@ -3,7 +3,7 @@ import "./deals.css";
 import logo from "../../../assets/vectors/logo.svg";
 import Navbar from "../../../components/navbar/Navbar";
 import DealCard from "../../../components/dealCard/DealCard";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
 const Deals = () => {
   return (
