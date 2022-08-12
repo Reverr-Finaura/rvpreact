@@ -2,9 +2,10 @@ import Footer from "../../../components/footer/Footer";
 import "./deals.css";
 import logo from "../../../assets/vectors/logo.svg";
 import Navbar from "../../../components/navbar/Navbar";
-import DealCard from "../../../components/dealCard/DealCard";
+import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
+
 const Deals = () => {
   return (
     <>
@@ -33,9 +34,9 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              <DealCard />
-              <DealCard />
-              <DealCard />
+              <PartnerCard />
+              <PartnerCard />
+              <PartnerCard />
             </div>
           </div>
 
@@ -50,9 +51,9 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              <DealCard />
-              <DealCard />
-              <DealCard />
+              <PartnerCard />
+              <PartnerCard />
+              <PartnerCard />
             </div>
           </div>
 
@@ -67,9 +68,9 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              <DealCard />
-              <DealCard />
-              <DealCard />
+              <PartnerCard />
+              <PartnerCard />
+              <PartnerCard />
             </div>
           </div>
         </div>

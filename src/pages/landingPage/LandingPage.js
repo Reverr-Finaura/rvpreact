@@ -136,6 +136,7 @@ export const LandingPage = () => {
         </div>
         <div className="landing-page__partner-cards">
           <div className="landing-page__partner-wrap">
+            <div className="partner-card__background"></div>
             <PartnerCard />
             <div className="landing-page__partner-cards-details">
               Under Due diligence
