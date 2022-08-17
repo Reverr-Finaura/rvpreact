@@ -1,11 +1,11 @@
 import { sendPasswordResetMail } from "../../../firebase/firebase";
 import { useState } from "react";
-import logo from "../../../assets/vectors/logo.svg";
 import "./ForgotPassword.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../../components/footer/Footer";
+import reverrLogo from "../../../assets/vectors/Reverr Black 2.png";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -31,7 +31,11 @@ const ForgotPassword = () => {
   return (
     <>
       <div className="forgot-password__navbar">
-        <img src={logo} alt="reverr-logo" className="forgot-password__logo" />
+        <img
+          src={reverrLogo}
+          alt="reverr-logo"
+          className="forgot-password__logo"
+        />
         <div className="forgot-password__title">REVERR VENTURE PARTNERS</div>
       </div>
 

@@ -1,7 +1,7 @@
 import { confirmPaswdReset } from "../../../firebase/firebase";
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import logo from "../../../assets/vectors/logo.svg";
+import reverrLogo from "../../../assets/vectors/Reverr Black 2.png";
 import Footer from "../../../components/footer/Footer";
 import "./ResetPassword.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -34,7 +34,11 @@ const ResetPassword = ({ location }) => {
   return (
     <>
       <div className="reset-password__navbar">
-        <img src={logo} alt="reverr-logo" className="reset-password__logo" />
+        <img
+          src={reverrLogo}
+          alt="reverr-logo"
+          className="reset-password__logo"
+        />
         <div className="reset-password__title">REVERR VENTURE PARTNERS</div>
       </div>
       <div className="reset-password__card-wrap">

@@ -22,6 +22,7 @@
   margin-bottom: 1rem;
   text-align: center;
   color: #2a72de;
+  cursor: default;
 }
 
 .logo {
@@ -39,8 +40,15 @@
 }
 
 .link {
-  margin-right: 25px;
-  color: #2a72de;
+  margin: 0 2rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #0077b7;
+  border-bottom: 2px solid #0077b7;
 }
 
 .login {

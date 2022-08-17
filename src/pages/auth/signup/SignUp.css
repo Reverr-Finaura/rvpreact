@@ -1,34 +1,52 @@
-.top-image {
-  width: 100%;
+.signup__main {
+  background-image: url("../../../assets/img/brainstorming.png");
+  background-size: 100% 100%;
+  padding-bottom: 2rem;
 }
 
-.signup-card {
-  width: max-content;
-  height: max-content;
-  margin: auto;
-  border: 8px solid #0077b7;
-  border-radius: 70px;
+.signup__content-wrap {
+  display: flex;
+}
 
-  background: linear-gradient(
-    167.37deg,
-    rgba(2, 14, 44, 0.85) 9.15%,
-    rgba(9, 36, 94, 0.59) 64.83%
-  );
-  transform: translateY(-60px);
+.signup__left {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.card-heading {
-  color: white;
-  font-family: "Playfair Display", sans-serif;
-  font-size: 20px;
+.signup__right {
+  width: 50%;
+}
+
+.signup__left-heading {
+  font-size: 35px;
   font-weight: 800;
   text-align: center;
-  margin-top: 0.5rem;
-  cursor: default;
+
+  width: 80%;
+}
+
+.signup__left-paragraph {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
+  width: 80%;
+}
+
+.signup-card {
+  width: max-content;
+  height: max-content;
+  margin: 4rem auto;
+  border-radius: 26px;
+  background: #2a72de;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .details-tab {
@@ -43,40 +61,40 @@
   all: unset;
   cursor: pointer;
   font-size: 20px;
-  font-weight: 800;
-  color: white;
-  padding: 0.8rem 3rem;
+  font-weight: 900;
+  color: #000;
+  padding: 0.8rem 2rem;
   margin: 0 1rem;
 }
 
 .personal-details__tab-button:hover {
-  color: #2a72de;
-  border-bottom: 2px solid #2a72de;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 .personal-details__tab-button-active {
-  color: #2a72de;
-  border-bottom: 2px solid #2a72de;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 .investment-details__tab-button {
   all: unset;
   cursor: pointer;
   font-size: 20px;
-  font-weight: 800;
-  color: white;
-  padding: 0.8rem 3rem;
+  font-weight: 900;
+  color: #000;
+  padding: 0.8rem 2rem;
   margin: 0 1rem;
 }
 
 .investment-details__tab-button:hover {
-  color: #2a72de;
-  border-bottom: 2px solid #2a72de;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 .investment-details__tab-button-active {
-  color: #2a72de;
-  border-bottom: 2px solid #2a72de;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 label {
@@ -92,22 +110,21 @@ label {
 }
 
 .personal-details {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
 }
 
 .investment-details {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
 }
 
 .input-box {
   all: unset;
   color: black;
-  width: 250px;
-  background: rgba(217, 217, 217, 0.85);
+  background: #fff;
   border-radius: 6px;
   padding: 0.3rem;
   margin: 0.5rem 0;
@@ -124,7 +141,11 @@ label {
   color: white;
   font-size: 15px;
   margin-left: 0.5rem;
-  margin-right: 1.8rem;
+}
+
+.gender__wrapper {
+  display: flex;
+  margin: 0 auto;
 }
 
 .gender-radio-button {
@@ -133,7 +154,7 @@ label {
   width: 15px;
   background-color: transparent;
   border-radius: 50%;
-  border: 3px solid #0077b7;
+  border: 3px solid #000;
 }
 
 .gender-radio-button:hover {
@@ -192,7 +213,7 @@ label {
   height: 15px;
   width: 15px;
   background-color: #eee;
-  border: 3px solid #0077b7;
+  border: 3px solid #000;
   border-radius: 3px;
 }
 
@@ -219,7 +240,7 @@ label {
   top: 1px;
   width: 3px;
   height: 7px;
-  border: solid #2a72de;
+  border: solid #000;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -280,7 +301,7 @@ label {
   width: 15px;
   background-color: transparent;
   border-radius: 50%;
-  border: 3px solid #0077b7;
+  border: 3px solid #000;
 }
 
 .radio-button:hover {
@@ -297,7 +318,7 @@ label {
   font-weight: 600;
   width: 300px;
   height: 50px;
-  background: #0077b7;
+  background: #000;
   border-radius: 10px;
   color: white;
   border: none;
@@ -316,7 +337,7 @@ label {
   font-weight: 600;
   width: 300px;
   height: 50px;
-  background: #0077b7;
+  background: #000;
   border-radius: 10px;
   color: white;
   border: none;
@@ -335,7 +356,7 @@ label {
   font-weight: 600;
   width: 300px;
   height: 50px;
-  background: #0077b7;
+  background: #000;
   border-radius: 10px;
   color: white;
   border: none;
@@ -354,7 +375,7 @@ label {
   font-weight: 600;
   width: 300px;
   height: 50px;
-  background: #0077b7;
+  background: #000;
   border-radius: 10px;
   color: white;
   border: none;
@@ -368,7 +389,7 @@ label {
 
 .bottom-sign-in-link {
   text-decoration: none;
-  color: #0077b7;
+  color: #000;
   font-weight: 800;
 }
 
@@ -395,6 +416,22 @@ label {
   opacity: 0.4;
   filter: blur(40px);
   z-index: -1;
+}
+
+@media screen and (width<1280px) {
+  .signup__content-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .signup__left {
+    width: 100%;
+  }
+
+  .signup__right {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 700px) {

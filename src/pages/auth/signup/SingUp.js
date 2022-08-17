@@ -8,8 +8,6 @@ import { generateOtp } from "../../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../../../redux/auth/newUserSlice";
 import { sendOtpToMail } from "../../../emailJs/emailJs";
-import ellipseTop from "../../../assets/img/ellipse_top.png";
-import ellipseBottom from "../../../assets/img/ellipse_bottom.png";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
@@ -80,422 +78,436 @@ const SignUp = () => {
 
   return (
     <>
-      <Navbar />
-      <img src={topImage} alt="growth" className="top-image" />
-      <img src={ellipseTop} alt="ellipse" className="ellipse-top" />
-      <div className="signup-card">
-        <div className="card-heading">Let's get started!</div>
+      <div className="signup__main">
+        <Navbar />
+        <div className="signup__content-wrap">
+          <div className="signup__left">
+            <div className="signup__left-heading">
+              If you love good ideas then we at{" "}
+              <span style={{ color: "white" }}>REVERR VENTURE PARTNERS</span>{" "}
+              can help you invest in the best one.
+            </div>
+            <div className="signup__left-paragraph">
+              I'm a paragraph. Click here to add your own text and edit me. It's
+              easy. Just click “Edit Text” or double click me to add your own
+              content.
+            </div>
+          </div>
+          <div className="signup__right">
+            <div className="signup-card">
+              <div className="details-tab">
+                <button
+                  className={
+                    personalDetailsTabActive
+                      ? "personal-details__tab-button personal-details__tab-button-active"
+                      : "personal-details__tab-button"
+                  }
+                  onClick={() => {
+                    setInvestmentDetailsTabActive(false);
+                    setPersonalDetailsTabActive(true);
+                  }}
+                >
+                  Personal Details
+                </button>
+                <button
+                  className={
+                    investmentDetailsTabActive
+                      ? "investment-details__tab-button investment-details__tab-button-active"
+                      : "investment-details__tab-button"
+                  }
+                  onClick={() => {
+                    setPersonalDetailsTabActive(false);
+                    setInvestmentDetailsTabActive(true);
+                  }}
+                >
+                  Investment Details
+                </button>
+              </div>
 
-        <div className="details-tab">
-          <button
-            className={
-              personalDetailsTabActive
-                ? "personal-details__tab-button personal-details__tab-button-active"
-                : "personal-details__tab-button"
-            }
-            onClick={() => {
-              setInvestmentDetailsTabActive(false);
-              setPersonalDetailsTabActive(true);
-            }}
-          >
-            Personal Details
-          </button>
-          <button
-            className={
-              investmentDetailsTabActive
-                ? "investment-details__tab-button investment-details__tab-button-active"
-                : "investment-details__tab-button"
-            }
-            onClick={() => {
-              setPersonalDetailsTabActive(false);
-              setInvestmentDetailsTabActive(true);
-            }}
-          >
-            Investment Details
-          </button>
+              {personalDetailsTabActive && (
+                <div className="personal-details">
+                  <label>
+                    First Name <span className="important">*</span>
+                  </label>
+                  <input
+                    value={firstName}
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
+                    className="input-box"
+                    placeholder="John"
+                  />
+                  <label>
+                    Last Name <span className="important">*</span>
+                  </label>
+                  <input
+                    value={lastName}
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
+                    className="input-box"
+                    placeholder="Doe"
+                  />
+                  <label>
+                    Email ID <span className="important">*</span>
+                  </label>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="input-box"
+                    placeholder="example@reverr.com"
+                  />
+                  <label>
+                    Gender <span className="important">*</span>
+                  </label>
+                  <div className="genders">
+                    <span className="gender__wrapper">
+                      <input
+                        onClick={(e) => setGender(e.target.value)}
+                        type="radio"
+                        value="Male"
+                        name="gender"
+                        className="gender-radio-button"
+                      />
+                      <span className="gender">Male</span>
+                    </span>
+                    <span className="gender__wrapper">
+                      <input
+                        onClick={(e) => setGender(e.target.value)}
+                        type="radio"
+                        value="Female"
+                        name="gender"
+                        className="gender-radio-button"
+                      />
+                      <span className="gender">Female</span>
+                    </span>
+                    <span className="gender__wrapper">
+                      <input
+                        onClick={(e) => setGender(e.target.value)}
+                        type="radio"
+                        value="Non Binary"
+                        name="gender"
+                        className="gender-radio-button"
+                      />
+                      <span className="gender">Non Binary</span>
+                    </span>
+                    <span className="gender__wrapper">
+                      <input
+                        onClick={(e) => setGender(e.target.value)}
+                        type="radio"
+                        value="Other"
+                        name="gender"
+                        className="gender-radio-button"
+                      />
+                      <span className="gender">Other</span>
+                    </span>
+                  </div>
+                  <label>
+                    Country <span className="important">*</span>
+                  </label>
+                  <input
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    className="input-box"
+                    placeholder="Enter your country"
+                  />
+                  <label>
+                    LinkedIn URL <span className="important">*</span>
+                  </label>
+                  <input
+                    value={linkedInUrl}
+                    onChange={(e) => setLinkedInUrl(e.target.value)}
+                    className="input-box"
+                    placeholder="Enter your LinkedIn URL"
+                  />
+                  <label>
+                    Phone Number <span className="important">*</span>
+                  </label>
+                  <input
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="input-box"
+                    placeholder="Enter Your Phone No."
+                  />
+                  <label>
+                    Password <span className="important">*</span>
+                  </label>
+                  <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="input-box"
+                    type="password"
+                    placeholder="Enter Your Password"
+                  />
+
+                  <label>
+                    Confirm Password <span className="important">*</span>
+                  </label>
+                  <input
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="input-box"
+                    type="password"
+                    placeholder="Confirm Your Password"
+                  />
+                  <button
+                    onClick={() => {
+                      const checkPass = checkPassword();
+                      if (checkPass && firstName && lastName) {
+                        setPersonalDetailsTabActive(false);
+                        setInvestmentDetailsTabActive(true);
+                        window.scrollTo(0, 0);
+                      } else {
+                        if (!checkPass && checkPass.length !== 8) {
+                          !checkPass
+                            ? toast.error("Password Doesn't Matched")
+                            : toast.error(
+                                "Password should be 8 character long !"
+                              );
+                        } else {
+                          toast.error("Fields can't be empty");
+                        }
+                      }
+                    }}
+                    className="next-button"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+              {investmentDetailsTabActive && (
+                <div className="investment-details">
+                  <label>
+                    Sectors for investment <span className="important">*</span>
+                  </label>
+                  <div className="sectors-for-investment">
+                    <label class="container">
+                      Lorem Ipsum
+                      <input
+                        type="checkbox"
+                        onClick={(e) =>
+                          e.target.checked
+                            ? setInvestment({ ...investment, 1: "Lorem Ipsum" })
+                            : setInvestment({ ...investment, 1: null })
+                        }
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Lorem Ipsum
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Lorem Ipsum
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Lorem Ipsum
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <label>
+                    Preferred stage for Investment{" "}
+                    <span className="important">*</span>
+                  </label>
+                  <div className="stage-for-funding">
+                    <label class="container">
+                      Pre-seed funding
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Seed funding
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Pre-Series A
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                      Series A funding
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <label>
+                    Amount you want to invest{" "}
+                    <span className="important">*</span>
+                  </label>
+                  <div className="investment-amounts">
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="Less than 1 Lakh"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        Less than 1 Lakh
+                      </span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="1 Lakh - 5 Lakh"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">1 Lakh - 5 Lakh</span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="5 Lakh - 10 Lakh"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        5 Lakh - 10 Lakh
+                      </span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="10 Lakh - 50 Lakh"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        10 Lakh - 50 Lakh
+                      </span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="50 Lakh - 1 Crore"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        50 Lakh - 1 Crore
+                      </span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="1 Crore - 5 Crore"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        1 Crore - 5 Crore
+                      </span>
+                    </div>
+                    <div className="investment-container">
+                      <input
+                        type="radio"
+                        value="More than 5 Crore"
+                        name="investment-amount"
+                        className="radio-button"
+                      />
+                      <span className="investment-amount">
+                        More than 5 Crore
+                      </span>
+                    </div>
+                  </div>
+
+                  <label>
+                    Years of experience in investing{" "}
+                    <span className="important">*</span>
+                  </label>
+                  <div className="investment-experiences">
+                    <div className="experience-container">
+                      <input
+                        type="radio"
+                        value="0-2 years"
+                        name="investment-experience"
+                        className="radio-button"
+                      />
+                      <span className="investment-experience">0-2 years</span>
+                    </div>
+                    <div className="experience-container">
+                      <input
+                        type="radio"
+                        value="2-5 years"
+                        name="investment-experience"
+                        className="radio-button"
+                      />
+                      <span className="investment-experience">2-5 years</span>
+                    </div>
+                    <div className="experience-container">
+                      <input
+                        type="radio"
+                        value="5-10 years"
+                        name="investment-experience"
+                        className="radio-button"
+                      />
+                      <span className="investment-experience">5-10 years</span>
+                    </div>
+                    <div className="experience-container">
+                      <input
+                        type="radio"
+                        value="More than 10 years"
+                        name="investment-experience"
+                        className="radio-button"
+                      />
+                      <span className="investment-experience">
+                        More than 10 years
+                      </span>
+                    </div>
+                  </div>
+                  <label>
+                    By when do you want to start investing{" "}
+                    <span className="important">*</span>
+                  </label>
+                  <input className="input-box" placeholder="Type your answer" />
+                  <button
+                    onClick={onCreateAccountClickHandler}
+                    className="signup-button"
+                    style={{ marginBottom: "0rem" }}
+                  >
+                    Sign Up
+                  </button>
+                  <button
+                    onClick={() => {
+                      setPersonalDetailsTabActive(true);
+                      setInvestmentDetailsTabActive(false);
+                      window.scrollTo(0, 0);
+                    }}
+                    className="back-button"
+                  >
+                    Back
+                  </button>
+                  <div
+                    style={{
+                      textAlign: "center",
+                      color: "white",
+                      marginBottom: "2rem",
+                    }}
+                  >
+                    Already have an account?{" "}
+                    <Link to="/" className="bottom-sign-in-link">
+                      Sign In
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-
-        {personalDetailsTabActive && (
-          <div className="personal-details">
-            <label>
-              First Name <span className="important">*</span>
-            </label>
-            <input
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
-              className="input-box"
-              placeholder="John"
-            />
-            <label>
-              Last Name <span className="important">*</span>
-            </label>
-            <input
-              value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value);
-              }}
-              className="input-box"
-              placeholder="Doe"
-            />
-            <label>
-              Email ID <span className="important">*</span>
-            </label>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-box"
-              placeholder="example@reverr.com"
-            />
-            <label>
-              Gender <span className="important">*</span>
-            </label>
-            <div className="genders">
-              <input
-                onClick={(e) => setGender(e.target.value)}
-                type="radio"
-                value="Male"
-                name="gender"
-                className="gender-radio-button"
-              />
-              <span className="gender">Male</span>
-              <input
-                onClick={(e) => setGender(e.target.value)}
-                type="radio"
-                value="Female"
-                name="gender"
-                className="gender-radio-button"
-              />
-              <span className="gender">Female</span>
-              <input
-                onClick={(e) => setGender(e.target.value)}
-                type="radio"
-                value="Non Binary"
-                name="gender"
-                className="gender-radio-button"
-              />
-              <span className="gender">Non Binary</span>
-              <input
-                onClick={(e) => setGender(e.target.value)}
-                type="radio"
-                value="Other"
-                name="gender"
-                className="gender-radio-button"
-              />
-              <span className="gender">Other</span>
-            </div>
-            <label>
-              Country <span className="important">*</span>
-            </label>
-            <input
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              className="input-box"
-              placeholder="Enter your country"
-            />
-            <label>
-              LinkedIn URL <span className="important">*</span>
-            </label>
-            <input
-              value={linkedInUrl}
-              onChange={(e) => setLinkedInUrl(e.target.value)}
-              className="input-box"
-              placeholder="Enter your LinkedIn URL"
-            />
-            <label>
-              Phone Number <span className="important">*</span>
-            </label>
-            <input
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              className="input-box"
-              placeholder="Enter Your Phone No."
-            />
-            <label>
-              Password <span className="important">*</span>
-            </label>
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input-box"
-              type="password"
-              placeholder="Enter Your Password"
-            />
-
-            <label>
-              Confirm Password <span className="important">*</span>
-            </label>
-            <input
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="input-box"
-              type="password"
-              placeholder="Confirm Your Password"
-            />
-            <button
-              onClick={() => {
-                const checkPass = checkPassword();
-                if (checkPass && firstName && lastName) {
-                  setPersonalDetailsTabActive(false);
-                  setInvestmentDetailsTabActive(true);
-                  window.scrollTo(0, 0);
-                } else {
-                  if (!checkPass && checkPass.length !== 8) {
-                    !checkPass
-                      ? toast.error("Password Doesn't Matched")
-                      : toast.error("Password should be 8 character long !");
-                  } else {
-                    toast.error("Fields can't be empty");
-                  }
-                }
-              }}
-              className="next-button"
-            >
-              Next
-            </button>
-          </div>
-        )}
-        {investmentDetailsTabActive && (
-          <div className="investment-details">
-            <label>
-              Full Name <span className="important">*</span>
-            </label>
-            <input
-              value={firstName.length ? `${firstName} ${lastName}` : null}
-              className="input-box"
-              placeholder="John Doe"
-            />
-            <label>
-              Email ID <span className="important">*</span>
-            </label>
-            <input
-              value={email}
-              className="input-box"
-              placeholder="example@reverr.com"
-            />
-            <label>
-              Contact Number <span className="important">*</span>
-            </label>
-            <input
-              value={phoneNumber}
-              className="input-box"
-              placeholder="Enter your contact number"
-            />
-            <label>
-              Sectors for investment <span className="important">*</span>
-            </label>
-            <div className="sectors-for-investment">
-              <label class="container">
-                Lorem Ipsum
-                <input
-                  type="checkbox"
-                  onClick={(e) =>
-                    e.target.checked
-                      ? setInvestment({ ...investment, 1: "Lorem Ipsum" })
-                      : setInvestment({ ...investment, 1: null })
-                  }
-                />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Lorem Ipsum
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Lorem Ipsum
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Lorem Ipsum
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <label>
-              Preferred stage for Investment{" "}
-              <span className="important">*</span>
-            </label>
-            <div className="stage-for-funding">
-              <label class="container">
-                Pre-seed funding
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Seed funding
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Pre-Series A
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container">
-                Series A funding
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <label>
-              Amount you want to invest <span className="important">*</span>
-            </label>
-            <div className="investment-amounts">
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="Less than 1 Lakh"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">Less than 1 Lakh</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="1 Lakh - 5 Lakh"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">1 Lakh - 5 Lakh</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="5 Lakh - 10 Lakh"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">5 Lakh - 10 Lakh</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="10 Lakh - 50 Lakh"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">10 Lakh - 50 Lakh</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="50 Lakh - 1 Crore"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">50 Lakh - 1 Crore</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="1 Crore - 5 Crore"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">1 Crore - 5 Crore</span>
-              </div>
-              <div className="investment-container">
-                <input
-                  type="radio"
-                  value="More than 5 Crore"
-                  name="investment-amount"
-                  className="radio-button"
-                />
-                <span className="investment-amount">More than 5 Crore</span>
-              </div>
-            </div>
-
-            <label>
-              Years of experience in investing{" "}
-              <span className="important">*</span>
-            </label>
-            <div className="investment-experiences">
-              <div className="experience-container">
-                <input
-                  type="radio"
-                  value="0-2 years"
-                  name="investment-experience"
-                  className="radio-button"
-                />
-                <span className="investment-experience">0-2 years</span>
-              </div>
-              <div className="experience-container">
-                <input
-                  type="radio"
-                  value="2-5 years"
-                  name="investment-experience"
-                  className="radio-button"
-                />
-                <span className="investment-experience">2-5 years</span>
-              </div>
-              <div className="experience-container">
-                <input
-                  type="radio"
-                  value="5-10 years"
-                  name="investment-experience"
-                  className="radio-button"
-                />
-                <span className="investment-experience">5-10 years</span>
-              </div>
-              <div className="experience-container">
-                <input
-                  type="radio"
-                  value="More than 10 years"
-                  name="investment-experience"
-                  className="radio-button"
-                />
-                <span className="investment-experience">
-                  More than 10 years
-                </span>
-              </div>
-            </div>
-            <label>
-              By when do you want to start investing{" "}
-              <span className="important">*</span>
-            </label>
-            <input className="input-box" placeholder="Type your answer" />
-            <button
-              onClick={onCreateAccountClickHandler}
-              className="signup-button"
-              style={{ marginBottom: "0rem" }}
-            >
-              Sign Up
-            </button>
-            <button
-              onClick={() => {
-                setPersonalDetailsTabActive(true);
-                setInvestmentDetailsTabActive(false);
-                window.scrollTo(0, 0);
-              }}
-              className="back-button"
-            >
-              Back
-            </button>
-            <div
-              style={{
-                textAlign: "center",
-                color: "white",
-                marginBottom: "2rem",
-              }}
-            >
-              Already have an account?{" "}
-              <Link to="/" className="bottom-sign-in-link">
-                Sign In
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
+
       <Footer />
       <ToastContainer />
     </>

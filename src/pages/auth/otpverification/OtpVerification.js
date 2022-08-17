@@ -1,4 +1,4 @@
-import logo from "../../../assets/vectors/logo.svg";
+import reverrLogo from "../../../assets/vectors/Reverr Black 2.png";
 import "./OtpVerification.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { delUser } from "../../../redux/auth/newUserSlice";
 import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
-import {login} from "../../../redux/user/userSlice"
+import { login } from "../../../redux/user/userSlice";
 const OtpVerification = () => {
   const navigate = useNavigate();
   const [otpInput, setOtpInput] = useState("");
@@ -22,7 +22,7 @@ const OtpVerification = () => {
       const { otp, firstName, lastName, email } = user;
       const name = `${firstName} ${lastName}`;
       if (otp === otpInput) {
-        dispatch(login(user))
+        dispatch(login(user));
         sendAccountHasBeenCreatedMail(name, email);
         toast.success(
           "Your account created successfully ! please login to continue !",
@@ -42,7 +42,7 @@ const OtpVerification = () => {
   return (
     <>
       <div className="otp-verify__navbar">
-        <img src={logo} alt="reverr-logo" className="otp-verify__logo" />
+        <img src={reverrLogo} alt="reverr-logo" className="otp-verify__logo" />
         <div className="otp-verify__title">REVERR VENTURE PARTNERS</div>
       </div>
       <div className="otp-verify__card-wrap">

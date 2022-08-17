@@ -18,8 +18,7 @@ import ellipse3 from "../../../assets/img/ellipse3.png";
 import ellipse4 from "../../../assets/img/ellipse4.png";
 import ellipse5 from "../../../assets/img/ellipse5.png";
 import ellipse6 from "../../../assets/img/ellipse6.png";
-
-import ellipseLogin from "../../../assets/img/ellipse_login.png";
+import Navbar from "../../../components/navbar/Navbar";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -75,27 +74,8 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="navbar">
-        <div className="reverr">
-          <img src={logo} alt="reverr-logo" className="logo" />
-          <div className="title">REVERR VENTURE PARTNERS</div>
-        </div>
-        <div className="links">
-          <button
-            className="no-account"
-            onClick={() => {
-              navigate("/signup");
-            }}
-          >
-            Don't have an account?
-          </button>
-          <button className="get-started" onClick={() => {}}>
-            Get started
-          </button>
-        </div>
-      </div>
+      <Navbar />
       <div className="main">
-        <img src={ellipseLogin} alt="ellipse" className="ellipse-login" />
         <div className="login-left">
           <div className="welcome-heading">Welcome !</div>
           <div className="login-to-account">Log in to your account</div>
