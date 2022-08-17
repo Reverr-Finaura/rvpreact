@@ -197,3 +197,65 @@ p {
 .dashboard__blogs__rightcontent img {
   width: 100%;
 }
+
+.dashboard__startups > h1 {
+  text-align: center;
+}
+
+.dasboard__contact-wrap {
+  margin-top: 2rem;
+}
+
+.dasboard__contact-input {
+  background: #d9d9d9;
+  padding: 18px;
+  width: 76%;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid white;
+}
+
+.dasboard__contact-btn {
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 10px;
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #0077b7;
+  color: white;
+}
+
+.dashboard__startups-content {
+  background: linear-gradient(
+    236.51deg,
+    #012437 24.72%,
+    rgba(140, 150, 253, 0.42) 100%
+  );
+  display: flex;
+  color: white;
+  height: 150px;
+  justify-content: space-around;
+  padding: 40px;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard__startups-leftcontent {
+  /* border: 2px solid black; */
+}
+
+.dashboard__startups-content h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__startups-content h4 {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  color: grey;
+}
+
+.dashboard__startups-rightcontent {
+  /* border: 2px solid black; */
+  width: 80%;
+}

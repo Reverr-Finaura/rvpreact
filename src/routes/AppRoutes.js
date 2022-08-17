@@ -9,6 +9,7 @@ import LandingPage from "../pages/landingPage/LandingPage";
 import Portfolio from "../pages/home/portfolio/Portfolio";
 import Profile from "../pages/home/profile/Profile";
 import Dashboard from "../pages/home/dashboard/Dashboard";
+import AboutDeal from "../pages/home/aboutdeal/AboutDeal";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/about-deal" element={<AboutDeal />} />
     </Routes>
   );
 };
