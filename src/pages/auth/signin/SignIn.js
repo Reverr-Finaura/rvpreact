@@ -22,7 +22,6 @@ import ellipse6 from "../../../assets/img/ellipse6.png";
 import ellipseLogin from "../../../assets/img/ellipse_login.png";
 
 import { ToastContainer, toast } from "react-toastify";
-import DealCard from "../../../components/dealCard/DealCard";
 
 const SignIn = () => {
   const navigate = useNavigate();

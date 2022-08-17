@@ -1,9 +1,10 @@
 .partner-card__wrap {
   width: max-content;
   height: max-content;
+  margin: 2rem;
 }
 
-.partner-card__background {
+/* .partner-card__background {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +14,11 @@
   height: 300px;
   border-radius: 47px;
   transform: rotateY(0deg) rotate(45deg);
-  margin: 0 5rem;
-}
+  margin: 0 3rem;
+} */
 
 .partner-card__main {
-  transform: rotateY(0deg) rotate(-45deg);
+  /* transform: rotateY(0deg) rotate(-45deg); */
   width: 230px;
   background: rgba(255, 255, 255, 0.91);
   border-radius: 31px;
