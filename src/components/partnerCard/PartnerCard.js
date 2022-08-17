@@ -1,22 +1,31 @@
 import "./PartnerCard.css";
 import partnerCardImage from "../../assets/img/partner_card-image.png";
 
-const PartnerCard = () => {
+const PartnerCard = ({ data }) => {
+  const { logo, bgImage } = data.cardImages;
+  const { dealDescription } = data;
+  const { dealDetails } = data;
+  const getRemainingDays = () => {
+    let remainingDays = 31 - dealDetails.date.substring(8, dealDetails.length);
+    return remainingDays;
+  };
   return (
     <>
       <div className="partner-card__wrap">
         {/* <div className="partner-card__background"> */}
         <div className="partner-card__main">
-          <div className="partner-card__main-top">Artmajuer</div>
+          {/* <div className="partner-card__main-top"> */}
+          <img style={{ width: "100%" }} src={bgImage.bgUrl} />
+          {/* </div> */}
           <div className="partner-card__main-content">
             <div style={{ width: "70%" }}>
               <div style={{ fontSize: "20px", fontWeight: "600" }}>
                 Artmajuer
               </div>
-              Lorem Ipsum is a dummy text used for typesettings{" "}
+              {dealDescription.shortDesc}
             </div>
             <img
-              src={partnerCardImage}
+              src={logo.logoUrl}
               alt="partner"
               style={{ width: "30%", transform: "translateY(-3.5rem)" }}
             />
@@ -29,7 +38,7 @@ const PartnerCard = () => {
             <div className="partner-card__achievement">
               Raised
               <br />
-              <span style={{ color: "#0077B7" }}>42.75%</span>
+              <span style={{ color: "#0077B7" }}>{dealDetails.raised}</span>
             </div>
             <hr
               style={{
@@ -40,7 +49,9 @@ const PartnerCard = () => {
             <div className="partner-card__achievement">
               Closes in
               <br />
-              <span style={{ color: "#0077B7" }}>23 days</span>
+              <span style={{ color: "#0077B7" }}>
+                {getRemainingDays()} Days
+              </span>
             </div>
             <hr
               style={{
@@ -51,7 +62,7 @@ const PartnerCard = () => {
             <div className="partner-card__achievement">
               Investors
               <br />
-              <span style={{ color: "#0077B7" }}>20</span>
+              <span style={{ color: "#0077B7" }}>{data.investors.length}</span>
             </div>
           </div>
         </div>

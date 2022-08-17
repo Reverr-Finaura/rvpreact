@@ -8,14 +8,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(
+  /* background: linear-gradient(
     63.18deg,
     #000c12 0%,
     rgba(0, 6, 10, 0.7) 43.89%,
     rgba(0, 100, 151, 0.440331) 78.03%,
     rgba(0, 135, 203, 0.21896) 86.48%,
     rgba(0, 170, 255, 0) 100%
-  );
+  ); */
   background-size: cover;
   background-repeat: repeat;
   font-family: "Poppins", sans-serif;

@@ -7,6 +7,7 @@ import searchIcon from "../../assets/img/search-icon.png";
 import rupeeIcon from "../../assets/img/rupee-icon.png";
 import Footer from "../../components/footer/Footer";
 import PartnerCard from "../../components/partnerCard/PartnerCard";
+import headImg from "../../assets/img/Rectangle 2958.png";
 
 export const LandingPage = () => {
   return (
@@ -21,6 +22,7 @@ export const LandingPage = () => {
           <div className="landing__top-section-content">
             <div className="landing__top-section-heading">
               REVERR VENTURE <span style={{ color: "#0077B7" }}>PARTNERS</span>
+              <hr style={{ border: "1px solid #0077B7", width: "167px" }} />
             </div>
             <div className="landing__top-section-para">
               Lorem Ipsum is a dummy text used for typesettings and typewritting
@@ -61,9 +63,22 @@ export const LandingPage = () => {
         </div>
       </div>
 
+      <div className="landing-page__blogs">
+        <div className="landing-page__blog-header">
+          <h1>Reverr Blogs</h1>
+        </div>
+      </div>
+
       <div className="lading-page__main">
+        <hr
+          style={{
+            border: "1px solid #0077B7",
+            width: "800px",
+            marginBottom: "5%",
+          }}
+        />
         <div className="lading-page__main-heading">
-          <span style={{ color: "#0077B7" }}>Who</span> am I?
+          How we <span style={{ color: "#0077B7" }}>works</span>
         </div>
         <div className="landing__investor-content-wrap">
           <div className="landing__investor-card-wrap">
@@ -130,41 +145,32 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
+        <hr
+          style={{
+            border: "1px solid #0077B7",
+            width: "800px",
+            marginTop: "5%",
+          }}
+        />
         <div className="lading-page__main-heading">
           Invest with Reverr venture{" "}
           <span style={{ color: "#0077B7" }}>partners</span>
-        </div>
-        <div className="landing-page__partner-cards">
-          <div className="landing-page__partner-wrap">
-            <div className="partner-card__background"></div>
-            <PartnerCard />
-            <div className="landing-page__partner-cards-details">
-              Under Due diligence
-              <div className="landing-page__partner-cards-details-para">
-                Lorem Ipsum is a dummy text used for typesettings and
-                typewritting
-              </div>
-            </div>
-          </div>
-          <div className="landing-page__partner-wrap">
-            <PartnerCard />
-            <div className="landing-page__partner-cards-details">
-              Live diligence
-              <div className="landing-page__partner-cards-details-para">
-                Lorem Ipsum is a dummy text used for typesettings and
-                typewritting
-              </div>
-            </div>
-          </div>
-          <div className="landing-page__partner-wrap">
-            <PartnerCard />
-            <div className="landing-page__partner-cards-details">
-              Due diligence
-              <div className="landing-page__partner-cards-details-para">
-                Lorem Ipsum is a dummy text used for typesettings and
-                typewritting
-              </div>
-            </div>
+          <div className="landing-page_subHeading">
+            <span
+              style={{ fontSize: "24px", fontWeight: "900", color: "#0077B7" }}
+            >
+              Live Deals
+            </span>
+            <p
+              style={{
+                fontWeight: "300",
+                fontSize: "18px",
+                width: "60%",
+                margin: "auto",
+              }}
+            >
+              Lorem Ipsum is a dummy text used for typesettings and typewritting
+            </p>
           </div>
         </div>
       </div>
@@ -174,3 +180,39 @@ export const LandingPage = () => {
 };
 
 export default LandingPage;
+
+{
+  /* <div className="landing-page__partner-cards">
+<div className="landing-page__partner-wrap">
+  <div className="partner-card__background"></div>
+  <PartnerCard />
+  <div className="landing-page__partner-cards-details">
+    Under Due diligence
+    <div className="landing-page__partner-cards-details-para">
+      Lorem Ipsum is a dummy text used for typesettings and
+      typewritting
+    </div>
+  </div>
+</div>
+<div className="landing-page__partner-wrap">
+  <PartnerCard />
+  <div className="landing-page__partner-cards-details">
+    Live diligence
+    <div className="landing-page__partner-cards-details-para">
+      Lorem Ipsum is a dummy text used for typesettings and
+      typewritting
+    </div>
+  </div>
+</div>
+<div className="landing-page__partner-wrap">
+  <PartnerCard />
+  <div className="landing-page__partner-cards-details">
+    Due diligence
+    <div className="landing-page__partner-cards-details-para">
+      Lorem Ipsum is a dummy text used for typesettings and
+      typewritting
+    </div>
+  </div>
+</div>
+</div> */
+}

@@ -21,6 +21,7 @@
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   text-align: center;
+  color: #2a72de;
 }
 
 .logo {
@@ -39,6 +40,7 @@
 
 .link {
   margin-right: 25px;
+  color: #2a72de;
 }
 
 .login {
@@ -59,7 +61,7 @@
 }
 
 .signup {
-  color: #2a72de;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   width: 159px;
@@ -69,6 +71,7 @@
   border-radius: 10px;
   margin-left: 25px;
   cursor: pointer;
+  background: black;
 }
 
 .signup:hover {

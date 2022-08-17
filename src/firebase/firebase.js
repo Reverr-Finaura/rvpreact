@@ -10,7 +10,15 @@ import {
   confirmPasswordReset,
 } from "firebase/auth";
 
-import { getFirestore, doc, serverTimestamp, setDoc, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  serverTimestamp,
+  setDoc,
+  getDocs,
+  collection,
+  getDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -83,7 +91,6 @@ export const addUserInDatabase = async (uid, data) => {
   }
 };
 
-
 export const getAdminsFromDatabase = async () => {
   try {
     let Admins = [];
@@ -93,6 +100,20 @@ export const getAdminsFromDatabase = async () => {
       Admins.push({ ...doc.data() });
     });
     return Admins;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+export const fetchDealsFromDatabase = async () => {
+  try {
+    let deals = [];
+    await (
+      await getDocs(collection(database, `Investordeals`))
+    ).forEach((doc) => {
+      deals.push({ ...doc.data() });
+    });
+    return deals;
   } catch (err) {
     console.log("Err: ", err);
   }

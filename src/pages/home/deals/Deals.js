@@ -5,8 +5,28 @@ import Navbar from "../../../components/navbar/Navbar";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
+import { useEffect, useState } from "react";
+import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 
 const Deals = () => {
+  const [deals, setDeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchDeals = async () => {
+    setIsLoading(true);
+    let results = await fetchDealsFromDatabase();
+    if (results.length) {
+      setDeals([...results]);
+    }
+
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchDeals();
+  }, []);
+
+  console.log(deals);
   return (
     <>
       {/* <Navbar /> */}
@@ -34,9 +54,11 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              <PartnerCard />
-              <PartnerCard />
-              <PartnerCard />
+              {isLoading ? (
+                <h1>Fething Deals...</h1>
+              ) : (
+                deals.map((data) => <PartnerCard key={data.id} data={data} />)
+              )}
             </div>
           </div>
 
@@ -50,11 +72,7 @@ const Deals = () => {
                 typewritting
               </p>
             </div>
-            <div className="deal__card">
-              <PartnerCard />
-              <PartnerCard />
-              <PartnerCard />
-            </div>
+            <div className="deal__card"></div>
           </div>
 
           <div className="due-diligence__deal__wrap">
@@ -67,11 +85,7 @@ const Deals = () => {
                 typewritting
               </p>
             </div>
-            <div className="deal__card">
-              <PartnerCard />
-              <PartnerCard />
-              <PartnerCard />
-            </div>
+            <div className="deal__card"></div>
           </div>
         </div>
       </div>

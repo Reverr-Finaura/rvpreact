@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo from "../../assets/vectors/logo.svg";
+import logo from "../../assets/vectors/Reverr Black 2.png";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -20,9 +20,9 @@ const Navbar = () => {
         <div className="title">REVERR VENTURE PARTNERS</div>
       </div>
       <div className="links">
-        <span className="link">Lorem Ipsum</span>
-        <span className="link">Lorem Ipsum</span>
-        <span className="link">Lorem Ipsum</span>
+        <span className="link">Startups</span>
+        <span className="link">Investors</span>
+        <span className="link">About Us</span>
         <button className="login" onClick={loginButtonClickHandler}>
           Log in
         </button>
