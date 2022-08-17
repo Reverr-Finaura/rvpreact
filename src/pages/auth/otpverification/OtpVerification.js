@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { delUser } from "../../../redux/auth/newUserSlice";
 import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
+import {login} from "../../../redux/user/userSlice"
 const OtpVerification = () => {
   const navigate = useNavigate();
   const [otpInput, setOtpInput] = useState("");
@@ -21,6 +22,7 @@ const OtpVerification = () => {
       const { otp, firstName, lastName, email } = user;
       const name = `${firstName} ${lastName}`;
       if (otp === otpInput) {
+        dispatch(login(user))
         sendAccountHasBeenCreatedMail(name, email);
         toast.success(
           "Your account created successfully ! please login to continue !",

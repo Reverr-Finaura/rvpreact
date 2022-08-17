@@ -82,3 +82,18 @@ export const addUserInDatabase = async (uid, data) => {
     console.log("Err: ", err);
   }
 };
+
+
+export const getAdminsFromDatabase = async () => {
+  try {
+    let Admins = [];
+    await (
+      await getDocs(collection(database, `Admin`))
+    ).forEach((doc) => {
+      Admins.push({ ...doc.data() });
+    });
+    return Admins;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};

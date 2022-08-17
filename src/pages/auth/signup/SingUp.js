@@ -12,6 +12,7 @@ import ellipseTop from "../../../assets/img/ellipse_top.png";
 import ellipseBottom from "../../../assets/img/ellipse_bottom.png";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
   // personal deatails
@@ -23,6 +24,7 @@ const SignUp = () => {
   const [linkedInUrl, setLinkedInUrl] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   // investment deatails :
   const [investment, setInvestment] = useState({});
@@ -41,6 +43,14 @@ const SignUp = () => {
   // const onConfirmPasswordEnterHandler = (value) => {
   //   setconfirmPassword(value);
   // };
+
+  const checkPassword = () => {
+    if (password === confirmPassword) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const onCreateAccountClickHandler = async () => {
     const otp = generateOtp();
@@ -212,11 +222,33 @@ const SignUp = () => {
               type="password"
               placeholder="Enter Your Password"
             />
+
+            <label>
+              Confirm Password <span className="important">*</span>
+            </label>
+            <input
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="input-box"
+              type="password"
+              placeholder="Confirm Your Password"
+            />
             <button
               onClick={() => {
-                setPersonalDetailsTabActive(false);
-                setInvestmentDetailsTabActive(true);
-                window.scrollTo(0, 0);
+                const checkPass = checkPassword();
+                if (checkPass && firstName && lastName) {
+                  setPersonalDetailsTabActive(false);
+                  setInvestmentDetailsTabActive(true);
+                  window.scrollTo(0, 0);
+                } else {
+                  if (!checkPass && checkPass.length !== 8) {
+                    !checkPass
+                      ? toast.error("Password Doesn't Matched")
+                      : toast.error("Password should be 8 character long !");
+                  } else {
+                    toast.error("Fields can't be empty");
+                  }
+                }
               }}
               className="next-button"
             >
@@ -258,7 +290,11 @@ const SignUp = () => {
                 Lorem Ipsum
                 <input
                   type="checkbox"
-                  onClick={(e) => console.log(e.target.name)}
+                  onClick={(e) =>
+                    e.target.checked
+                      ? setInvestment({ ...investment, 1: "Lorem Ipsum" })
+                      : setInvestment({ ...investment, 1: null })
+                  }
                 />
                 <span class="checkmark"></span>
               </label>
@@ -461,6 +497,7 @@ const SignUp = () => {
         )}
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };

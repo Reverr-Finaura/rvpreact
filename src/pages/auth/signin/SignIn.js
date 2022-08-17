@@ -1,6 +1,10 @@
-import { signIn, signInWithGoogle } from "../../../firebase/firebase";
+import {
+  getAdminsFromDatabase,
+  signIn,
+  signInWithGoogle,
+} from "../../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SignIn.css";
 import logo from "../../../assets/vectors/logo.svg";
 import { useSelector, useDispatch } from "react-redux";
@@ -29,6 +33,18 @@ const SignIn = () => {
   const onPasswordEnterHandler = (value) => {
     setpassword(value);
   };
+
+  const getBlogs = async () => {
+    const results = await getAdminsFromDatabase();
+    if (results.length) {
+      console.log(results);
+    }
+    // setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
   const onEmailEnterHandler = (value) => {
     setemail(value);
