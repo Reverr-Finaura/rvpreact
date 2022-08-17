@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const SideNav = () => {
   return (
     <div className="sideNav">
-      <NavLink to="/home" className="NavLink NavLink NavLink__Dashboard">
+      <NavLink to="/dashboard" className="NavLink NavLink NavLink__Dashboard">
         Dashboard
       </NavLink>
 
@@ -16,8 +16,11 @@ const SideNav = () => {
       <NavLink to="/profile" className="NavLink ">
         Profile
       </NavLink>
+      <NavLink to="/profile" className="NavLink ">
+        Analytics
+      </NavLink>
       <NavLink to="/" className="NavLink NavLink__Logout ">
-        Logout
+        Log out
       </NavLink>
     </div>
   );

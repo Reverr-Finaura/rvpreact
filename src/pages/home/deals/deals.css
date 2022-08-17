@@ -1,6 +1,12 @@
 .deal {
   display: flex;
 }
+
+.deal_side-nav {
+  /* border: 2px solid black; */
+  width: 20%;
+}
+
 .deal-wrap {
   width: 75%;
   margin: auto;

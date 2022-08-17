@@ -8,6 +8,7 @@ import Deals from "../pages/home/deals/Deals";
 import LandingPage from "../pages/landingPage/LandingPage";
 import Portfolio from "../pages/home/portfolio/Portfolio";
 import Profile from "../pages/home/profile/Profile";
+import Dashboard from "../pages/home/dashboard/Dashboard";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -17,7 +18,7 @@ const AppRoutes = () => {
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path="/otp-verify" element={<OtpVerification />} />
       <Route path="/deals" element={<Deals />} />
-      <Route path="/home" element={<LandingPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>

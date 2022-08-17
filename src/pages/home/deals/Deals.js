@@ -29,9 +29,11 @@ const Deals = () => {
   console.log(deals);
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="deal">
-        <SideNav />
+        <div className="deal_side-nav">
+          <SideNav />
+        </div>
         <div className="deal-wrap">
           <div className="deal-wrap__search">
             <h1>
