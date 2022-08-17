@@ -13,8 +13,16 @@ import bgImage from "../../../assets/img/Rectangle 2958.png";
 import leftBlogBgImage from "../../../assets/img/Rectangle 2910.png";
 import rightBlogBgImage1 from "../../../assets/img/Rectangle 2911.png";
 import rightBlogBgImage2 from "../../../assets/img/Rectangle 2913.png";
+import leftStartupImg from "../../../assets/img/Ellipse 304.png";
+import {
+  BarChartLineFill,
+  ChatRightTextFill,
+  HandIndexThumbFill,
+  HandThumbsUpFill,
+} from "react-bootstrap-icons";
 
 const Dashboard = () => {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <>
       <Navbar />
@@ -172,9 +180,26 @@ const Dashboard = () => {
           />
 
           <div className="dashboard__faqs">
-            <h1>FAQs</h1>
+            <h1 style={{ color: "#2a72de", textAlign: "center" }}>FAQs</h1>
             <div className="dashboard__faqs-content">
-              <h2>What is Reverr Venture Partners ?</h2>
+              <h2
+                onClick={() => setIsVisible((prevState) => !prevState)}
+                style={{ margin: 0, cursor: "pointer" }}
+              >
+                What is Reverr Venture Partners ?
+              </h2>
+              {isVisible ? <p>What is Reverr Venture Partners ?</p> : null}
+            </div>
+            <div className="dasboard__contact-wrap">
+              <p style={{ marginBottom: "1rem" }}>
+                Didn’t get what you’re looking for ? <br /> Write your query and
+                we would answer as soon as possible
+              </p>
+              <input
+                className="dasboard__contact-input"
+                placeholder="Type here..."
+              />
+              <button className="dasboard__contact-btn">SEND</button>
             </div>
           </div>
 
@@ -188,12 +213,99 @@ const Dashboard = () => {
           />
 
           <div className="dashboard__startups">
-            <h1>From the startups</h1>
+            <h1>
+              From the <span style={{ color: "#2a72de" }}>startups</span>
+            </h1>
             <div className="dashboard__startups-content">
-              <div className="dashboard__startups-leftcontent"></div>
-              <div className="dashboard__startups-rightcontent"></div>
+              <div className="dashboard__startups-leftcontent">
+                <img src={leftStartupImg} />
+              </div>
+              <div className="dashboard__startups-rightcontent">
+                <h3>Jatin Khurana</h3>
+                <h4>5 hrs ago</h4>
+                <p
+                  style={{
+                    marginBottom: "10px",
+                  }}
+                >
+                  Lorem Ipsum is a dummy text used for typesettings and
+                  typewrittingLorem Ipsum is a dummy text used for typesettings
+                  and typewritting
+                </p>
+                <span
+                  style={{
+                    color: "grey",
+                    marginTop: "10px",
+                  }}
+                >
+                  <HandThumbsUpFill /> 5 Upvots
+                </span>
+
+                <span
+                  style={{
+                    color: "grey",
+                    marginLeft: "20px",
+                  }}
+                >
+                  <ChatRightTextFill /> 5 Upvots
+                </span>
+              </div>
+            </div>
+
+            <div className="dashboard__startups-content">
+              <div className="dashboard__startups-leftcontent">
+                <img src={leftStartupImg} />
+              </div>
+              <div className="dashboard__startups-rightcontent">
+                <h3>Jatin Khurana</h3>
+                <h4>5 hrs ago</h4>
+                <p
+                  style={{
+                    marginBottom: "10px",
+                  }}
+                >
+                  Lorem Ipsum is a dummy text used for typesettings and
+                  typewrittingLorem Ipsum is a dummy text used for typesettings
+                  and typewritting
+                </p>
+                <span
+                  style={{
+                    color: "grey",
+                    marginTop: "10px",
+                  }}
+                >
+                  <HandThumbsUpFill /> 5 Upvots
+                </span>
+
+                <span
+                  style={{
+                    color: "grey",
+                    marginLeft: "20px",
+                  }}
+                >
+                  <ChatRightTextFill /> 5 Upvots
+                </span>
+              </div>
             </div>
           </div>
+
+          <hr
+            style={{
+              border: "1px solid #0077B7",
+              width: "600px",
+              marginTop: "5%",
+              marginBottom: "5%",
+            }}
+          />
+
+          <div className="dashboard__startupdeals">
+            <h1>Deals for you</h1>
+            <h2>You recently viewed</h2>
+            <div className="Dashboard__startupdeals-card_wrap">
+              <h3>View more...</h3>
+            </div>
+          </div>
+
           {/* end */}
         </div>
       </div>
