@@ -28,6 +28,8 @@ const ForgotPassword = () => {
     }
   };
 
+  window.scrollTo(0, 0);
+
   return (
     <>
       <div className="forgot-password__navbar">

@@ -31,6 +31,8 @@ const ResetPassword = ({ location }) => {
       .catch((err) => toast(err.message));
   };
 
+  window.scrollTo(0, 0);
+
   return (
     <>
       <div className="reset-password__navbar">

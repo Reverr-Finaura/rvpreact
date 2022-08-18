@@ -39,6 +39,8 @@ const OtpVerification = () => {
     }
   };
 
+  window.scrollTo(0, 0);
+
   return (
     <>
       <div className="otp-verify__navbar">
