@@ -7,7 +7,7 @@ const DealSideNav = () => {
         About deal
       </NavLink>
 
-      <NavLink to="/deals" className="NavLink ">
+      <NavLink to="/one-pager" className="NavLink ">
         One pager
       </NavLink>
       <NavLink to="/portfolio" className="NavLink ">
