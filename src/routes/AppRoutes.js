@@ -10,6 +10,8 @@ import Portfolio from "../pages/home/portfolio/Portfolio";
 import Profile from "../pages/home/profile/Profile";
 import Dashboard from "../pages/home/dashboard/Dashboard";
 import AboutDeal from "../pages/home/aboutdeal/AboutDeal";
+import Faq from "../pages/home/faqs/Faq";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -23,6 +25,7 @@ const AppRoutes = () => {
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/about-deal" element={<AboutDeal />} />
+      <Route path="/faqs" element={<Faq />} />
     </Routes>
   );
 };

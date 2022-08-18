@@ -16,7 +16,7 @@ const DealSideNav = () => {
       <NavLink to="/profile" className="NavLink ">
         Financial projections
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/faqs" className="NavLink ">
         FAQs
       </NavLink>
       <NavLink to="/profile" className="NavLink ">
