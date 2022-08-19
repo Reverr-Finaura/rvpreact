@@ -11,7 +11,7 @@ const DealSideNav = () => {
         One pager
       </NavLink>
       <NavLink to="/pitch-deck" className="NavLink ">
-        pitch deck
+        Pitch deck
       </NavLink>
       <NavLink to="/financial-projections" className="NavLink ">
         Financial projections
@@ -25,7 +25,7 @@ const DealSideNav = () => {
       <NavLink to="/people" className="NavLink ">
         People
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/analytics" className="NavLink ">
         Analytics
       </NavLink>
 

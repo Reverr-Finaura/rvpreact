@@ -39,7 +39,7 @@ const DealTerm = () => {
                     <FileEarmarkArrowUp />
                   </h2>
                 </div>
-                <button>Download</button>
+                <button className="deal-term__download">Download</button>
               </div>
             </div>
           </div>

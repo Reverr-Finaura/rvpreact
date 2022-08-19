@@ -33,11 +33,29 @@
 .deal-term__document-right__content {
   width: 40%;
   background-color: #2a72de78;
-  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
 }
 
 .deal-term__right__content1,
 .deal-term__right__content2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.deal-term__download {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.deal-term__download:hover {
+  opacity: 0.8;
 }
