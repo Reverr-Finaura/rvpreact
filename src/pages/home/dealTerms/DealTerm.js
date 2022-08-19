@@ -28,21 +28,18 @@ const DealTerm = () => {
               </div>
               <div className="deal-term__document-right__content">
                 <div className="deal-term__right__content1">
-                  <h3>Company Certificates </h3>
+                  <h3>Company Certificates</h3>
                   <h2>
                     <FileEarmarkArrowUp />
                   </h2>
                 </div>
                 <div className="deal-term__right__content2">
                   <h3>Company Due Dilligence</h3>
-                  <h2 style={{ margin: "0% 2.5% 0px 0px" }}>
+                  <h2>
                     <FileEarmarkArrowUp />
                   </h2>
                 </div>
-
                 <button className="deal-term__download">Download</button>
-
-                <button className="deal-term__btn">Download</button>
               </div>
             </div>
             <h1
