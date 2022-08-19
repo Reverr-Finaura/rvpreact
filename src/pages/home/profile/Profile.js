@@ -7,7 +7,12 @@ import Logo from "../../../assets/img/Flag_of_India 2.png";
 import linkedIn from "../../../assets/img/linkedin.png";
 import twitter from "../../../assets/img/twitter.png";
 import gmail from "../../../assets/img/gmail.png";
-import { BarChartLineFill, Pencil, PencilSquare } from "react-bootstrap-icons";
+import {
+  BarChartLineFill,
+  ImageFill,
+  Pencil,
+  PencilSquare,
+} from "react-bootstrap-icons";
 import { useState } from "react";
 const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
@@ -20,7 +25,65 @@ const Profile = () => {
         </div>
         <div className="profile__right-wrap">
           {isEditable ? (
-            <h1 style={{ color: "red" }}>Edit Here</h1>
+            <>
+              <div className="profile__bio profile__bioedit">
+                <div className="profile__bio-content profile__bio-contentedit">
+                  <div className="profile__bio__content__img profile__bio__content-edit">
+                    {/* <img src={Rectangle2764} /> */}
+                    <h3 className="profile__bio__content-editH3">
+                      Edit picture
+                    </h3>
+                    <label for="user-img">
+                      {" "}
+                      <ImageFill /> Add from device
+                    </label>
+                    <input id="user-img" type="file" />
+                  </div>
+                  <div className="profile__bio__content-text profile__bio__content-textedit">
+                    <input placeholder="Change Name" type="text" />
+                    <input placeholder="Change Designation" type="text" />
+                    <input placeholder="Change Country" type="text" />
+                  </div>
+                </div>
+                <div className="textarea-wrap">
+                  <textarea placeholder="Edit bio..." rows="10" />
+                </div>
+                <div className="edit-saveChanges">
+                  <button
+                    onClick={() => setIsEditable(false)}
+                    className="edit-SaveChangesBtn"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+              <div className="profile__social">
+                <div className="profile__stats profile__statsedit">
+                  <h4>Sectors for Investment</h4>
+                  <input placeholder="Change answer" type="text" />
+
+                  <h4>Preferred stage for Investment</h4>
+                  <input placeholder="Change answer" type="text" />
+
+                  <h4>Amount you want Invest </h4>
+                  <input placeholder="Change answer" type="text" />
+
+                  <h4>Sectors for Investment</h4>
+                  <input placeholder="Change answer" type="text" />
+
+                  <h4>Years of experience in Investing </h4>
+                  <input placeholder="Change answer" type="text" />
+                </div>
+                <div className="profile__contact profile__contactedit">
+                  <h2>Contacts</h2>
+                  <div className="profile__contact-Imgedit">
+                    <input placeholder="LinkedIn" type="text" />
+                    <input placeholder="twitter" type="text" />
+                    <input placeholder="mail" type="text" />
+                  </div>
+                </div>
+              </div>
+            </>
           ) : (
             <>
               <div className="profile__bio">
@@ -55,7 +118,7 @@ const Profile = () => {
                 </p>
               </div>
               <div className="profile__social">
-                <div className="profile__stats">
+                <div className="profile__stats ">
                   <h4>Sectors for Investment</h4>
                   <h5>Lorem Ipsum</h5>
                   <h4>Preferred stage for Investment</h4>

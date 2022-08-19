@@ -128,3 +128,130 @@ h3 {
   cursor: pointer;
   width: 20%;
 }
+
+/* Edit */
+
+.profile__bio-contentedit {
+  margin-top: 4rem;
+}
+
+.profile__bioedit {
+  height: 550px;
+}
+
+.profile__statsedit {
+  height: 380px;
+}
+
+.profile__contactedit {
+  height: 160px;
+}
+
+.profile__bio__content-edit {
+  background-color: #f6f6f6;
+  border: 5px solid #0077b7;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile__bio__content-editH3 {
+  color: #0077b7;
+  margin: 0;
+}
+
+.profile__bio__content-edit label {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile__bio__content-edit input {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+}
+
+.profile__bio__content-textedit {
+  /* border: 2px solid wheat; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile__bio__content-text input,
+.profile__statsedit input,
+.profile__contact-Imgedit input {
+  padding: 15px 20px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  outline: none;
+  font-weight: bold;
+  width: 80%;
+}
+
+.textarea-wrap {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.textarea-wrap textarea {
+  width: 90%;
+  height: 100px;
+  background-color: transparent;
+  border: 3px solid #0077b7;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 20px;
+}
+
+.profile__statsedit {
+  text-align: center;
+}
+.profile__statsedit input,
+.profile__contact-Imgedit input {
+  width: 50%;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.profile__contact-Imgedit input {
+  margin-top: 4px;
+}
+.profile__contact-Imgedit {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.edit-saveChanges {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.edit-SaveChangesBtn {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}

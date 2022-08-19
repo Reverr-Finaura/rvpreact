@@ -48,7 +48,8 @@
   align-items: center;
 }
 
-.deal-term__download {
+.deal-term__download,
+.deal-term_interestedBtn {
   all: unset;
   text-align: center;
   color: #fff;
@@ -65,6 +66,7 @@
 
 .deal-term_interestedBtn {
   margin-top: 2rem;
+  width: 60%;
 }
 
 .deal-term__terms-content {
