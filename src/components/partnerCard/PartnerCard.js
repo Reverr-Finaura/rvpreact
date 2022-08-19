@@ -47,7 +47,7 @@ const PartnerCard = ({ data }) => {
           </div>
 
           <br />
-          <hr style={{ width: "40%", borderTop: "1.2px solid #0077B7" }} />
+          <hr style={{ width: "40%", border: "1.2px solid #0077B7" }} />
           <br />
           <div className="partner-card__achievements">
             <div className="partner-card__achievement">

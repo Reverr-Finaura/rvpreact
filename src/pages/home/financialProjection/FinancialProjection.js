@@ -13,9 +13,18 @@ const FinancialProjection = () => {
           <DealSideNav />
         </div>
         <div className="pitchdeck__right-wrap">
+          <hr
+            style={{
+              width: "12%",
+              border: "6px solid #2A72DE",
+              marginLeft: "0",
+            }}
+          />
+          <div className="financial-projections__preview">Preview</div>
           <iframe
+            title="financial-projection"
             src={
-              "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.mohfw.gov.in%2Fpdf%2FCOVID19DistrictWisePositivityAnalysis05July.xlsx&wdOrigin=BROWSELINK"
+              "https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fwww.mohfw.gov.in%2Fpdf%2FCOVID19DistrictWisePositivityAnalysis05July.xlsx&wdOrigin=BROWSELINK"
             }
             width="100%"
             height="500px"

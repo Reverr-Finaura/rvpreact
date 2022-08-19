@@ -13,14 +13,27 @@ const PitchDeck = () => {
         </div>
         <div className="pitchdeck__right-wrap">
           <iframe
-            src={
-              "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Freverr-25fb3.appspot.com%2Fo%2FComponents%2520of%2520Financial%2520System.pptx%3Falt%3Dmedia%26token%3Dc5be1430-9b0d-4b6f-89a9-a24bc95d25fe&wdOrigin=BROWSELINK"
-            }
+            title="pitch-deck"
+            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Ffirebasestorage%2Egoogleapis%2Ecom%3A443%2Fv0%2Fb%2Freverr%2D25fb3%2Eappspot%2Ecom%2Fo%2FComponents%2520of%2520Financial%2520System%2Epptx%3Falt%3Dmedia%26token%3Dc5be1430%2D9b0d%2D4b6f%2D89a9%2Da24bc95d25fe&amp;wdAr=1.3333333333333333"
             width="100%"
-            height="600px"
-            frameBorder="0"
+            height="500px"
+            frameborder="0"
             style={{ borderRadius: "10px" }}
-          ></iframe>
+          >
+            This is an embedded{" "}
+            <a target="_blank" href="https://office.com" rel="noreferrer">
+              Microsoft Office
+            </a>{" "}
+            presentation, powered by{" "}
+            <a
+              target="_blank"
+              href="https://office.com/webapps"
+              rel="noreferrer"
+            >
+              Office
+            </a>
+            .
+          </iframe>
         </div>
       </div>
       <Footer />

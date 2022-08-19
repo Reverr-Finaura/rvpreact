@@ -1,6 +1,14 @@
+.financial-projections__preview {
+  font-size: 40px;
+  font-weight: bolder;
+  color: #0077b7;
+  margin-bottom: 1rem;
+}
+
 .financialprojection-downloadBtn {
   text-align: center;
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 .financialprojection-btn {

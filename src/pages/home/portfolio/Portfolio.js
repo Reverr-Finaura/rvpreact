@@ -51,7 +51,7 @@ const Portfolio = () => {
               style={{
                 width: "7%",
                 transform: "rotate(90deg)",
-                borderTop: "2px solid #2A72DE",
+                border: "2px solid #2A72DE",
               }}
             />
             <h3 style={{ color: "#000" }}>Tax Documents</h3>
@@ -59,7 +59,7 @@ const Portfolio = () => {
               style={{
                 width: "7%",
                 transform: "rotate(90deg)",
-                borderTop: "2px solid #2A72DE",
+                border: "2px solid #2A72DE",
               }}
             />
             <Search style={{ color: "#555555", cursor: "pointer" }} />

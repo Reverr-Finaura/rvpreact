@@ -1,6 +1,7 @@
 .pitchdeck {
   display: flex;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .pitchdeck__side-nav {
@@ -13,7 +14,5 @@
   flex-direction: column;
   width: 60%;
   margin: auto;
-  /* margin-right: 20px; */
-  margin-bottom: 2rem;
   height: max-content;
 }
