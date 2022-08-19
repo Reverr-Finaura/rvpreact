@@ -1,11 +1,11 @@
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import "./dealterm.css";
 import { FileEarmarkArrowUp } from "react-bootstrap-icons";
 const DealTerm = () => {
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="deal-term">
         <div className="deal-term__side-nav">
           <DealSideNav />

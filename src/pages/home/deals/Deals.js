@@ -1,12 +1,12 @@
 import Footer from "../../../components/footer/Footer";
 import "./deals.css";
 import logo from "../../../assets/vectors/logo.svg";
-import Navbar from "../../../components/navbar/Navbar";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
 import { useEffect, useState } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 
 const Deals = () => {
   const [deals, setDeals] = useState([]);
@@ -29,7 +29,7 @@ const Deals = () => {
   console.log(deals);
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="deal">
         <div className="deal_side-nav">
           <SideNav />

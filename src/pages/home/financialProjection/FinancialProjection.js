@@ -1,12 +1,13 @@
 // import "./pitchDeck.css";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import "./financialProjection.css";
+
 const FinancialProjection = () => {
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="pitchdeck">
         <div className="pitchdeck__side-nav">
           <DealSideNav />

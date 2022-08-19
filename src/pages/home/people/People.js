@@ -1,12 +1,12 @@
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import TeamCard from "../../../components/teamCard/TeamCard";
 import "./people.css";
 const People = () => {
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="people">
         <div className="people__side-nav">
           <DealSideNav />

@@ -1,4 +1,4 @@
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import "./faq.css";
 import Accordian from "../../../components/accordian/Accordian";
@@ -32,7 +32,7 @@ const Faq = () => {
   ];
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="faqs">
         <div className="faqs__side-nav">
           <DealSideNav />

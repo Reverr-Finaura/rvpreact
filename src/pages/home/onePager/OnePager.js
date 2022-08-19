@@ -1,6 +1,6 @@
 import "./OnePager.css";
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import { useEffect, useState } from "react";
 import logo from "../../../assets/img/Ellipse 280.png";
@@ -10,7 +10,7 @@ import TeamCard from "../../../components/teamCard/TeamCard";
 const OnePager = () => {
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="one-pager__main">
         <div className="one-pager__side-nav">
           <DealSideNav />

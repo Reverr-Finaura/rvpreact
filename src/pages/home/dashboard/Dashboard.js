@@ -1,7 +1,7 @@
 import Footer from "../../../components/footer/Footer";
 import "./dashboard.css";
 import logo from "../../../assets/vectors/logo.svg";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
@@ -53,7 +53,7 @@ const Dashboard = () => {
   ];
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="dashboard">
         <div className="dashboard__side-nav">
           <SideNav />

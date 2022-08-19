@@ -1,5 +1,5 @@
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { useEffect, useState } from "react";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import logo from "../../../assets/img/Rectangle 2741.png";
@@ -12,7 +12,7 @@ const AboutDeal = () => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="aboutdeal">
         <div className="abousDeal-side__nav">
           <DealSideNav />

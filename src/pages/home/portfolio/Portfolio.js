@@ -1,7 +1,7 @@
 import "./Portfolio.css";
 import Footer from "../../../components/footer/Footer";
 import SideNav from "../../../components/sideNav/SideNav";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { Search } from "react-bootstrap-icons";
 import InvestedStartupCard from "../../../components/investedStartupCard/InvestedStartupCard";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
@@ -31,7 +31,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="portfolio__main">
         <div className="portfolio__side-nav">
           <SideNav />

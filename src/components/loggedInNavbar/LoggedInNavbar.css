@@ -1,0 +1,57 @@
+.loged-in__navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.loged-in__reverr {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 20px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 800;
+}
+
+.loged-in__title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2a72de;
+  cursor: default;
+}
+
+.loged-in__logo {
+  width: 100px;
+}
+
+.loged-in__links {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  margin-right: 5rem;
+  font-size: 22px;
+}
+
+.loged-in__link {
+  margin: 0 2rem;
+  font-weight: 600;
+  color: #0077b7;
+  cursor: pointer;
+}
+
+.loged-in__link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (width<1000px) {
+  .loged-in__links {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import SideNav from "../../../components/sideNav/SideNav";
 import "./profile.css";
 import Rectangle2764 from "../../../assets/img/Rectangle 2764.png";
@@ -18,7 +18,7 @@ const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="profile">
         <div className="profile__side-nav">
           <SideNav />

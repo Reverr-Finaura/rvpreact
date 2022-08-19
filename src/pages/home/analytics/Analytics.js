@@ -1,6 +1,6 @@
 import "./Analytics.css";
 import Footer from "../../../components/footer/Footer";
-import Navbar from "../../../components/navbar/Navbar";
+import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import guyWorkig from "../../../assets/img/guy_working.png";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const Analytics = () => {
 
   return (
     <>
-      <Navbar />
+      <LoggedInNavbar />
       <div className="analytics__main">
         <div className="analytics__side-nav">
           <DealSideNav />
