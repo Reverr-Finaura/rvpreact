@@ -4,9 +4,9 @@ import SideNav from "../../../components/sideNav/SideNav";
 import "./profile.css";
 import Rectangle2764 from "../../../assets/img/Rectangle 2764.png";
 import Logo from "../../../assets/img/Flag_of_India 2.png";
-import linkedIn from "../../../assets/img/linkedin.png";
-import twitter from "../../../assets/img/twitter.png";
-import gmail from "../../../assets/img/gmail.png";
+import linkedIn from "../../../assets/img/teamCard_icons/linkedin.png";
+import twitter from "../../../assets/img/teamCard_icons/twitter.png";
+import gmail from "../../../assets/img/teamCard_icons/gmail.png";
 import {
   BarChartLineFill,
   ImageFill,

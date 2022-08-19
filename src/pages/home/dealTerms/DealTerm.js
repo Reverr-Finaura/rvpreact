@@ -1,4 +1,5 @@
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
+import Footer from "../../../components/footer/Footer";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import "./dealterm.css";
 import { FileEarmarkArrowUp } from "react-bootstrap-icons";
@@ -89,6 +90,7 @@ const DealTerm = () => {
           {/* end */}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
