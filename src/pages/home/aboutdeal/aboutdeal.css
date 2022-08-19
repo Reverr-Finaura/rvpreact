@@ -29,6 +29,10 @@
   height: 300px;
 }
 
+.aboutdeal__head-content {
+  margin-top: 1rem;
+}
+
 .aboutdeal__logo {
   text-align: center;
   width: 10%;

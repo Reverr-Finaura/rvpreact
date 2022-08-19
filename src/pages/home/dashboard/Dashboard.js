@@ -19,6 +19,7 @@ import {
   ChatRightTextFill,
   HandIndexThumbFill,
   HandThumbsUpFill,
+  Search,
 } from "react-bootstrap-icons";
 import Accordian from "../../../components/accordian/Accordian";
 
@@ -154,7 +155,6 @@ const Dashboard = () => {
                 Reverr Blogs
               </h1>
               <img className="dashboard__blogs-leftImg" src={leftBlogImage} />
-
               <input className="dashboard__blogs-input" placeholder="Search" />
               <img className="dashboard__blogs-rightImg" src={rightBlogImage} />
             </div>

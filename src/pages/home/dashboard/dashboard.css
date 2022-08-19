@@ -127,11 +127,20 @@ p {
 }
 
 .dashboard__calls-btn-proceed {
+  margin-right: 1rem;
+}
+
+.dashboard__calls-btn-proceed:hover {
+  opacity: 0.8;
 }
 
 .dashboard__calls-btn-reschedule {
   color: white;
   background: black;
+}
+
+.dashboard__calls-btn-reschedule:hover {
+  opacity: 0.8;
 }
 
 .dashboard-blogs {
@@ -224,6 +233,10 @@ p {
   cursor: pointer;
   background-color: #0077b7;
   color: white;
+}
+
+.dasboard__contact-btn:hover {
+  opacity: 0.8;
 }
 
 .dashboard__startups-content {

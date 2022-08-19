@@ -60,6 +60,10 @@
   cursor: pointer;
 }
 
+.deal-term_interestedBtn:hover {
+  opacity: 0.8;
+}
+
 .deal-term__download:hover {
   opacity: 0.8;
 }

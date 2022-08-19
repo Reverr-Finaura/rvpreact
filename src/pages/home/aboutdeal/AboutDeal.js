@@ -101,7 +101,7 @@ const AboutDeal = () => {
                   <h3 style={{ marginTop: "24px" }}>Sector</h3>
                   <h3>Type</h3>
                   <h3>Website</h3>
-                  <h3>incorporation date</h3>
+                  <h3>Incorporation date</h3>
                 </div>
                 <div className="aboutdeal__overview-right">
                   <h3>Delhi, India</h3>
