@@ -32,7 +32,7 @@ const DealSideNav = () => {
       <NavLink to="/profile" className="NavLink ">
         Interested
       </NavLink>
-      <NavLink to="/" className="NavLink NavLink__Logout ">
+      <NavLink to="/deals" className="NavLink NavLink__Logout ">
         Go back
       </NavLink>
     </div>
