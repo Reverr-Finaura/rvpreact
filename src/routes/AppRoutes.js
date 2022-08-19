@@ -16,6 +16,7 @@ import People from "../pages/home/people/People";
 import DealTerm from "../pages/home/dealTerms/DealTerm";
 import PitchDeck from "../pages/home/pitchDeck/PitchDeck";
 import FinancialProjection from "../pages/home/financialProjection/FinancialProjection";
+import Analytics from "../pages/home/analytics/Analytics";
 
 const AppRoutes = () => {
   return (
@@ -36,6 +37,7 @@ const AppRoutes = () => {
       <Route path="/deal-terms" element={<DealTerm />} />
       <Route path="/pitch-deck" element={<PitchDeck />} />
       <Route path="/financial-projections" element={<FinancialProjection />} />
+      <Route path="/analytics" element={<Analytics />} />
     </Routes>
   );
 };

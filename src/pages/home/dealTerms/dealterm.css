@@ -32,37 +32,35 @@
   justify-content: center;
   align-items: center;
 }
+
 .deal-term__document-right__content {
-  width: 48%;
+  width: 40%;
   background-color: #2a72de78;
-  /* padding: 10px; */
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 2% 2rem;
 }
 
 .deal-term__right__content1,
 .deal-term__right__content2 {
   display: flex;
-  justify-content: space-around !important;
+  justify-content: space-between;
   align-items: center;
-  width: 85%;
 }
 
-.deal-term__btn {
-  padding: 14px 40px;
-  border: none;
+.deal-term__download {
+  all: unset;
+  text-align: center;
+  color: #fff;
+  background: #0077b7;
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  margin-bottom: 1rem;
   cursor: pointer;
-  background-color: #0077b7;
-  color: white;
-  width: 80%;
-  border-radius: 3px;
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: 1rem;
+}
+
+.deal-term__download:hover {
+  opacity: 0.8;
 }
 
 .deal-term_interestedBtn {

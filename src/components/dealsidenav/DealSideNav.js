@@ -11,7 +11,7 @@ const DealSideNav = () => {
         One pager
       </NavLink>
       <NavLink to="/pitch-deck" className="NavLink ">
-        pitch deck
+        Pitch deck
       </NavLink>
       <NavLink to="/financial-projections" className="NavLink ">
         Financial projections
