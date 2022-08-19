@@ -1,5 +1,5 @@
-// import "./sidenav.css";
 import { NavLink } from "react-router-dom";
+
 const DealSideNav = () => {
   return (
     <div className="sideNav">
@@ -29,9 +29,10 @@ const DealSideNav = () => {
         Analytics
       </NavLink>
 
-      <NavLink to="/interested" className="NavLink ">
-        Interested
+      <NavLink to="/interested" className="NavLink-interested">
+        <div className="interested__text">Interested</div>
       </NavLink>
+
       <NavLink to="/deals" className="NavLink NavLink__Logout ">
         Go back
       </NavLink>
