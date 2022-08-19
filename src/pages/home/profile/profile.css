@@ -1,0 +1,130 @@
+.profile {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.profile__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.profile__right-wrap {
+  display: flex;
+  width: 75%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+  color: white;
+}
+
+.profile__bio,
+.profile__stats,
+.profile__contact {
+  background-color: #000000;
+  border-radius: 20px;
+}
+
+.profile__bio {
+  height: 500px;
+  width: 60%;
+}
+
+.profile__bio p {
+  width: 85%;
+  margin: auto;
+  margin-top: 3rem;
+}
+.profile__social {
+  width: 30%;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__stats {
+  width: 100%;
+  height: 350px;
+}
+
+.profile__contact {
+  width: 100%;
+  height: 140px;
+}
+
+.profile__bio-content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.profile__bio__content__img {
+  width: 40%;
+}
+
+.profile__bio__content__img img {
+  width: 100%;
+}
+
+.profile__bio__content-text {
+  width: 55%;
+}
+
+.profile__bio__content-text h2,
+h3 {
+  margin: 0;
+}
+
+.profile__bio__content-text h2 {
+  margin-top: 1rem;
+}
+
+.profile__bio__content-text h3 {
+  margin-bottom: 4px;
+}
+
+.profile__stats h4,
+.profile__contact h2 {
+  font-family: Playfair Display;
+  width: 80%;
+  margin: auto;
+  margin-top: 14px;
+  color: #0077b7;
+}
+
+.profile__stats h5 {
+  width: 80%;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.profile__contact {
+  text-align: center;
+}
+
+.profile__contact-Img {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.profile__contact-Img img {
+  width: 13%;
+}
+
+.profile_edit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile_edit h4 {
+  font-weight: 300;
+  cursor: pointer;
+  width: 20%;
+}

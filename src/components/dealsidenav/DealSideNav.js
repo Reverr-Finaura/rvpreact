@@ -25,11 +25,11 @@ const DealSideNav = () => {
       <NavLink to="/people" className="NavLink ">
         People
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/analytics" className="NavLink ">
         Analytics
       </NavLink>
 
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/interested" className="NavLink ">
         Interested
       </NavLink>
       <NavLink to="/deals" className="NavLink NavLink__Logout ">

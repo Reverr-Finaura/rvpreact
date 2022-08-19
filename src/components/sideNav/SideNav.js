@@ -16,7 +16,7 @@ const SideNav = () => {
       <NavLink to="/profile" className="NavLink ">
         Profile
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/analytics" className="NavLink ">
         Analytics
       </NavLink>
       <NavLink to="/" className="NavLink NavLink__Logout ">
