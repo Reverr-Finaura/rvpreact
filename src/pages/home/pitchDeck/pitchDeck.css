@@ -1,0 +1,19 @@
+.pitchdeck {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.pitchdeck__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.pitchdeck__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+}

@@ -1,0 +1,43 @@
+.deal-term {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.deal-term__side-nav {
+  width: 12%;
+  margin: 0 0rem 0 5rem;
+}
+
+.deal-term__right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  /* margin-right: 20px; */
+  margin-bottom: 2rem;
+  height: max-content;
+}
+
+.deal-term__document-content {
+  border: 5px solid #0077b7;
+  display: flex;
+}
+
+.deal-term__document-left__content {
+  width: 60%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.deal-term__document-right__content {
+  width: 40%;
+  background-color: #2a72de78;
+  /* padding: 10px; */
+}
+
+.deal-term__right__content1,
+.deal-term__right__content2 {
+  display: flex;
+  justify-content: space-around;
+}

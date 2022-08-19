@@ -12,6 +12,10 @@ import Dashboard from "../pages/home/dashboard/Dashboard";
 import AboutDeal from "../pages/home/aboutdeal/AboutDeal";
 import Faq from "../pages/home/faqs/Faq";
 import OnePager from "../pages/home/onePager/OnePager";
+import People from "../pages/home/people/People";
+import DealTerm from "../pages/home/dealTerms/DealTerm";
+import PitchDeck from "../pages/home/pitchDeck/PitchDeck";
+import FinancialProjection from "../pages/home/financialProjection/FinancialProjection";
 
 const AppRoutes = () => {
   return (
@@ -28,6 +32,10 @@ const AppRoutes = () => {
       <Route path="/about-deal" element={<AboutDeal />} />
       <Route path="/faqs" element={<Faq />} />
       <Route path="/one-pager" element={<OnePager />} />
+      <Route path="/people" element={<People />} />
+      <Route path="/deal-terms" element={<DealTerm />} />
+      <Route path="/pitch-deck" element={<PitchDeck />} />
+      <Route path="/financial-projections" element={<FinancialProjection />} />
     </Routes>
   );
 };

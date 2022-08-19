@@ -10,19 +10,19 @@ const DealSideNav = () => {
       <NavLink to="/one-pager" className="NavLink ">
         One pager
       </NavLink>
-      <NavLink to="/portfolio" className="NavLink ">
+      <NavLink to="/pitch-deck" className="NavLink ">
         pitch deck
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/financial-projections" className="NavLink ">
         Financial projections
       </NavLink>
       <NavLink to="/faqs" className="NavLink ">
         FAQs
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/deal-terms" className="NavLink ">
         Deal terms
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      <NavLink to="/people" className="NavLink ">
         People
       </NavLink>
       <NavLink to="/profile" className="NavLink ">
