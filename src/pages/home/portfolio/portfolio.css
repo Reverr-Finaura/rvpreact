@@ -21,16 +21,6 @@
   align-items: center;
 }
 
-.portfolio__dropdown {
-  color: #555555;
-  width: 200px;
-  padding: 10px;
-  background: #d9d9d9;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
 .portfolio__investments {
   margin: 2rem 0;
 }
@@ -65,4 +55,33 @@
 
 .portfolio__investment-by {
   margin-bottom: 2rem;
+}
+
+/* Custom Dropdown*/
+
+select {
+  color: #555555;
+  width: 250px;
+  padding: 10px 35px 10px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  height: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../../../assets/img/downArrow.png") 96% / 6% no-repeat #eee;
+  background-color: #d9d9d9;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@media screen and (min-width: 0\0) {
+  select {
+    background: none\9;
+    padding: 5px\9;
+  }
 }

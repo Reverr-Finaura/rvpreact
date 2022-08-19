@@ -42,13 +42,11 @@ const Portfolio = () => {
           <h1 style={{ color: "#0077B7", textAlign: "center" }}>Portfolio</h1>
 
           <div className="portfolio__top-bar">
-            <div className="portfolio__dropdown-wrap">
-              <select name="amount" id="amount" className="portfolio__dropdown">
-                <option value="1">INR- Rupee</option>
-                <option value="2">USD- Dollar</option>
-                <option value="3">GBP- Pound Sterling</option>
-              </select>
-            </div>
+            <select name="amount" id="amount" className="portfolio__dropdown">
+              <option value="1">INR - Indian Rupee</option>
+              <option value="2">USD - US Dollar</option>
+              <option value="3">GBP - Pound Sterling</option>
+            </select>
             <hr
               style={{
                 width: "7%",
