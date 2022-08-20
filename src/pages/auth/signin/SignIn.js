@@ -53,7 +53,7 @@ const SignIn = () => {
       signIn(email, password)
         .then((data) => {
           console.log(data);
-          navigate("/home");
+          navigate("/investors");
           window.scrollTo(0, 0);
         })
         .catch((err) =>
