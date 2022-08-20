@@ -5,7 +5,7 @@ import ForgotPassword from "../pages/auth/forgotpassword/ForgotPassword";
 import ResetPassword from "../pages/auth/resetpassword/ResetPassword";
 import OtpVerification from "../pages/auth/otpverification/OtpVerification";
 import Deals from "../pages/home/deals/Deals";
-import LandingPageInvestors from "../pages/landingPage/LandingPageInvestors";
+import LandingPageInvestors from "../pages/landingPageInvestors/LandingPageInvestors";
 import Portfolio from "../pages/home/portfolio/Portfolio";
 import Profile from "../pages/home/profile/Profile";
 import Dashboard from "../pages/home/dashboard/Dashboard";
@@ -28,6 +28,7 @@ const AppRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path="/otp-verify" element={<OtpVerification />} />
+<<<<<<< HEAD
       <Route path="/startups" element={<LandingPageStartups />} />
       <Route path="/investors" element={<LandingPageInvestors />} />
 
@@ -128,6 +129,21 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+=======
+      <Route path="/deals" element={<Deals />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/about-deal" element={<AboutDeal />} />
+      <Route path="/faqs" element={<Faq />} />
+      <Route path="/one-pager" element={<OnePager />} />
+      <Route path="/people" element={<People />} />
+      <Route path="/deal-terms" element={<DealTerm />} />
+      <Route path="/pitch-deck" element={<PitchDeck />} />
+      <Route path="/financial-projections" element={<FinancialProjection />} />
+      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/investors" element={<LandingPageInvestors />} />
+>>>>>>> 6458d569c356ba523b6db1a455a74c51b4191a55
     </Routes>
   );
 };
