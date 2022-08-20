@@ -38,6 +38,7 @@ const AppRoutes = () => {
       <Route path="/pitch-deck" element={<PitchDeck />} />
       <Route path="/financial-projections" element={<FinancialProjection />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/landing" element={<LandingPage />} />
     </Routes>
   );
 };
