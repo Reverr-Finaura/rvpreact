@@ -283,65 +283,56 @@ const SignUp = () => {
                     Sectors for investment <span className="important">*</span>
                   </label>
                   <div className="sectors-for-investment">
-                    <label class="container">
-                      Lorem Ipsum
-                      <input
-                        type="checkbox"
-                        onClick={(e) =>
-                          e.target.checked
-                            ? setInvestment({ ...investment, 1: "Lorem Ipsum" })
-                            : setInvestment({ ...investment, 1: null })
-                        }
-                      />
-                      <span class="checkmark"></span>
-                    </label>
-
-                    <label class="container">
-                      Lorem Ipsum
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-
-                    <label class="container">
-                      Lorem Ipsum
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
-
-                    <label class="container">
-                      Lorem Ipsum
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+                    <select name="amount" id="amount" style={{ width: "100%" }}>
+                      <option value="1">Sector 1</option>
+                      <option value="2">Sector 2</option>
+                      <option value="3">Sector 3</option>
+                    </select>
                   </div>
                   <label>
                     Preferred stage for Investment{" "}
                     <span className="important">*</span>
                   </label>
                   <div className="stage-for-funding">
-                    <label class="container">
-                      Pre-seed funding
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+                    <div className="fundings">
+                      <input
+                        type="radio"
+                        value="Less than 1 Lakh"
+                        name="preferred-stage"
+                        className="radio-button"
+                      />
+                      <span className="preferred-stage">Pre-Seed Funding</span>
+                    </div>
 
-                    <label class="container">
-                      Seed funding
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+                    <div className="fundings">
+                      <input
+                        type="radio"
+                        value="Less than 1 Lakh"
+                        name="preferred-stage"
+                        className="radio-button"
+                      />
+                      <span className="preferred-stage ">Seed Funding</span>
+                    </div>
 
-                    <label class="container">
-                      Pre-Series A
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+                    <div className="fundings">
+                      <input
+                        type="radio"
+                        value="Less than 1 Lakh"
+                        name="preferred-stage"
+                        className="radio-button"
+                      />
+                      <span className="preferred-stage">Pre-Series A</span>
+                    </div>
 
-                    <label class="container">
-                      Series A funding
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+                    <div className="fundings">
+                      <input
+                        type="radio"
+                        value="Less than 1 Lakh"
+                        name="preferred-stage"
+                        className="radio-button"
+                      />
+                      <span className="preferred-stage">Series A funding</span>
+                    </div>
                   </div>
                   <label>
                     Amount you want to invest{" "}
@@ -469,11 +460,11 @@ const SignUp = () => {
                       </span>
                     </div>
                   </div>
-                  <label>
+                  {/* <label>
                     By when do you want to start investing{" "}
                     <span className="important">*</span>
                   </label>
-                  <input className="input-box" placeholder="Type your answer" />
+                  <input className="input-box" placeholder="Type your answer" /> */}
                   <button
                     onClick={onCreateAccountClickHandler}
                     className="signup-button"

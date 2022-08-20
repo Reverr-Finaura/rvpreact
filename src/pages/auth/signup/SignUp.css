@@ -173,15 +173,31 @@ label {
   margin-right: 1.8rem;
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .stage-for-funding {
-  color: white;
-  font-size: 20px;
-  margin-left: 0.5rem;
-  margin-right: 1.8rem;
   display: flex;
   flex-direction: column;
+  float: right;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.fundings {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  max-width: max-content;
+}
+
+.preferred-stage {
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 15px;
+  margin-left: 1.2rem;
 }
 
 .container {
