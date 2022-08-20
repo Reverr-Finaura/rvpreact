@@ -1,4 +1,4 @@
-import "./Portfolio.css";
+import "./portfolio.css";
 import Footer from "../../../components/footer/Footer";
 import SideNav from "../../../components/sideNav/SideNav";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";

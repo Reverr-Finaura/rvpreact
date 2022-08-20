@@ -17,6 +17,7 @@ import DealTerm from "../pages/home/dealTerms/DealTerm";
 import PitchDeck from "../pages/home/pitchDeck/PitchDeck";
 import FinancialProjection from "../pages/home/financialProjection/FinancialProjection";
 import Analytics from "../pages/home/analytics/Analytics";
+import LandingPageStartups from "../pages/landingPage/LandingPageStartups";
 
 const AppRoutes = () => {
   return (
@@ -38,11 +39,8 @@ const AppRoutes = () => {
       <Route path="/pitch-deck" element={<PitchDeck />} />
       <Route path="/financial-projections" element={<FinancialProjection />} />
       <Route path="/analytics" element={<Analytics />} />
-<<<<<<< HEAD
-      <Route path="/landing" element={<LandingPage />} />
-=======
       <Route path="/investors" element={<LandingPageInvestors />} />
->>>>>>> 48e75496d9e388786ba40ca644cd329fac134a8d
+      <Route path="/startups" element={<LandingPageStartups />} />
     </Routes>
   );
 };
