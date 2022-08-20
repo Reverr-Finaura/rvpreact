@@ -88,7 +88,7 @@
   height: fit-content;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1028px) {
   .footer {
     flex-direction: column;
     width: 100%;
@@ -97,11 +97,13 @@
   .footer-content {
     align-items: center;
     text-align: center;
+    margin-left: 0;
   }
 
   .footer-right {
     align-items: center;
     width: 100%;
+    margin-top: 2rem;
   }
 }
 

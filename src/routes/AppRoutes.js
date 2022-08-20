@@ -5,7 +5,7 @@ import ForgotPassword from "../pages/auth/forgotpassword/ForgotPassword";
 import ResetPassword from "../pages/auth/resetpassword/ResetPassword";
 import OtpVerification from "../pages/auth/otpverification/OtpVerification";
 import Deals from "../pages/home/deals/Deals";
-import LandingPage from "../pages/landingPage/LandingPage";
+import LandingPageInvestors from "../pages/landingPage/LandingPageInvestors";
 import Portfolio from "../pages/home/portfolio/Portfolio";
 import Profile from "../pages/home/profile/Profile";
 import Dashboard from "../pages/home/dashboard/Dashboard";
@@ -38,7 +38,11 @@ const AppRoutes = () => {
       <Route path="/pitch-deck" element={<PitchDeck />} />
       <Route path="/financial-projections" element={<FinancialProjection />} />
       <Route path="/analytics" element={<Analytics />} />
+<<<<<<< HEAD
       <Route path="/landing" element={<LandingPage />} />
+=======
+      <Route path="/investors" element={<LandingPageInvestors />} />
+>>>>>>> 48e75496d9e388786ba40ca644cd329fac134a8d
     </Routes>
   );
 };

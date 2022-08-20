@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import logo from "../../assets/vectors/Reverr Black 2.png";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,9 +21,15 @@ const Navbar = () => {
         <div className="title">REVERR VENTURE PARTNERS</div>
       </div>
       <div className="links">
-        <span className="link">Startups</span>
-        <span className="link">Investors</span>
-        <span className="link">About Us</span>
+        <NavLink to="/startups" className="link">
+          Startups
+        </NavLink>
+        <NavLink to="/investors" className="link">
+          Investors
+        </NavLink>
+        <NavLink to="/about-us" className="link">
+          About Us
+        </NavLink>
         <button className="login" onClick={loginButtonClickHandler}>
           Log in
         </button>
