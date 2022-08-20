@@ -18,6 +18,7 @@ import PitchDeck from "../pages/home/pitchDeck/PitchDeck";
 import FinancialProjection from "../pages/home/financialProjection/FinancialProjection";
 import Analytics from "../pages/home/analytics/Analytics";
 import LandingPageStartups from "../pages/landingPage/LandingPageStartups";
+import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -27,20 +28,106 @@ const AppRoutes = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset" element={<ResetPassword />} />
       <Route path="/otp-verify" element={<OtpVerification />} />
-      <Route path="/deals" element={<Deals />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/about-deal" element={<AboutDeal />} />
-      <Route path="/faqs" element={<Faq />} />
-      <Route path="/one-pager" element={<OnePager />} />
-      <Route path="/people" element={<People />} />
-      <Route path="/deal-terms" element={<DealTerm />} />
-      <Route path="/pitch-deck" element={<PitchDeck />} />
-      <Route path="/financial-projections" element={<FinancialProjection />} />
-      <Route path="/analytics" element={<Analytics />} />
-      <Route path="/investors" element={<LandingPageInvestors />} />
       <Route path="/startups" element={<LandingPageStartups />} />
+      <Route path="/investors" element={<LandingPageInvestors />} />
+
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/deals"
+        element={
+          <ProtectedRoute>
+            <Deals />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/portfolio"
+        element={
+          <ProtectedRoute>
+            <Portfolio />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/about-deal"
+        element={
+          <ProtectedRoute>
+            <AboutDeal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/faqs"
+        element={
+          <ProtectedRoute>
+            <Faq />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/one-pager"
+        element={
+          <ProtectedRoute>
+            <OnePager />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/people"
+        element={
+          <ProtectedRoute>
+            <People />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/deal-terms"
+        element={
+          <ProtectedRoute>
+            <DealTerm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/pitch-deck"
+        element={
+          <ProtectedRoute>
+            <PitchDeck />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/financial-projections"
+        element={
+          <ProtectedRoute>
+            <FinancialProjection />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics"
+        element={
+          <ProtectedRoute>
+            <Analytics />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };

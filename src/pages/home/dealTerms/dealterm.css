@@ -21,7 +21,7 @@
 .deal-term__document-content {
   border: 5px solid #0077b7;
   display: flex;
-  height: 250px;
+  height: max-content;
   font-weight: bold;
 }
 
