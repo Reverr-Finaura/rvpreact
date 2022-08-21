@@ -32,3 +32,21 @@ export const sendAccountHasBeenCreatedMail = (name, email) => {
     process.env.REACT_APP_EMAILJS_PUBLIC_KEY
   );
 };
+
+export const sendInteredtedDealMail = (name, email, startupName) => {
+  let templateParams = {
+    subject: "Interested Deal",
+    name: name,
+    email: email,
+    message: `You are interested in the ${startupName} and we will revert back for the same soon .
+    Team Reverr !
+    `,
+  };
+
+  return emailjs.send(
+    "service_lfmmz8k",
+    "template_6lqwjap",
+    templateParams,
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+  );
+};

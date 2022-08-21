@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { sendInteredtedDealMail } from "../../emailJs/emailJs";
 
 const DealSideNav = () => {
   return (
@@ -29,7 +30,18 @@ const DealSideNav = () => {
         Analytics
       </NavLink>
 
-      <NavLink to="/interested" className="NavLink-interested">
+      <NavLink
+        onClick={async () => {
+          await sendInteredtedDealMail(
+            "Kunal Rajput",
+            "kunalrajput7656@gmail.com",
+            "Tata-Motors"
+          );
+          alert("Email Sent SuccessFuly");
+        }}
+        to="/interested"
+        className="NavLink-interested"
+      >
         <div className="interested__text">Interested</div>
       </NavLink>
 
