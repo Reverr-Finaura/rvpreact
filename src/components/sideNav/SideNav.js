@@ -1,6 +1,9 @@
 import "./sidenav.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/user/userSlice";
 const SideNav = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sideNav">
       <NavLink to="/dashboard" className="NavLink NavLink NavLink__Dashboard">
@@ -19,7 +22,11 @@ const SideNav = () => {
       <NavLink to="/analytics" className="NavLink ">
         Analytics
       </NavLink>
-      <NavLink to="/" className="NavLink NavLink__Logout ">
+      <NavLink
+        onClick={() => dispatch(logout())}
+        to="/"
+        className="NavLink NavLink__Logout "
+      >
         Log out
       </NavLink>
     </div>

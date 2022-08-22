@@ -38,14 +38,32 @@ export const sendInteredtedDealMail = (name, email, startupName) => {
     subject: "Interested Deal",
     name: name,
     email: email,
-    message: `You are interested in the ${startupName} and we will revert back for the same soon .
-    Team Reverr !
+    message: `You are interested in the ${startupName} and we will revert back for the same soon.
     `,
   };
 
   return emailjs.send(
     "service_lfmmz8k",
     "template_6lqwjap",
+    templateParams,
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+  );
+};
+
+export const sendUserInterestedDealToMail = (
+  startup_name,
+  investor_name,
+  user_Name
+) => {
+  let templateParams = {
+    investor_name,
+    startup_name,
+    user_Name,
+  };
+
+  return emailjs.send(
+    "service_lfmmz8k",
+    "template_xbc7yyl",
     templateParams,
     process.env.REACT_APP_EMAILJS_PUBLIC_KEY
   );

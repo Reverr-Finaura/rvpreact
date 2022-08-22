@@ -5,9 +5,13 @@ import { useState } from "react";
 import Footer from "../../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { delUser } from "../../../redux/auth/newUserSlice";
+import { delOtp, delUser } from "../../../redux/auth/newUserSlice";
 import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
 import { login } from "../../../redux/user/userSlice";
+import {
+  addUserInDatabase,
+  createUserWithEmailPassword,
+} from "../../../firebase/firebase";
 const OtpVerification = () => {
   const navigate = useNavigate();
   const [otpInput, setOtpInput] = useState("");
@@ -17,13 +21,23 @@ const OtpVerification = () => {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.newUser.newUser);
+  const otp = useSelector((state) => state.newUser.otp);
   const onVerifyOtpClickHandler = async () => {
     if (user) {
-      const { otp, firstName, lastName, email } = user;
+      const { firstName, lastName, email, password } = user;
       const name = `${firstName} ${lastName}`;
       if (otp === otpInput) {
-        dispatch(login(user));
-        sendAccountHasBeenCreatedMail(name, email);
+        await createUserWithEmailPassword(email, password).then((data) => {
+          const { uid } = data.user;
+          addUserInDatabase(uid, {
+            ...user,
+            uid,
+          });
+        });
+
+        await sendAccountHasBeenCreatedMail(name, email);
+        dispatch(delUser());
+        dispatch(delOtp());
         toast.success(
           "Your account created successfully ! please login to continue !",
           setTimeout(() => {

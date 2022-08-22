@@ -5,7 +5,7 @@ import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 import leftBlogImage from "../../../assets/img/leftBlog.png";
 import rightBlogImage from "../../../assets/img/rightBlog.png";
@@ -22,9 +22,23 @@ import {
   Search,
 } from "react-bootstrap-icons";
 import Accordian from "../../../components/accordian/Accordian";
+import { setDeals } from "../../../redux/deal/dealSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+
+  const fetchDeals = useCallback(async () => {
+    const results = await fetchDealsFromDatabase();
+    dispatch(setDeals(results));
+  }, [user.uid]);
+
+  useEffect(() => {
+    fetchDeals();
+  }, [user.uid]);
+
   const data = [
     {
       id: 1,

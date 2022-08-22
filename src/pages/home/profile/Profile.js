@@ -14,8 +14,18 @@ import {
   PencilSquare,
 } from "react-bootstrap-icons";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
+  const user = useSelector((state) => state.user.user);
+  const {
+    firstName,
+    lastName,
+    experienceOfInvesting,
+    sectorsOfInvesting,
+    stageOfInvestment,
+    country,
+  } = user;
   return (
     <>
       <LoggedInNavbar />
@@ -97,7 +107,9 @@ const Profile = () => {
                     <img src={Rectangle2764} />
                   </div>
                   <div className="profile__bio__content-text">
-                    <h2>Jim Hopper</h2>
+                    <h2>
+                      {firstName} {lastName}
+                    </h2>
                     <h3>Investor</h3>
                     <h3>
                       <img
@@ -105,7 +117,7 @@ const Profile = () => {
                         width="25px"
                         style={{ marginRight: "5px" }}
                       />{" "}
-                      India
+                      {country}
                     </h3>
                   </div>
                 </div>
@@ -120,15 +132,15 @@ const Profile = () => {
               <div className="profile__social">
                 <div className="profile__stats ">
                   <h4>Sectors for Investment</h4>
-                  <h5>Lorem Ipsum</h5>
+                  <h5>{sectorsOfInvesting} </h5>
                   <h4>Preferred stage for Investment</h4>
-                  <h5>Pre-series A</h5>
+                  <h5>{stageOfInvestment}</h5>
                   <h4>Amount you want Invest </h4>
                   <h5>10 lakh - 50 lakh</h5>
-                  <h4>Sectors for Investment</h4>
-                  <h5>By when do you want to start Investing </h5>
+                  <h4>By when do you want to start Investing </h4>
+                  <h5>Lorem Ipsum</h5>
                   <h4>Years of experience in Investing </h4>
-                  <h5>2-5 years</h5>
+                  <h5>{experienceOfInvesting}</h5>
                 </div>
                 <div className="profile__contact">
                   <h2>Contacts</h2>

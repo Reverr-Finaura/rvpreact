@@ -29,8 +29,6 @@ const Portfolio = () => {
     fetchDeals();
   }, []);
 
-  console.log(dealsInvestedIn);
-
   return (
     <>
       <LoggedInNavbar />

@@ -1,5 +1,6 @@
 import {
   getAdminsFromDatabase,
+  getUserFromDatabase,
   signIn,
   signInWithGoogle,
 } from "../../../firebase/firebase";
@@ -19,30 +20,20 @@ import ellipse4 from "../../../assets/img/ellipse4.png";
 import ellipse5 from "../../../assets/img/ellipse5.png";
 import ellipse6 from "../../../assets/img/ellipse6.png";
 import Navbar from "../../../components/navbar/Navbar";
-
+import { ArrowRepeat } from "react-bootstrap-icons";
 import { ToastContainer, toast } from "react-toastify";
+import { login } from "../../../redux/user/userSlice";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const onPasswordEnterHandler = (value) => {
     setpassword(value);
   };
-
-  const getBlogs = async () => {
-    const results = await getAdminsFromDatabase();
-    if (results.length) {
-      console.log(results);
-    }
-    // setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getBlogs();
-  }, []);
 
   const onEmailEnterHandler = (value) => {
     setemail(value);
@@ -50,18 +41,24 @@ const SignIn = () => {
 
   const onSignInClickHandler = async () => {
     if (email && password) {
+      setIsLoading(true);
       signIn(email, password)
-        .then((data) => {
-          console.log(data);
-          navigate("/investors");
+        .then(async (data) => {
+          const { uid } = data.user;
+          const user = await getUserFromDatabase(uid);
+          dispatch(login(user));
+          navigate("/dashboard");
           window.scrollTo(0, 0);
+          setIsLoading(false);
         })
-        .catch((err) =>
+        .catch((err) => {
+          setIsLoading(false);
           toast.error(err.message, {
             autoClose: 2000,
-          })
-        );
+          });
+        });
     } else {
+      setIsLoading(false);
       toast.error("Please enter a valid email or password !", {
         autoClose: 2000,
       });
@@ -140,7 +137,13 @@ const SignIn = () => {
               />
             </div>
             <button className="login-button" onClick={onSignInClickHandler}>
-              Log in
+              {isLoading ? (
+                <h2 style={{ margin: 0, padding: 0 }}>
+                  <ArrowRepeat className="loading-state" />
+                </h2>
+              ) : (
+                "Log in"
+              )}
             </button>
           </div>
         </div>

@@ -2,14 +2,34 @@ import Footer from "../../../components/footer/Footer";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { useEffect, useState } from "react";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
-import logo from "../../../assets/img/Rectangle 2741.png";
+// import logo from "../../../assets/img/Rectangle 2741.png";
 import instagram from "../../../assets/img/instagram.png";
 import linkedIn from "../../../assets/img/linkedin.png";
 import twitter from "../../../assets/img/twitter.png";
 
 import "./aboutdeal.css";
+import { useSelector } from "react-redux";
+import { videoUrlEmbed } from "../../../utils/utils";
 const AboutDeal = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const deal = useSelector((state) => state.deal.deal);
+  const {
+    cardImages,
+    dealDetails,
+    dealDescription,
+    investors,
+    dealHighlight,
+    Links,
+  } = deal;
+  const { description } = dealDescription;
+  const { name, raised, date, type } = dealDetails;
+  const { videoLink } = Links;
+  const { logo } = cardImages;
+  const getRemainingDays = () => {
+    let remainingDays = 31 - date.substring(8, date.length);
+    return remainingDays;
+  };
+  console.log(deal);
   return (
     <>
       <LoggedInNavbar />
@@ -21,13 +41,13 @@ const AboutDeal = () => {
           <div className="aboutdeal__wrap">
             <div className="aboutdeal__head">
               <div className="aboutdeal__logo">
-                <img style={{ width: "100%" }} src={logo} />
-                <h1>ZEPP</h1>
+                <img style={{ width: "100%" }} src={logo.logoUrl} />
+                <h1>{name}</h1>
               </div>
 
               <iframe
                 className="aboutdeal__video"
-                src="https://www.youtube.com/embed/nl2lYNjtCsI"
+                src={videoUrlEmbed(videoLink)}
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -35,20 +55,13 @@ const AboutDeal = () => {
               />
             </div>
             <div className="aboutdeal__head-content">
-              <h3>Lorem Ipsum is a dummy text of printing and typesettings</h3>
-              <p>
-                orem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.{" "}
-              </p>
+              <h3>{type}</h3>
+              <p>{description}</p>
             </div>
             <div className="aboutdeal__stats-wrap">
               <progress
                 id="file"
-                value="42.75"
+                value={raised}
                 max="100"
                 className="aboutdeal__progress"
               />
@@ -57,7 +70,9 @@ const AboutDeal = () => {
                   <h2 style={{ margin: 0 }}>Raised</h2>
                   <br />
                   <span style={{ color: "#0077B7" }}>
-                    <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>42.75%</h2>
+                    <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>
+                      {raised}%
+                    </h2>
                   </span>
                 </div>
                 <hr
@@ -70,7 +85,9 @@ const AboutDeal = () => {
                 <div className="aboutdeal__stat">
                   <h2 style={{ margin: 0 }}>Closes in</h2>
                   <span style={{ color: "#0077B7" }}>
-                    <h2 style={{ margin: "0rem 0rem 0rem 0rem" }}>26 Days</h2>
+                    <h2 style={{ margin: "0rem 0rem 0rem 0rem" }}>
+                      {getRemainingDays()} Days
+                    </h2>
                   </span>
                 </div>
                 <hr
@@ -84,7 +101,9 @@ const AboutDeal = () => {
                   <h2 style={{ margin: 0 }}>Investors</h2>
                   <br />
                   <span style={{ color: "#0077B7" }}>
-                    <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>9</h2>
+                    <h2 style={{ margin: "-1rem 0rem 0rem 0rem" }}>
+                      {investors.length}
+                    </h2>
                   </span>
                 </div>
               </div>
@@ -133,23 +152,9 @@ const AboutDeal = () => {
                 <h1>Highlights</h1>
               </div>
               <div className="aboutdeal__highlight-content">
-                <li>
-                  Any investment of less than ₹2L would get you CCD tagged with
-                  valuation{" "}
-                </li>
-                <li>
-                  With public beta launch on April 2022, Blup achieved 600+
-                  registrations{" "}
-                </li>{" "}
-                <li>
-                  Onboarded 4 paid clients in just 3 months of Beta launch with
-                  100+ repeat users
-                </li>{" "}
-                <li>
-                  {" "}
-                  Launched BlupSheets in June, a pre-built backend system on top
-                  of AWS
-                </li>
+                {dealHighlight.map((data) => (
+                  <li key={data.id}>{data.title}</li>
+                ))}
               </div>
             </div>
           </div>

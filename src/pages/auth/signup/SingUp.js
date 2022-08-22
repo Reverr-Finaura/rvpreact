@@ -6,16 +6,13 @@ import Navbar from "../../../components/navbar/Navbar";
 import topImage from "../../../assets/img/top-image.png";
 import { generateOtp } from "../../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../../../redux/auth/newUserSlice";
+import { createUser, setOtp } from "../../../redux/auth/newUserSlice";
 import { sendOtpToMail } from "../../../emailJs/emailJs";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
-  window.scrollTo(0, 0);
-
-  // personal deatails
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,13 +22,10 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  // investment deatails :
-  const [investment, setInvestment] = useState({});
-  const [stage, setStage] = useState({});
+  const [stageOfInvestment, setStageOfInvestment] = useState("");
   const [amount, setAmount] = useState("");
-  const [experience, setExperience] = useState("");
-  const [investingText, setInvestingText] = useState("");
+  const [experienceOfInvesting, setExperienceOfInvesting] = useState("");
+  const [sectorsOfInvesting, setSectorsOfInvesting] = useState("");
 
   const dispatch = useDispatch();
   const [personalDetailsTabActive, setPersonalDetailsTabActive] =
@@ -40,9 +34,6 @@ const SignUp = () => {
     useState(false);
   const newUser = useSelector((state) => state.newUser);
   const navigate = useNavigate();
-  // const onConfirmPasswordEnterHandler = (value) => {
-  //   setconfirmPassword(value);
-  // };
 
   const checkPassword = () => {
     if (password === confirmPassword) {
@@ -64,10 +55,14 @@ const SignUp = () => {
       linkedInUrl,
       phoneNumber,
       password,
-      otp,
+      stageOfInvestment,
+      amount,
+      experienceOfInvesting,
+      sectorsOfInvesting,
     };
     const userName = firstName + " " + lastName;
     dispatch(createUser(user));
+    dispatch(setOtp(otp));
     sendOtpToMail(userName, email, otp);
     navigate("/otp-verify");
   };
@@ -254,22 +249,9 @@ const SignUp = () => {
                   />
                   <button
                     onClick={() => {
-                      const checkPass = checkPassword();
-                      if (checkPass && firstName && lastName) {
-                        setPersonalDetailsTabActive(false);
-                        setInvestmentDetailsTabActive(true);
-                        window.scrollTo(0, 0);
-                      } else {
-                        if (!checkPass && checkPass.length !== 8) {
-                          !checkPass
-                            ? toast.error("Password Doesn't Matched")
-                            : toast.error(
-                                "Password should be 8 character long !"
-                              );
-                        } else {
-                          toast.error("Fields can't be empty");
-                        }
-                      }
+                      setPersonalDetailsTabActive(false);
+                      setInvestmentDetailsTabActive(true);
+                      window.scrollTo(0, 0);
                     }}
                     className="next-button"
                   >
@@ -283,7 +265,14 @@ const SignUp = () => {
                     Sectors for investment <span className="important">*</span>
                   </label>
                   <div className="sectors-for-investment">
-                    <select name="amount" id="amount" style={{ width: "100%" }}>
+                    <select
+                      onChange={(e) => {
+                        setSectorsOfInvesting(e.target.value);
+                      }}
+                      name="amount"
+                      id="amount"
+                      style={{ width: "100%" }}
+                    >
                       <option value="1">Sector 1</option>
                       <option value="2">Sector 2</option>
                       <option value="3">Sector 3</option>
@@ -296,6 +285,7 @@ const SignUp = () => {
                   <div className="stage-for-funding">
                     <div className="fundings">
                       <input
+                        onChange={(e) => setStageOfInvestment(e.target.value)}
                         type="radio"
                         value="Less than 1 Lakh"
                         name="preferred-stage"
@@ -306,6 +296,7 @@ const SignUp = () => {
 
                     <div className="fundings">
                       <input
+                        onChange={(e) => setStageOfInvestment(e.target.value)}
                         type="radio"
                         value="Less than 1 Lakh"
                         name="preferred-stage"
@@ -316,6 +307,7 @@ const SignUp = () => {
 
                     <div className="fundings">
                       <input
+                        onChange={(e) => setStageOfInvestment(e.target.value)}
                         type="radio"
                         value="Less than 1 Lakh"
                         name="preferred-stage"
@@ -326,6 +318,7 @@ const SignUp = () => {
 
                     <div className="fundings">
                       <input
+                        onChange={(e) => setStageOfInvestment(e.target.value)}
                         type="radio"
                         value="Less than 1 Lakh"
                         name="preferred-stage"
@@ -341,6 +334,7 @@ const SignUp = () => {
                   <div className="investment-amounts">
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="Less than 1 Lakh"
                         name="investment-amount"
@@ -352,6 +346,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="1 Lakh - 5 Lakh"
                         name="investment-amount"
@@ -361,6 +356,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="5 Lakh - 10 Lakh"
                         name="investment-amount"
@@ -372,6 +368,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="10 Lakh - 50 Lakh"
                         name="investment-amount"
@@ -383,6 +380,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="50 Lakh - 1 Crore"
                         name="investment-amount"
@@ -394,6 +392,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="1 Crore - 5 Crore"
                         name="investment-amount"
@@ -405,6 +404,7 @@ const SignUp = () => {
                     </div>
                     <div className="investment-container">
                       <input
+                        onChange={(e) => setAmount(e.target.value)}
                         type="radio"
                         value="More than 5 Crore"
                         name="investment-amount"
@@ -423,6 +423,9 @@ const SignUp = () => {
                   <div className="investment-experiences">
                     <div className="experience-container">
                       <input
+                        onChange={(e) =>
+                          setExperienceOfInvesting(e.target.value)
+                        }
                         type="radio"
                         value="0-2 years"
                         name="investment-experience"
@@ -432,6 +435,9 @@ const SignUp = () => {
                     </div>
                     <div className="experience-container">
                       <input
+                        onChange={(e) =>
+                          setExperienceOfInvesting(e.target.value)
+                        }
                         type="radio"
                         value="2-5 years"
                         name="investment-experience"
@@ -441,6 +447,9 @@ const SignUp = () => {
                     </div>
                     <div className="experience-container">
                       <input
+                        onChange={(e) =>
+                          setExperienceOfInvesting(e.target.value)
+                        }
                         type="radio"
                         value="5-10 years"
                         name="investment-experience"
@@ -450,6 +459,9 @@ const SignUp = () => {
                     </div>
                     <div className="experience-container">
                       <input
+                        onChange={(e) =>
+                          setExperienceOfInvesting(e.target.value)
+                        }
                         type="radio"
                         value="More than 10 years"
                         name="investment-experience"

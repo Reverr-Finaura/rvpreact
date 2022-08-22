@@ -7,26 +7,13 @@ import SideNav from "../../../components/sideNav/SideNav";
 import { useEffect, useState } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import { setDeal } from "../../../redux/deal/dealSlice";
 
 const Deals = () => {
-  const [deals, setDeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const deals = useSelector((state) => state.deal.deals);
 
-  const fetchDeals = async () => {
-    setIsLoading(true);
-    let results = await fetchDealsFromDatabase();
-    if (results.length) {
-      setDeals([...results]);
-    }
-
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    fetchDeals();
-  }, []);
-
-  console.log(deals);
   return (
     <>
       <LoggedInNavbar />
@@ -45,6 +32,12 @@ const Deals = () => {
               placeholder="Search your deals"
             />
           </div>
+          <hr
+            style={{
+              border: "1px solid #0077B7",
+              width: "60%",
+            }}
+          />
           <div className="live-deal__wrap">
             <div className="deal__content">
               <h1>
@@ -56,14 +49,26 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              {isLoading ? (
-                <h1>Fething Deals...</h1>
-              ) : (
-                deals.map((data) => <PartnerCard key={data.id} data={data} />)
-              )}
+              {deals.map((data) => (
+                <Link
+                  onClick={(e) => {
+                    dispatch(setDeal(data));
+                  }}
+                  key={data.id}
+                  className="deal_card-link"
+                  to={`${data.id}/about`}
+                >
+                  <PartnerCard key={data.id} data={data} />
+                </Link>
+              ))}
             </div>
           </div>
-
+          <hr
+            style={{
+              border: "1px solid #0077B7",
+              width: "60%",
+            }}
+          />
           <div className="uder-due-diligence__deal__wrap uder-due-diligence__deal__wrap-center">
             <div className="deal__content">
               <h1>

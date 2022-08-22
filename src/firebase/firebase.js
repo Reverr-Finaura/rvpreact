@@ -18,7 +18,10 @@ import {
   getDocs,
   collection,
   getDoc,
+  query,
+  where,
 } from "firebase/firestore";
+import { dateGenerator } from "../utils/utils";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -84,25 +87,25 @@ export const addUserInDatabase = async (uid, data) => {
   try {
     return await setDoc(doc(database, "Users", uid), {
       ...data,
-      createdAt: serverTimestamp(),
+      createdAt: dateGenerator(),
     });
   } catch (err) {
     console.log("Err: ", err);
   }
 };
 
-export const getAdminsFromDatabase = async () => {
-  try {
-    let Admins = [];
-    await (
-      await getDocs(collection(database, `Admin`))
-    ).forEach((doc) => {
-      Admins.push({ ...doc.data() });
-    });
-    return Admins;
-  } catch (err) {
-    console.log("Err: ", err);
-  }
+// getUser
+
+export const getUserFromDatabase = async (uid) => {
+  let User;
+  await (
+    await getDocs(
+      query(collection(database, `Users`), where("uid", "==", `${uid}`))
+    )
+  ).forEach((doc) => {
+    User = { ...doc.data() };
+  });
+  return User;
 };
 
 export const fetchDealsFromDatabase = async () => {

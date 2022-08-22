@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { sendInteredtedDealMail } from "../../emailJs/emailJs";
+import { sendInteredtedDealMail, sendUserInterestedDealToMail } from "../../emailJs/emailJs";
 
 const DealSideNav = () => {
+  const user = useSelector((state) => state.user.user);
+  const deal = useSelector((state) => state.deal.deal);
+  const { firstName, lastName, email } = user;
+  const { dealDetails } = deal;
+  const { name } = dealDetails;
+
   return (
     <div className="sideNav">
       <NavLink to="/about-deal" className="NavLink NavLink NavLink__Dashboard">
@@ -32,10 +39,11 @@ const DealSideNav = () => {
 
       <NavLink
         onClick={async () => {
-          await sendInteredtedDealMail(
-            "Kunal Rajput",
-            "kunalrajput7656@gmail.com",
-            "Tata-Motors"
+          await sendInteredtedDealMail(firstName + " " + lastName, email, name);
+          await sendUserInterestedDealToMail(
+            name,
+            firstName + " " + lastName,
+            firstName + " " + lastName
           );
           alert("Email Sent SuccessFuly");
         }}
