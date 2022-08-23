@@ -21,6 +21,9 @@ const Navbar = () => {
         <div className="title">REVERR VENTURE PARTNERS</div>
       </div>
       <div className="links">
+        <NavLink to="/home" className="link">
+          Home
+        </NavLink>
         <NavLink to="/startups" className="link">
           Startups
         </NavLink>

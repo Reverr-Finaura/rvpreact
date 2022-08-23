@@ -19,6 +19,7 @@ import PitchDeck from "../pages/home/pitchDeck/PitchDeck";
 import FinancialProjection from "../pages/home/financialProjection/FinancialProjection";
 import Analytics from "../pages/home/analytics/Analytics";
 import ProtectedRoute from "./ProtectedRoute";
+import HomePage from "../pages/homePage/HomePage";
 
 const AppRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const AppRoutes = () => {
       <Route path="/otp-verify" element={<OtpVerification />} />
       <Route path="/investors" element={<LandingPageInvestors />} />
       <Route path="/startups" element={<LandingPageStartups />} />
+      <Route path="/home" element={<HomePage />} />
 
       <Route
         path="/dashboard"
