@@ -271,7 +271,7 @@ const SignUp = () => {
                       }}
                       name="amount"
                       id="amount"
-                      style={{ width: "100%" }}
+                      style={{ width: "60%", margin: "-0.5rem" }}
                     >
                       <option value="1">Sector 1</option>
                       <option value="2">Sector 2</option>

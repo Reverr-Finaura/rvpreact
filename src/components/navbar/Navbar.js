@@ -30,7 +30,11 @@ const Navbar = () => {
         <NavLink to="/investors" className="link">
           Investors
         </NavLink>
-        <NavLink to="/about-us" className="link">
+        <NavLink
+          to="/about-us"
+          className="link"
+          style={{ textAlign: "center" }}
+        >
           About Us
         </NavLink>
         <button className="login" onClick={loginButtonClickHandler}>

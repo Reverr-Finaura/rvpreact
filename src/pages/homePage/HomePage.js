@@ -7,7 +7,7 @@ import profileIcon from "../../assets/img/profile-icon.png";
 import searchIcon from "../../assets/img/search-icon.png";
 import rupeeIcon from "../../assets/img/rupee-icon.png";
 import ProfileChecked from "../../assets/img/profileChecked.png";
-import { Search } from "react-bootstrap-icons";
+// import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
