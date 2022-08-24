@@ -20,6 +20,7 @@ import FinancialProjection from "../pages/home/financialProjection/FinancialProj
 import Analytics from "../pages/home/analytics/Analytics";
 import ProtectedRoute from "./ProtectedRoute";
 import HomePage from "../pages/homePage/HomePage";
+import Blogs from "../pages/blogs/Blogs";
 
 const AppRoutes = () => {
   return (
@@ -32,7 +33,7 @@ const AppRoutes = () => {
       <Route path="/investors" element={<LandingPageInvestors />} />
       <Route path="/startups" element={<LandingPageStartups />} />
       <Route path="/home" element={<HomePage />} />
-
+      <Route path="/home/:blog_Id/blog" element={<Blogs />} />
       <Route
         path="/dashboard"
         element={

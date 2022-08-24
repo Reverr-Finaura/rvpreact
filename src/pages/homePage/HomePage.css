@@ -165,6 +165,20 @@
   box-shadow: 0 0 3px #ccc;
 }
 
+.home__blogs-fetched {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-card__link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media screen and (width<1080px) {
   .home__reverr-blogs {
     margin: 2rem 3rem;

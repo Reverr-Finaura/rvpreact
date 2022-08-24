@@ -16,9 +16,9 @@ const SideNav = () => {
       <NavLink to="/portfolio" className="NavLink ">
         Portfolio
       </NavLink>
-      <NavLink to="/profile" className="NavLink ">
+      {/* <NavLink to="/profile" className="NavLink ">
         Profile
-      </NavLink>
+      </NavLink> */}
       <NavLink to="/analytics" className="NavLink ">
         Analytics
       </NavLink>

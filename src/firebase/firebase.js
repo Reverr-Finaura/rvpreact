@@ -121,3 +121,17 @@ export const fetchDealsFromDatabase = async () => {
     console.log("Err: ", err);
   }
 };
+
+export const fetchBlogsFromDatabase = async () => {
+  try {
+    let blogs = [];
+    await (
+      await getDocs(collection(database, `Blogs`))
+    ).forEach((doc) => {
+      blogs.push({ ...doc.data() });
+    });
+    return blogs;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
