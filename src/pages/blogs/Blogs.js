@@ -15,7 +15,7 @@ const Blogs = () => {
     <>
       <Navbar />
       <div className="blog-post">
-        <h1>{heading}</h1>
+        <h1 style={{ textAlign: "center" }}>{heading}</h1>
         <div className="blog-post__header-info">
           <div>
             <b>Author: </b>
