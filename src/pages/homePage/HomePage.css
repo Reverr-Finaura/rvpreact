@@ -64,6 +64,7 @@
   justify-content: center;
   align-items: center;
   margin: 3rem 1rem;
+  text-align: start;
 }
 
 .home__invest-now-button {
@@ -163,6 +164,20 @@
   outline: none;
   border: none;
   box-shadow: 0 0 3px #ccc;
+}
+
+.home__blogs-fetched {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-card__link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media screen and (width<1080px) {

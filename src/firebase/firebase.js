@@ -138,6 +138,20 @@ export const fetchDealsFromDatabase = async () => {
   }
 };
 
+export const fetchBlogsFromDatabase = async () => {
+  try {
+    let blogs = [];
+    await (
+      await getDocs(collection(database, `Blogs`))
+    ).forEach((doc) => {
+      blogs.push({ ...doc.data() });
+    });
+    return blogs;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
 // Storage :
 const storage = getStorage(app);
 

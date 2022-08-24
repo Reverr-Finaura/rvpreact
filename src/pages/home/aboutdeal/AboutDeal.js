@@ -41,7 +41,7 @@ const AboutDeal = () => {
           <div className="aboutdeal__wrap">
             <div className="aboutdeal__head">
               <div className="aboutdeal__logo">
-                <img style={{ width: "100%" }} src={logo.logoUrl} />
+                <img style={{ width: "100%" }} src={logo.logoUrl} alt="logo" />
                 <h1>{name}</h1>
               </div>
 

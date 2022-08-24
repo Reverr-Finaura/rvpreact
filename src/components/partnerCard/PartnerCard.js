@@ -1,5 +1,5 @@
 import "./PartnerCard.css";
-import partnerCardImage from "../../assets/img/partner_card-image.png";
+// import partnerCardImage from "../../assets/img/partner_card-image.png";
 
 const PartnerCard = ({ data }) => {
   const { logo, bgImage } = data.cardImages;
@@ -24,7 +24,6 @@ const PartnerCard = ({ data }) => {
             src={bgImage.bgUrl}
             alt="background"
           />
-          {/* </div> */}
           <div className="partner-card__main-content">
             <div style={{ width: "70%" }}>
               <div style={{ fontSize: "20px", fontWeight: "600" }}>
@@ -47,7 +46,7 @@ const PartnerCard = ({ data }) => {
           </div>
 
           <br />
-          <hr style={{ width: "40%", border: "1.2px solid #0077B7" }} />
+          <hr style={{ width: "40%", border: "1px solid #0077B7" }} />
           <br />
           <div className="partner-card__achievements">
             <div className="partner-card__achievement">
@@ -58,7 +57,7 @@ const PartnerCard = ({ data }) => {
             <hr
               style={{
                 height: "35px",
-                borderLeft: "1.5px solid #0077B7",
+                border: "1px solid #0077B7",
               }}
             />
             <div className="partner-card__achievement">
@@ -71,7 +70,7 @@ const PartnerCard = ({ data }) => {
             <hr
               style={{
                 height: "35px",
-                borderLeft: "1.5px solid #0077B7",
+                border: "1px solid #0077B7",
               }}
             />
             <div className="partner-card__achievement">
@@ -81,7 +80,6 @@ const PartnerCard = ({ data }) => {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </div>
     </>
   );

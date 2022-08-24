@@ -8,15 +8,49 @@ import searchIcon from "../../assets/img/search-icon.png";
 import rupeeIcon from "../../assets/img/rupee-icon.png";
 import ProfileChecked from "../../assets/img/profileChecked.png";
 // import { Search } from "react-bootstrap-icons";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router";
 import platformFeatures from "../../assets/img/platform-features.png";
+import {
+  fetchDealsFromDatabase,
+  fetchBlogsFromDatabase,
+} from "../../firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { setBlog, setBlogs } from "../../redux/blogs/blogsSlice";
+import { setDeal, setDeals } from "../../redux/deal/dealSlice";
+import PartnerCard from "../../components/partnerCard/PartnerCard";
+import BlogCard from "../../components/blogCard/BlogCard";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [investorTabActive, setInvestorTabActive] = useState(true);
   const [startupTabActive, setStartupTabActive] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchDeals = useCallback(async () => {
+    setIsLoading(true);
+    const results = await fetchDealsFromDatabase();
+    dispatch(setDeals(results));
+    setIsLoading(false);
+  }, []);
+
+  const fetchBlogs = useCallback(async () => {
+    setIsLoading(true);
+    const results = await fetchBlogsFromDatabase();
+    dispatch(setBlogs(results));
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchDeals();
+    fetchBlogs();
+  }, []);
+
+  const blogs = useSelector((state) => state.blogs.blogs);
+  const deals = useSelector((state) => state.deal.deals);
 
   return (
     <>
@@ -74,7 +108,15 @@ const HomePage = () => {
           <p style={{ opacity: "0.63" }}>
             Lorem Ipsum is a dummy text used for typesettings and typewritting
           </p>
-          <div className="home__deal-cards">Deals Here</div>
+          <div className="home__deal-cards">
+            <div className="deal__card">
+              {isLoading ? (
+                <h4 style={{ opacity: "0.8" }}>Fetching Live Deals...</h4>
+              ) : (
+                deals.map((data) => <PartnerCard key={data.id} data={data} />)
+              )}
+            </div>
+          </div>
           <button className="home__invest-now-button">Invest Now</button>
         </div>
         <hr style={{ width: "50%", border: "1px solid #0077B7" }} />
@@ -275,6 +317,24 @@ const HomePage = () => {
           <div>
             <input placeholder="Search" className="home__blogs-search-input" />
           </div>
+          {isLoading ? (
+            <h4 style={{ opacity: "0.8" }}>Fetching Blogs...</h4>
+          ) : (
+            <div className="home__blogs-fetched">
+              {blogs.map((data) => (
+                <Link
+                  onClick={() => {
+                    dispatch(setBlog(data));
+                  }}
+                  key={data.id}
+                  to={`${data.id}/blog`}
+                  className="blog-card__link"
+                >
+                  <BlogCard key={data.id} data={data} />
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Footer />
