@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div id="navbar" className="navbar">
       <div className="reverr">
         <img src={logo} alt="reverr-logo" className="logo" />
         <div className="title">REVERR VENTURE PARTNERS</div>

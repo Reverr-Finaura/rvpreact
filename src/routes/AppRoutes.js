@@ -21,6 +21,7 @@ import Analytics from "../pages/home/analytics/Analytics";
 import ProtectedRoute from "./ProtectedRoute";
 import HomePage from "../pages/homePage/HomePage";
 import Blogs from "../pages/blogs/Blogs";
+import NotFound from "../pages/NotFound/NotFound";
 
 const AppRoutes = () => {
   return (
@@ -130,6 +131,7 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 };
