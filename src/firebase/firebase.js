@@ -20,8 +20,16 @@ import {
   getDoc,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 import { dateGenerator } from "../utils/utils";
+
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -94,6 +102,14 @@ export const addUserInDatabase = async (uid, data) => {
   }
 };
 
+export const updateUserInDatabse = async (uid, data) => {
+  try {
+    return await updateDoc(doc(database, "Users", uid), data);
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
 // getUser
 
 export const getUserFromDatabase = async (uid) => {
@@ -117,6 +133,20 @@ export const fetchDealsFromDatabase = async () => {
       deals.push({ ...doc.data() });
     });
     return deals;
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
+// Storage :
+const storage = getStorage(app);
+
+export const uploadMedia = async (media, path) => {
+  try {
+    await uploadBytesResumable(ref(storage, `${path}/${media.name}`), media);
+    const getMedia = await ref(storage, `${path}/${media.name}`);
+    const mediaLink = await getDownloadURL(getMedia);
+    return mediaLink;
   } catch (err) {
     console.log("Err: ", err);
   }
