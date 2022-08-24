@@ -138,7 +138,6 @@ export const fetchDealsFromDatabase = async () => {
   }
 };
 
-<<<<<<< HEAD
 export const fetchBlogsFromDatabase = async () => {
   try {
     let blogs = [];
@@ -148,7 +147,11 @@ export const fetchBlogsFromDatabase = async () => {
       blogs.push({ ...doc.data() });
     });
     return blogs;
-=======
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
 // Storage :
 const storage = getStorage(app);
 
@@ -158,7 +161,6 @@ export const uploadMedia = async (media, path) => {
     const getMedia = await ref(storage, `${path}/${media.name}`);
     const mediaLink = await getDownloadURL(getMedia);
     return mediaLink;
->>>>>>> 3e04ee9b82d21f75b2f24101d50ef0d764eddd73
   } catch (err) {
     console.log("Err: ", err);
   }
