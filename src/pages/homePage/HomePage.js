@@ -111,7 +111,7 @@ const HomePage = () => {
           <div className="home__deal-cards">
             <div className="deal__card">
               {isLoading ? (
-                <h4 style={{ opacity: "0.8" }}>Fething Live Deals...</h4>
+                <h4 style={{ opacity: "0.8" }}>Fetching Live Deals...</h4>
               ) : (
                 deals.map((data) => <PartnerCard key={data.id} data={data} />)
               )}
@@ -318,7 +318,7 @@ const HomePage = () => {
             <input placeholder="Search" className="home__blogs-search-input" />
           </div>
           {isLoading ? (
-            <h4 style={{ opacity: "0.8" }}>Fething Blogs...</h4>
+            <h4 style={{ opacity: "0.8" }}>Fetching Blogs...</h4>
           ) : (
             <div className="home__blogs-fetched">
               {blogs.map((data) => (
