@@ -20,8 +20,16 @@ import {
   getDoc,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 import { dateGenerator } from "../utils/utils";
+
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -94,6 +102,14 @@ export const addUserInDatabase = async (uid, data) => {
   }
 };
 
+export const updateUserInDatabse = async (uid, data) => {
+  try {
+    return await updateDoc(doc(database, "Users", uid), data);
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
 // getUser
 
 export const getUserFromDatabase = async (uid) => {
@@ -122,6 +138,7 @@ export const fetchDealsFromDatabase = async () => {
   }
 };
 
+<<<<<<< HEAD
 export const fetchBlogsFromDatabase = async () => {
   try {
     let blogs = [];
@@ -131,6 +148,17 @@ export const fetchBlogsFromDatabase = async () => {
       blogs.push({ ...doc.data() });
     });
     return blogs;
+=======
+// Storage :
+const storage = getStorage(app);
+
+export const uploadMedia = async (media, path) => {
+  try {
+    await uploadBytesResumable(ref(storage, `${path}/${media.name}`), media);
+    const getMedia = await ref(storage, `${path}/${media.name}`);
+    const mediaLink = await getDownloadURL(getMedia);
+    return mediaLink;
+>>>>>>> 3e04ee9b82d21f75b2f24101d50ef0d764eddd73
   } catch (err) {
     console.log("Err: ", err);
   }

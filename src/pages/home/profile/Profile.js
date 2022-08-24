@@ -13,11 +13,14 @@ import {
   Pencil,
   PencilSquare,
 } from "react-bootstrap-icons";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUser } from "../../../redux/user/userSlice";
+import { updateUserInDatabse, uploadMedia } from "../../../firebase/firebase";
 const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
   const {
     firstName,
     lastName,
@@ -25,7 +28,92 @@ const Profile = () => {
     sectorsOfInvesting,
     stageOfInvestment,
     country,
+    uid,
+    amount,
+    // userType,
   } = user;
+
+  const [userImgFile, setUserImgFile] = useState("");
+  const [name, setName] = useState("");
+  const [experience, setExperience] = useState("");
+  const [sector, setSector] = useState("");
+  const [stage, setStage] = useState("");
+  const [amt, setAmt] = useState("");
+  const [from, setFrom] = useState("");
+  const [type, setType] = useState("");
+  const [linkedUrl, setLinkedUrl] = useState("");
+  const [twitterUrl, setTwitterUrl] = useState("");
+  const [mailUrl, setMailUrl] = useState("");
+  const [whenToInvest, setWhenToInvest] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+
+  const validateField = () => {
+    if (
+      userImgFile &&
+      name &&
+      experience &&
+      sector &&
+      stage &&
+      amt &&
+      from &&
+      // userType &&
+      linkedUrl &&
+      twitterUrl &&
+      mailUrl &&
+      whenToInvest &&
+      userDescription
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const onSaveChangesHandler = async () => {
+    // const checkFields = validateField();
+    if (true) {
+      // const userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
+      // const fullName = name.split(" ");
+      // const fName = fullName[0];
+      // const lName = fullName[1];
+      // const updatedData = {
+      //   ...user,
+      //   firstName: fName,
+      //   lastName: lName,
+      //   experienceOfInvesting: experience,
+      //   sectorsOfInvesting: sector,
+      //   stageOfInvestment: stage,
+      //   country: from,
+      //   userImg: userImgUrl,
+      //   amount: amt,
+      //   userDescription,
+      //   // userType,
+      //   linkedIn: linkedUrl,
+      //   mail: mailUrl,
+      //   twitter: twitterUrl,
+      //   whenToInvest,
+      // };
+      // await updateUserInDatabse(uid, updatedData);
+      // dispatch(updateUser(updatedData));
+      setIsEditable(false);
+      console.log(1);
+    }
+  };
+
+  const onEditClickHandler = () => {
+    setIsEditable(true);
+    setName(firstName + " " + lastName);
+    setExperience(experienceOfInvesting);
+    setStage(stageOfInvestment);
+    setSector(sectorsOfInvesting);
+    setFrom(country);
+    setAmt(amount);
+    // setUserDescription()
+    // setType(userType);
+    setLinkedUrl(linkedIn);
+  };
+
+  console.log(user);
+
   return (
     <>
       <LoggedInNavbar />
@@ -47,20 +135,50 @@ const Profile = () => {
                       {" "}
                       <ImageFill /> Add from device
                     </label>
-                    <input id="user-img" type="file" />
+                    <input
+                      onChange={(e) => {
+                        if (e.target.files[0]) {
+                          Object.defineProperty(e.target.files[0], "name", {
+                            writable: true,
+                            value: uid,
+                          });
+                          setUserImgFile(e.target.files[0]);
+                        }
+                      }}
+                      id="user-img"
+                      type="file"
+                    />
                   </div>
                   <div className="profile__bio__content-text profile__bio__content-textedit">
-                    <input placeholder="Change Name" type="text" />
-                    <input placeholder="Change Designation" type="text" />
-                    <input placeholder="Change Country" type="text" />
+                    <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Change Name"
+                      type="text"
+                    />
+                    <input
+                      // onChange={(e) => setUserType(e.target.value)}
+                      placeholder="Change Designation"
+                      type="text"
+                    />
+                    <input
+                      value={from}
+                      onChange={(e) => setFrom(e.target.value)}
+                      placeholder="Change Country"
+                      type="text"
+                    />
                   </div>
                 </div>
                 <div className="textarea-wrap">
-                  <textarea placeholder="Edit bio..." rows="10" />
+                  <textarea
+                    onChange={(e) => setUserDescription(e.target.value)}
+                    placeholder="Edit bio..."
+                    rows="10"
+                  />
                 </div>
                 <div className="edit-saveChanges">
                   <button
-                    onClick={() => setIsEditable(false)}
+                    onClick={onSaveChangesHandler}
                     className="edit-SaveChangesBtn"
                   >
                     Save Changes
@@ -70,26 +188,62 @@ const Profile = () => {
               <div className="profile__social">
                 <div className="profile__stats profile__statsedit">
                   <h4>Sectors for Investment</h4>
-                  <input placeholder="Change answer" type="text" />
+                  <input
+                    value={sector}
+                    onChange={(e) => setSector(e.target.value)}
+                    placeholder="Change answer"
+                    type="text"
+                  />
 
                   <h4>Preferred stage for Investment</h4>
-                  <input placeholder="Change answer" type="text" />
+                  <input
+                    value={stage}
+                    onChange={(e) => setStage(e.target.value)}
+                    placeholder="Change answer"
+                    type="text"
+                  />
 
                   <h4>Amount you want Invest </h4>
-                  <input placeholder="Change answer" type="text" />
+                  <input
+                    value={amt}
+                    onChange={(e) => setAmt(e.target.value)}
+                    placeholder="Change answer"
+                    type="text"
+                  />
 
-                  <h4>Sectors for Investment</h4>
-                  <input placeholder="Change answer" type="text" />
+                  <h4>By when do you want to start Investing </h4>
+                  <input
+                    onChange={(e) => setWhenToInvest(e.target.value)}
+                    placeholder="Change answer"
+                    type="text"
+                  />
 
                   <h4>Years of experience in Investing </h4>
-                  <input placeholder="Change answer" type="text" />
+                  <input
+                    value={experience}
+                    onChange={(e) => setExperience(e.target.value)}
+                    placeholder="Change answer"
+                    type="text"
+                  />
                 </div>
                 <div className="profile__contact profile__contactedit">
                   <h2>Contacts</h2>
                   <div className="profile__contact-Imgedit">
-                    <input placeholder="LinkedIn" type="text" />
-                    <input placeholder="twitter" type="text" />
-                    <input placeholder="mail" type="text" />
+                    <input
+                      onChange={(e) => setLinkedUrl(e.target.value)}
+                      placeholder="LinkedIn"
+                      type="text"
+                    />
+                    <input
+                      onChange={(e) => setTwitterUrl(e.target.value)}
+                      placeholder="twitter"
+                      type="text"
+                    />
+                    <input
+                      onChange={(e) => setMailUrl(e.target.value)}
+                      placeholder="mail"
+                      type="text"
+                    />
                   </div>
                 </div>
               </div>
@@ -98,7 +252,7 @@ const Profile = () => {
             <>
               <div className="profile__bio">
                 <div className="profile_edit">
-                  <h4 onClick={() => setIsEditable(true)}>
+                  <h4 onClick={onEditClickHandler}>
                     <Pencil /> Edit profile
                   </h4>
                 </div>
