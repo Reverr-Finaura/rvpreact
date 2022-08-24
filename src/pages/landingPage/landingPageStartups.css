@@ -33,3 +33,7 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+.landiing__startups-lifecycle button:hover {
+  opacity: 0.8;
+}

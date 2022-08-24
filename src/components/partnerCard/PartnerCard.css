@@ -26,6 +26,10 @@
   padding: 1rem;
 }
 
+.partner-card__main:hover {
+  box-shadow: 0 0 5px #535353;
+}
+
 .partner-card__main-content {
   display: flex;
   justify-content: center;

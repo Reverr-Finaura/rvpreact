@@ -21,6 +21,7 @@ import { setDeal, setDeals } from "../../redux/deal/dealSlice";
 import PartnerCard from "../../components/partnerCard/PartnerCard";
 import BlogCard from "../../components/blogCard/BlogCard";
 import { Link } from "react-router-dom";
+import { ArrowRepeat } from "react-bootstrap-icons";
 
 const HomePage = () => {
   const [investorTabActive, setInvestorTabActive] = useState(true);
@@ -111,7 +112,9 @@ const HomePage = () => {
           <div className="home__deal-cards">
             <div className="deal__card">
               {isLoading ? (
-                <h4 style={{ opacity: "0.8" }}>Fetching Live Deals...</h4>
+                <h1 style={{ opacity: "0.8" }}>
+                  <ArrowRepeat className="loading-state" />
+                </h1>
               ) : (
                 deals.map((data) => <PartnerCard key={data.id} data={data} />)
               )}
@@ -318,7 +321,9 @@ const HomePage = () => {
             <input placeholder="Search" className="home__blogs-search-input" />
           </div>
           {isLoading ? (
-            <h4 style={{ opacity: "0.8" }}>Fetching Blogs...</h4>
+            <h1 style={{ opacity: "0.8" }}>
+              <ArrowRepeat className="loading-state" />
+            </h1>
           ) : (
             <div className="home__blogs-fetched">
               {blogs.map((data) => (

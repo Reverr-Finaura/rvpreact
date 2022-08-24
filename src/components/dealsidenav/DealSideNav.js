@@ -1,17 +1,24 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { sendInteredtedDealMail, sendUserInterestedDealToMail } from "../../emailJs/emailJs";
+import {
+  sendInteredtedDealMail,
+  sendUserInterestedDealToMail,
+} from "../../emailJs/emailJs";
 
 const DealSideNav = () => {
   const user = useSelector((state) => state.user.user);
   const deal = useSelector((state) => state.deal.deal);
   const { firstName, lastName, email } = user;
+  console.log(deal);
   const { dealDetails } = deal;
   const { name } = dealDetails;
 
   return (
     <div className="sideNav">
-      <NavLink to="/about-deal" className="NavLink NavLink NavLink__Dashboard">
+      <NavLink
+        to={`/deals/${deal.id}/about`}
+        className="NavLink NavLink NavLink__Dashboard"
+      >
         About deal
       </NavLink>
 
