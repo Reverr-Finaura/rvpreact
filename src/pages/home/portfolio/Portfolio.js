@@ -7,27 +7,28 @@ import InvestedStartupCard from "../../../components/investedStartupCard/Investe
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import zepp from "../../../assets/img/Rectangle 2990.png";
 import hallmark from "../../../assets/img/Rectangle 2992.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 import Chart from "react-apexcharts";
+import { useDispatch, useSelector } from "react-redux";
+import { setDeals } from "../../../redux/deal/dealSlice";
 
 const Portfolio = () => {
-  const [dealsInvestedIn, setDealsInvestedIn] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const fetchDeals = async () => {
+  const fetchDeals = useCallback(async () => {
     setIsLoading(true);
-    let results = await fetchDealsFromDatabase();
-    if (results.length) {
-      setDealsInvestedIn([...results]);
-    }
-
+    const results = await fetchDealsFromDatabase();
+    dispatch(setDeals(results));
     setIsLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
     fetchDeals();
   }, []);
+
+  const dealsInvestedIn = useSelector((state) => state.deal.deals);
 
   return (
     <>

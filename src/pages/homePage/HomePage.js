@@ -17,6 +17,7 @@ import {
 } from "../../firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { setBlog, setBlogs } from "../../redux/blogs/blogsSlice";
+import { setDeal, setDeals } from "../../redux/deal/dealSlice";
 import PartnerCard from "../../components/partnerCard/PartnerCard";
 import BlogCard from "../../components/blogCard/BlogCard";
 import { Link } from "react-router-dom";
@@ -28,21 +29,19 @@ const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const [liveDeals, setLiveDeals] = useState([]);
 
-  const fetchDeals = async () => {
+  const fetchDeals = useCallback(async () => {
     setIsLoading(true);
     const results = await fetchDealsFromDatabase();
-    if (results.length) {
-      setLiveDeals([...results]);
-      // dispatch(setDeals(results));
-    }
+    dispatch(setDeals(results));
     setIsLoading(false);
-  };
+  }, []);
 
   const fetchBlogs = useCallback(async () => {
+    setIsLoading(true);
     const results = await fetchBlogsFromDatabase();
     dispatch(setBlogs(results));
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const HomePage = () => {
   }, []);
 
   const blogs = useSelector((state) => state.blogs.blogs);
-  // const deals = useSelector((state) => state.deal.deals);
+  const deals = useSelector((state) => state.deal.deals);
 
   return (
     <>
@@ -112,13 +111,9 @@ const HomePage = () => {
           <div className="home__deal-cards">
             <div className="deal__card">
               {isLoading ? (
-                <h4 style={{ opacity: "0.8" }}>
-                  Fething Startup Deals invested in...
-                </h4>
+                <h4 style={{ opacity: "0.8" }}>Fething Live Deals...</h4>
               ) : (
-                liveDeals.map((data) => (
-                  <PartnerCard key={data.id} data={data} />
-                ))
+                deals.map((data) => <PartnerCard key={data.id} data={data} />)
               )}
             </div>
           </div>
