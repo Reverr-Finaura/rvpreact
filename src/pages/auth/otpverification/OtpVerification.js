@@ -63,7 +63,7 @@ const OtpVerification = () => {
       </div>
       <div className="otp-verify__card-wrap">
         {user && (
-          <h3 style={{ margin: 0, width: "25%" }}>
+          <h3 style={{ marginTop: "2rem", width: "25%", textAlign: "center" }}>
             An otp has been sent to your mail please check and verify!
           </h3>
         )}

@@ -21,6 +21,7 @@
 
 .otp-verify__card-wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
