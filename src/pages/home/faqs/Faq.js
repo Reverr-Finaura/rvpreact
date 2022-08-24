@@ -25,7 +25,7 @@ const Faq = () => {
           ))}
 
           <h1 style={{ color: "#2a72de", textAlign: "center" }}>
-            About Reverr ventur partners
+            About Reverr venture partners
           </h1>
           {faqs.map((data) => (
             <Accordian key={data.id} {...data} />
