@@ -10,6 +10,7 @@ import ProfileChecked from "../../assets/img/profileChecked.png";
 // import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import platformFeatures from "../../assets/img/platform-features.png";
 
 const HomePage = () => {
   const [investorTabActive, setInvestorTabActive] = useState(true);
@@ -81,7 +82,13 @@ const HomePage = () => {
           <h1 style={{ fontSize: "35px" }}>
             Platform <span style={{ color: "#0077B7" }}>Features</span>
           </h1>
-          <div>Platform Features Diagram</div>
+          <br />
+          <img
+            src={platformFeatures}
+            alt="platform-features"
+            width="70%"
+            style={{ pointerEvents: "none" }}
+          />
         </div>
         <hr style={{ width: "50%", border: "1px solid #0077B7" }} />
         <div className="home__how-we-work">
