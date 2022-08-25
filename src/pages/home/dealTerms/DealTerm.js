@@ -3,7 +3,13 @@ import Footer from "../../../components/footer/Footer";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import "./dealterm.css";
 import { FileEarmarkArrowUp } from "react-bootstrap-icons";
+import { useSelector } from "react-redux";
 const DealTerm = () => {
+  const deal = useSelector((state) => state.deal.deal);
+  const { dealDetails } = deal;
+  const { minimumInvestment, preMoneyValuation, noOfEmployees, raised } =
+    dealDetails;
+
   return (
     <>
       <LoggedInNavbar />
@@ -59,7 +65,7 @@ const DealTerm = () => {
                   66.34k raised /{" "}
                   <span style={{ color: "#0077b7" }}> 12 days left</span>
                 </h3>
-                <progress id="file" value="42.75" max="100" />
+                <progress id="file" value={raised} max="100" />
               </div>
 
               <div className="deal-term__terms-stats">
@@ -68,7 +74,7 @@ const DealTerm = () => {
                   <h3>Equity</h3>
                 </div>
                 <div className="deal-term__terms__stats-body">
-                  <h3>₹9,00,00,000</h3>
+                  <h3>₹{preMoneyValuation} Lakhs</h3>
                   <h3>1%</h3>
                 </div>
 
@@ -77,8 +83,8 @@ const DealTerm = () => {
                   <h3>Investors</h3>
                 </div>
                 <div className="deal-term__terms__stats-body">
-                  <h3>₹2,50,000</h3>
-                  <h3>10</h3>
+                  <h3>₹{minimumInvestment}</h3>
+                  <h3>{noOfEmployees}</h3>
                 </div>
               </div>
 

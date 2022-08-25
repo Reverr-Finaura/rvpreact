@@ -67,7 +67,8 @@
 }
 
 .profile__bio__content__img img {
-  width: 100%;
+  width: 80%;
+  border: 3px solid blue;
 }
 
 .profile__bio__content-text {
@@ -112,10 +113,16 @@ h3 {
   display: flex;
   justify-content: space-around;
   margin-top: 1rem;
+  align-items: center;
 }
 
 .profile__contact-Img img {
-  width: 13%;
+  width: 40%;
+}
+
+.profile__contact-Img a {
+  text-decoration: none;
+  width: 40%;
 }
 
 .profile_edit {
@@ -254,4 +261,12 @@ h3 {
   padding: 0.5rem 4rem;
   margin-bottom: 1rem;
   cursor: pointer;
+}
+
+.diabled {
+  cursor: not-allowed;
+}
+
+.add-discription__Btn-wrap {
+  margin-top: 10%;
 }

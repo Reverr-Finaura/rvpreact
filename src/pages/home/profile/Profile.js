@@ -4,14 +4,12 @@ import SideNav from "../../../components/sideNav/SideNav";
 import "./profile.css";
 import Rectangle2764 from "../../../assets/img/Rectangle 2764.png";
 import Logo from "../../../assets/img/Flag_of_India 2.png";
-import linkedIn from "../../../assets/img/teamCard_icons/linkedin.png";
-import twitter from "../../../assets/img/teamCard_icons/twitter.png";
-import gmail from "../../../assets/img/teamCard_icons/gmail.png";
+import linkedIn_Img from "../../../assets/img/teamCard_icons/linkedin.png";
+import twitter_Img from "../../../assets/img/teamCard_icons/twitter.png";
+import instagram_Img from "../../../assets/img/teamCard_icons/instagram.png";
 import {
-  BarChartLineFill,
   ImageFill,
   Pencil,
-  PencilSquare,
 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +29,11 @@ const Profile = () => {
     uid,
     amount,
     // userType,
+    linkedIn,
+    twitter,
+    instagram,
+    userDescription,
+    userImg,
   } = user;
 
   const [userImgFile, setUserImgFile] = useState("");
@@ -40,12 +43,12 @@ const Profile = () => {
   const [stage, setStage] = useState("");
   const [amt, setAmt] = useState("");
   const [from, setFrom] = useState("");
-  const [type, setType] = useState("");
   const [linkedUrl, setLinkedUrl] = useState("");
   const [twitterUrl, setTwitterUrl] = useState("");
-  const [mailUrl, setMailUrl] = useState("");
+  const [instagramUrl, setInstagramUrl] = useState("");
   const [whenToInvest, setWhenToInvest] = useState("");
-  const [userDescription, setUserDescription] = useState("");
+  const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const validateField = () => {
     if (
@@ -59,9 +62,8 @@ const Profile = () => {
       // userType &&
       linkedUrl &&
       twitterUrl &&
-      mailUrl &&
-      whenToInvest &&
-      userDescription
+      instagramUrl &&
+      whenToInvest
     ) {
       return true;
     }
@@ -70,32 +72,32 @@ const Profile = () => {
 
   const onSaveChangesHandler = async () => {
     // const checkFields = validateField();
+    setIsLoading(true);
     if (true) {
-      // const userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
-      // const fullName = name.split(" ");
-      // const fName = fullName[0];
-      // const lName = fullName[1];
-      // const updatedData = {
-      //   ...user,
-      //   firstName: fName,
-      //   lastName: lName,
-      //   experienceOfInvesting: experience,
-      //   sectorsOfInvesting: sector,
-      //   stageOfInvestment: stage,
-      //   country: from,
-      //   userImg: userImgUrl,
-      //   amount: amt,
-      //   userDescription,
-      //   // userType,
-      //   linkedIn: linkedUrl,
-      //   mail: mailUrl,
-      //   twitter: twitterUrl,
-      //   whenToInvest,
-      // };
-      // await updateUserInDatabse(uid, updatedData);
-      // dispatch(updateUser(updatedData));
+      const userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
+      const fullName = name.split(" ");
+      const fName = fullName[0];
+      const lName = fullName[1];
+      const updatedData = {
+        ...user,
+        firstName: fName,
+        lastName: lName,
+        experienceOfInvesting: experience,
+        sectorsOfInvesting: sector,
+        stageOfInvestment: stage,
+        country: from,
+        userImg: userImgUrl,
+        amount: amt,
+        userDescription: description,
+        linkedIn: linkedUrl,
+        instagram: instagramUrl,
+        twitter: twitterUrl,
+        whenToInvest,
+      };
+      await updateUserInDatabse(uid, updatedData);
+      dispatch(updateUser(updatedData));
+      setIsLoading(false);
       setIsEditable(false);
-      console.log(1);
     }
   };
 
@@ -107,12 +109,12 @@ const Profile = () => {
     setSector(sectorsOfInvesting);
     setFrom(country);
     setAmt(amount);
-    // setUserDescription()
+    setDescription(userDescription);
     // setType(userType);
     setLinkedUrl(linkedIn);
   };
 
-  console.log(user);
+  console.log(userDescription);
 
   return (
     <>
@@ -171,7 +173,8 @@ const Profile = () => {
                 </div>
                 <div className="textarea-wrap">
                   <textarea
-                    onChange={(e) => setUserDescription(e.target.value)}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     placeholder="Edit bio..."
                     rows="10"
                   />
@@ -181,7 +184,7 @@ const Profile = () => {
                     onClick={onSaveChangesHandler}
                     className="edit-SaveChangesBtn"
                   >
-                    Save Changes
+                    {isLoading && "Loading"} Save Changes
                   </button>
                 </div>
               </div>
@@ -240,8 +243,8 @@ const Profile = () => {
                       type="text"
                     />
                     <input
-                      onChange={(e) => setMailUrl(e.target.value)}
-                      placeholder="mail"
+                      onChange={(e) => setInstagramUrl(e.target.value)}
+                      placeholder="instagram"
                       type="text"
                     />
                   </div>
@@ -258,7 +261,11 @@ const Profile = () => {
                 </div>
                 <div className="profile__bio-content">
                   <div className="profile__bio__content__img">
-                    <img src={Rectangle2764} />
+                    {userImg.length ? (
+                      <img src={userImg} />
+                    ) : (
+                      <img src={Rectangle2764} />
+                    )}
                   </div>
                   <div className="profile__bio__content-text">
                     <h2>
@@ -270,18 +277,24 @@ const Profile = () => {
                         src={Logo}
                         width="25px"
                         style={{ marginRight: "5px" }}
-                      />{" "}
+                      />
                       {country}
                     </h3>
                   </div>
                 </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
-                </p>
+
+                {userDescription ? (
+                  <p>{userDescription}</p>
+                ) : (
+                  <div className="edit-saveChanges add-discription__Btn-wrap">
+                    <button
+                      onClick={onEditClickHandler}
+                      className="edit-SaveChangesBtn"
+                    >
+                      Add description
+                    </button>
+                  </div>
+                )}
               </div>
               <div className="profile__social">
                 <div className="profile__stats ">
@@ -299,9 +312,24 @@ const Profile = () => {
                 <div className="profile__contact">
                   <h2>Contacts</h2>
                   <div className="profile__contact-Img">
-                    <img src={linkedIn} />
-                    <img src={twitter} />
-                    <img src={gmail} />
+                    <a
+                      onClick={(e) => e.preventDefault()}
+                      href={linkedIn ? linkedIn : "#"}
+                    >
+                      <img src={linkedIn_Img} />
+                    </a>
+                    <a
+                      onClick={(e) => e.preventDefault()}
+                      href={twitter ? twitter : "#"}
+                    >
+                      <img src={twitter_Img} />
+                    </a>
+                    <a
+                      onClick={(e) => e.preventDefault()}
+                      href={instagram ? instagram : "#"}
+                    >
+                      <img src={instagram_Img} />
+                    </a>
                   </div>
                 </div>
               </div>

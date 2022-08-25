@@ -3,9 +3,9 @@ import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { useEffect, useState } from "react";
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 // import logo from "../../../assets/img/Rectangle 2741.png";
-import instagram from "../../../assets/img/instagram.png";
-import linkedIn from "../../../assets/img/linkedin.png";
-import twitter from "../../../assets/img/twitter.png";
+import instagram_Img from "../../../assets/img/instagram.png";
+import linkedIn_Img from "../../../assets/img/linkedin.png";
+import twitter_Img from "../../../assets/img/twitter.png";
 
 import "./aboutdeal.css";
 import { useSelector } from "react-redux";
@@ -21,15 +21,26 @@ const AboutDeal = () => {
     dealHighlight,
     Links,
   } = deal;
+
+  console.log(deal);
   const { description } = dealDescription;
-  const { name, raised, date, type } = dealDetails;
-  const { videoLink } = Links;
+  const {
+    name,
+    raised,
+    date,
+    type,
+    headquarter,
+    firm,
+    noOfEmployees,
+    incorporationDate,
+  } = dealDetails;
+  const { videoLink, twitter, instagram, linkedIn, website } = Links;
   const { logo } = cardImages;
   const getRemainingDays = () => {
     let remainingDays = 31 - date.substring(8, date.length);
     return remainingDays;
   };
-  console.log(deal);
+  console.log(headquarter);
   return (
     <>
       <LoggedInNavbar />
@@ -123,13 +134,19 @@ const AboutDeal = () => {
                   <h3>Incorporation date</h3>
                 </div>
                 <div className="aboutdeal__overview-right">
-                  <h3>Delhi, India</h3>
-                  <h3>Private</h3>
-                  <h3>150</h3>
+                  <h3>{headquarter}</h3>
+                  <h3>{firm}</h3>
+                  <h3>{noOfEmployees}</h3>
                   <div className="aboutdeal__overview-social-links">
-                    <img src={instagram} />
-                    <img src={linkedIn} />
-                    <img src={twitter} />
+                    <a href={instagram}>
+                      <img src={instagram_Img} />
+                    </a>
+                    <a href={linkedIn}>
+                      <img src={linkedIn_Img} />
+                    </a>
+                    <a href={twitter}>
+                      <img src={twitter_Img} />
+                    </a>
                   </div>
                   <div className="aboutdeal__overview-social-tags">
                     <h4 style={{ marginLeft: 0 }}>Tech</h4>
@@ -137,9 +154,9 @@ const AboutDeal = () => {
                   </div>
                   <h3>Equity</h3>
                   <h3 style={{ marginTop: "-4px" }}>
-                    <a href="www.zepp.com">www.zepp.com</a>
+                    <a href="www.zepp.com">{website}</a>
                   </h3>
-                  <h3>11 August 2022</h3>
+                  <h3>{incorporationDate}</h3>
                 </div>
               </div>
               <button className="aboutdeal__overviewInterested-btn">

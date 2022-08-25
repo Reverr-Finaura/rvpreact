@@ -6,8 +6,27 @@ import { useEffect, useState } from "react";
 import logo from "../../../assets/img/Ellipse 280.png";
 import project from "../../../assets/img/My project 4.png";
 import TeamCard from "../../../components/teamCard/TeamCard";
+import { useSelector } from "react-redux";
 
 const OnePager = () => {
+  const deal = useSelector((state) => state.deal.deal);
+  const { cardImages } = deal;
+  const { logo } = cardImages;
+  const { logoUrl } = logo;
+  const { onePage, dealDetails } = deal;
+  const {
+    problem,
+    solution,
+    companyDescription,
+    tam,
+    sam,
+    som,
+    growthStategy,
+    marketTraction,
+    fundingAmt
+  } = onePage;
+  const { name } = dealDetails;
+  console.log(deal);
   return (
     <>
       <LoggedInNavbar />
@@ -18,7 +37,7 @@ const OnePager = () => {
         <div className="one-pager__right">
           <div className="one-pager__top-title">
             <span style={{ display: "flex", alignItems: "center" }}>
-              <img src={logo} alt="logo" />
+              <img style={{ width: "30%" }} src={logoUrl} alt="logo" />
               <h1
                 style={{
                   color: "#0077B7",
@@ -26,7 +45,7 @@ const OnePager = () => {
                   fontWeight: "800",
                 }}
               >
-                ZEPP
+                {name}
               </h1>
             </span>
             <img src={project} alt="project" style={{ width: "250px" }} />
@@ -40,10 +59,7 @@ const OnePager = () => {
               }}
             />
             <h1 style={{ color: "#0077B7" }}>Think big , think bip</h1>
-            <p style={{ fontSize: "30px" }}>
-              AMAZFIT INTRODUCES BEST-VALUE ESSENTIAL
-              <br /> SMARTWATCH ADDITIONS
-            </p>
+            <p style={{ fontSize: "30px" }}>{companyDescription}</p>
           </div>
           <div className="one-pager__problem-solution-wrap">
             <div className="one-pager__problem">
@@ -56,12 +72,7 @@ const OnePager = () => {
               >
                 Problem
               </h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
+              <p>{problem}</p>
             </div>
             <div className="one-pager__solution">
               <h1
@@ -73,12 +84,7 @@ const OnePager = () => {
               >
                 Solution
               </h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
+              <p>{solution}</p>
             </div>
           </div>
           <div className="one-pager__market-details">
@@ -107,7 +113,7 @@ const OnePager = () => {
                 </div>
                 <div>(Total Addressable Market)</div>
               </div>
-              <div style={{ color: "white" }}>1.4 crores</div>
+              <div style={{ color: "white" }}>{tam} crores</div>
             </div>
             <div className="one-pager__market-sam">
               <div>
@@ -122,7 +128,7 @@ const OnePager = () => {
                 </div>
                 <div>(Service Addressable Market)</div>
               </div>
-              <div style={{ color: "white" }}>1.4 crores</div>
+              <div style={{ color: "white" }}>{sam} crores</div>
             </div>
             <div className="one-pager__market-som">
               <div>
@@ -137,7 +143,7 @@ const OnePager = () => {
                 </div>
                 <div>(Service Obtainable Market)</div>
               </div>
-              <div style={{ color: "white" }}>1.4 crores</div>
+              <div style={{ color: "white" }}>{som} crores</div>
             </div>
           </div>
           <div className="one-pager__growth-traction-wrap">
@@ -151,12 +157,7 @@ const OnePager = () => {
               >
                 Growth Strategy
               </h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
+              <p>{growthStategy}</p>
             </div>
             <div className="one-pager__market-traction">
               <h1
@@ -168,12 +169,7 @@ const OnePager = () => {
               >
                 Market traction
               </h1>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
+              <p>{marketTraction}</p>
             </div>
           </div>
           <div className="one-pager__projections">
@@ -238,7 +234,7 @@ const OnePager = () => {
                 (in lakhs)
               </div>
             </h1>
-            <div className="one-pager__funding">56 Lakhs</div>
+            <div className="one-pager__funding">{fundingAmt} Lakhs</div>
           </div>
           <div className="one-pager__team">
             <h1
