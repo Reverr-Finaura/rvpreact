@@ -69,10 +69,16 @@ const SignIn = () => {
     signInWithGoogle().then((data) => console.log(data));
   };
 
+  const onKeyDownHandler = (event) => {
+    if (event.keyCode === 13) {
+      onSignInClickHandler();
+    }
+  };
+
   return (
     <>
       <Navbar />
-      <div className="main">
+      <div className="main" onKeyDown={onKeyDownHandler} tabIndex={0}>
         <div className="login-left">
           <div className="welcome-heading">Welcome !</div>
           <div className="login-to-account">Log in to your account</div>
