@@ -1,7 +1,6 @@
 import "./BlogCard.css";
 
 const BlogCard = ({ data }) => {
-  const heading = data.heading;
   const body = data.body;
   const imageUrl = data.image.imageUrl;
   const bodySliced = body.slice(0, 100);

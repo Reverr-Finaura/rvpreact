@@ -1,24 +1,30 @@
 import "./TeamCard.css";
 import profile from "../../assets/img/Rectangle 3025.png";
 import linkedin from "../../assets/img/teamCard_icons/linkedin.png";
-import twitter from "../../assets/img/teamCard_icons/twitter.png";
-import gmail from "../../assets/img/teamCard_icons/gmail.png";
 
-const TeamCard = () => {
+const TeamCard = ({ data }) => {
+  const { image, name, position, linkedIn, description } = data;
   return (
     <div className="team-card">
-      <img src={profile} alt="profile" />
-      <div className="team-card__name">Jim Hoper</div>
-      <div className="team-card__title">Investor</div>
-      <p className="team-card__para">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
-      </p>
-      <div className="team-card__social-icons">
-        <img src={linkedin} alt="linkedin" className="team-card__social-icon" />
-        <img src={twitter} alt="twitter" className="team-card__social-icon" />
-        <img src={gmail} alt="gmail" className="team-card__social-icon" />
+      <img
+        src={image.imageUrl}
+        alt="profile"
+        className="team-card__profile-img"
+      />
+      <div className="team-card__name">{name}</div>
+      <div className="team-card__title">
+        {position}{" "}
+        <img
+          src={linkedin}
+          alt="linkedin"
+          className="team-card__social-icon"
+          onClick={() => {
+            window.open(linkedIn, "_blank");
+          }}
+        />
       </div>
+      <br />
+      <p className="team-card__description">{description}</p>
     </div>
   );
 };

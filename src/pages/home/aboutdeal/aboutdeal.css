@@ -47,6 +47,7 @@
 .aboutdeal__video {
   width: 85%;
   border-radius: 20px;
+  box-shadow: 0 0 5px #ccc;
 }
 
 .aboutdeal__progress {

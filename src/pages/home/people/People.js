@@ -3,7 +3,12 @@ import Footer from "../../../components/footer/Footer";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import TeamCard from "../../../components/teamCard/TeamCard";
 import "./people.css";
+import { useSelector } from "react-redux";
+
 const People = () => {
+  const deal = useSelector((state) => state.deal.deal);
+  const { founders, advisors, investors } = deal;
+
   return (
     <>
       <LoggedInNavbar />
@@ -22,10 +27,9 @@ const People = () => {
               Meet the team
             </h1>
             <div className="people_team-wrap">
-              <TeamCard />
-              <TeamCard />
-              <TeamCard />
-              <TeamCard />
+              {founders.map((data) => (
+                <TeamCard key={data.id} data={data} />
+              ))}
             </div>
             <hr
               style={{
@@ -47,8 +51,9 @@ const People = () => {
               Investors
             </h1>
             <div className="people_team-wrap">
-              <TeamCard />
-              <TeamCard />
+              {investors.map((data) => (
+                <TeamCard key={data.id} data={data} />
+              ))}
             </div>
             <hr
               style={{
@@ -70,8 +75,9 @@ const People = () => {
               Advisors
             </h1>
             <div className="people_team-wrap">
-              <TeamCard />
-              <TeamCard />
+              {advisors.map((data) => (
+                <TeamCard key={data.id} data={data} />
+              ))}
             </div>
           </div>
         </div>

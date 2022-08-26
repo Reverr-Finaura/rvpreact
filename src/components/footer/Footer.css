@@ -107,8 +107,21 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
   .footer-right {
     flex-direction: column;
+  }
+
+  .footer-links__wrap {
+    display: flex;
+  }
+
+  .footer-social {
+    align-items: center;
+  }
+
+  .footer-links {
+    align-items: center;
+    margin-bottom: 2rem;
   }
 }

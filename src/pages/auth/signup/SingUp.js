@@ -13,7 +13,7 @@ import Footer from "../../../components/footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
