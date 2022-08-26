@@ -6,7 +6,10 @@ import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
 import { useCallback, useEffect, useState } from "react";
-import { fetchDealsFromDatabase } from "../../../firebase/firebase";
+import {
+  fetchDealsFromDatabase,
+  getUserFromDatabase,
+} from "../../../firebase/firebase";
 import leftBlogImage from "../../../assets/img/leftBlog.png";
 import rightBlogImage from "../../../assets/img/rightBlog.png";
 import bgImage from "../../../assets/img/Rectangle 2958.png";
@@ -24,20 +27,28 @@ import {
 import Accordian from "../../../components/accordian/Accordian";
 import { setDeals } from "../../../redux/deal/dealSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../../redux/user/userSlice";
 
 const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
-
+  // const user = useSelector((state) => state.user.user);
+  // console.log(user);
+  const uid = JSON.parse(localStorage.getItem("uid"));
   const fetchDeals = useCallback(async () => {
     const results = await fetchDealsFromDatabase();
     dispatch(setDeals(results));
-  }, [user.uid]);
+  }, []);
+
+  const fetchUser = async () => {
+    const user = await getUserFromDatabase(uid);
+    dispatch(login(user));
+  };
 
   useEffect(() => {
     fetchDeals();
-  }, [user.uid]);
+    fetchUser();
+  }, []);
 
   const data = [
     {

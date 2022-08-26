@@ -22,7 +22,7 @@ import ellipse6 from "../../../assets/img/ellipse6.png";
 import Navbar from "../../../components/navbar/Navbar";
 import { ArrowRepeat } from "react-bootstrap-icons";
 import { ToastContainer, toast } from "react-toastify";
-import { login } from "../../../redux/user/userSlice";
+import { fetchUserData, login } from "../../../redux/user/userSlice";
 
 const SignIn = () => {
   window.scrollTo(0, 0);
@@ -47,7 +47,9 @@ const SignIn = () => {
         .then(async (data) => {
           const { uid } = data.user;
           const user = await getUserFromDatabase(uid);
-          dispatch(login(user));
+          // dispatch(fetchUserData());
+          // dispatch(login(user));
+          localStorage.setItem("uid", JSON.stringify(uid));
           navigate("/dashboard");
           window.scrollTo(0, 0);
           setIsLoading(false);
