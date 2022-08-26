@@ -54,7 +54,14 @@ export const LandingPageInvestors = () => {
         </div>
         <div className="investment__flow">
           <div className="investment__flow-card">
-            <div className="ellipse-image">1.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#E13535" }}>
+              1.
+              <img
+                src={require("../../assets/img/investorsPageIcons/handshake.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>
               Deals come
             </div>
@@ -64,7 +71,14 @@ export const LandingPageInvestors = () => {
             </div>
           </div>
           <div className="investment__flow-card">
-            <div className="ellipse-image">2.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#EB7911" }}>
+              2.
+              <img
+                src={require("../../assets/img/investorsPageIcons/eye.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>Screening</div>
             <div>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -72,7 +86,14 @@ export const LandingPageInvestors = () => {
             </div>
           </div>
           <div className="investment__flow-card">
-            <div className="ellipse-image">3.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#45D313" }}>
+              3.
+              <img
+                src={require("../../assets/img/investorsPageIcons/tv.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>
               Deal goes live
             </div>
@@ -82,7 +103,14 @@ export const LandingPageInvestors = () => {
             </div>
           </div>
           <div className="investment__flow-card">
-            <div className="ellipse-image">4.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#1392DA" }}>
+              4.
+              <img
+                src={require("../../assets/img/investorsPageIcons/bell.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>
               Notification
             </div>
@@ -92,7 +120,14 @@ export const LandingPageInvestors = () => {
             </div>
           </div>
           <div className="investment__flow-card">
-            <div className="ellipse-image">5.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#6315E3" }}>
+              5.
+              <img
+                src={require("../../assets/img/investorsPageIcons/message.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>
               AMA Session
             </div>
@@ -102,7 +137,14 @@ export const LandingPageInvestors = () => {
             </div>
           </div>
           <div className="investment__flow-card">
-            <div className="ellipse-image">6.</div>
+            <div className="ellipse-bg" style={{ backgroundColor: "#D712DB" }}>
+              6.
+              <img
+                src={require("../../assets/img/investorsPageIcons/rupee.png")}
+                style={{ marginTop: "0.5rem" }}
+                alt="icon"
+              />
+            </div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>Invest</div>
             <div>
               Lorem Ipsum is simply dummy text of the printing and typesetting
