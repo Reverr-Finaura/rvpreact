@@ -11,7 +11,6 @@ const DealSideNav = () => {
   const { firstName, lastName, email } = user;
   console.log(deal);
   const { dealDetails } = deal;
-  const { name } = dealDetails;
 
   return (
     <div className="sideNav">
@@ -46,9 +45,13 @@ const DealSideNav = () => {
 
       <NavLink
         onClick={async () => {
-          await sendInteredtedDealMail(firstName + " " + lastName, email, name);
+          await sendInteredtedDealMail(
+            firstName + " " + lastName,
+            email,
+            dealDetails.name
+          );
           await sendUserInterestedDealToMail(
-            name,
+            dealDetails.name,
             firstName + " " + lastName,
             firstName + " " + lastName
           );

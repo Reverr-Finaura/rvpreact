@@ -11,6 +11,7 @@ import { sendOtpToMail } from "../../../emailJs/emailJs";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
+import Select from "react-select";
 
 const SignUp = () => {
   // window.scrollTo(0, 0);
@@ -26,7 +27,31 @@ const SignUp = () => {
   const [stageOfInvestment, setStageOfInvestment] = useState("");
   const [amount, setAmount] = useState("");
   const [experienceOfInvesting, setExperienceOfInvesting] = useState("");
-  const [sectorsOfInvesting, setSectorsOfInvesting] = useState("");
+  const [sectorsOfInvesting, setSectorsOfInvesting] = useState([]);
+
+  const sectors = [
+    { value: 1, label: "Agricultural" },
+    { value: 2, label: "Apparel & Accessories" },
+    { value: 3, label: "Automobile & Ancillaries" },
+    { value: 4, label: "Banking" },
+    { value: 5, label: "Consumer Durables" },
+    { value: 6, label: "Derived Materials" },
+    { value: 7, label: "Energy" },
+    { value: 8, label: "Financial" },
+    { value: 9, label: "FMCG" },
+    { value: 10, label: "Food and Beverages" },
+    { value: 11, label: "Healthcare" },
+    { value: 12, label: "Hospitality and Travel" },
+    { value: 13, label: "Industrial Products" },
+    { value: 14, label: "Industries" },
+    { value: 15, label: "IT Industry" },
+    { value: 16, label: "Logistics and Freight" },
+    { value: 17, label: "Media & Entertainment" },
+    { value: 18, label: "Raw Material" },
+    { value: 19, label: "Tele-Communication" },
+    { value: 20, label: "Textile Industry" },
+    { value: 21, label: "Others" },
+  ];
 
   const dispatch = useDispatch();
   const [personalDetailsTabActive, setPersonalDetailsTabActive] =
@@ -266,18 +291,16 @@ const SignUp = () => {
                     Sectors for investment <span className="important">*</span>
                   </label>
                   <div className="sectors-for-investment">
-                    <select
+                    <Select
                       onChange={(e) => {
-                        setSectorsOfInvesting(e.target.value);
+                        setSectorsOfInvesting(
+                          Array.isArray(e) ? e.map((x) => x.label) : []
+                        );
                       }}
-                      name="amount"
-                      id="amount"
-                      style={{ width: "60%", margin: "-0.5rem" }}
-                    >
-                      <option value="1">Sector 1</option>
-                      <option value="2">Sector 2</option>
-                      <option value="3">Sector 3</option>
-                    </select>
+                      options={sectors}
+                      name="sectors"
+                      isMulti
+                    />
                   </div>
                   <label>
                     Preferred stage for Investment{" "}

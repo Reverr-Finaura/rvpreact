@@ -167,13 +167,12 @@ label {
 }
 
 .sectors-for-investment {
-  color: white;
+  color: #000;
   font-size: 20px;
-  margin-left: 0.5rem;
-  margin-right: 1.8rem;
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  width: 400px;
 }
 
 .stage-for-funding {

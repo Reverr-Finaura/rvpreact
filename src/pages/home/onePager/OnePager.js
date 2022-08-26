@@ -37,13 +37,18 @@ const OnePager = () => {
         </div>
         <div className="one-pager__right">
           <div className="one-pager__top-title">
-            <span style={{ display: "flex", alignItems: "center" }}>
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "1rem",
+              }}
+            >
               <img
                 style={{
                   width: "30%",
                   boxShadow: "0 0 3px #ccc",
-                  borderRadius: "5px",
-                  marginBottom: "0.5rem",
+                  borderRadius: "10px",
                 }}
                 src={logoUrl}
                 alt="logo"
