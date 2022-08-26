@@ -25,6 +25,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { fetchUserData, login } from "../../../redux/user/userSlice";
 
 const SignIn = () => {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");

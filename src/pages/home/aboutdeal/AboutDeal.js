@@ -138,23 +138,25 @@ const AboutDeal = () => {
                   <h3>{firm}</h3>
                   <h3>{noOfEmployees}</h3>
                   <div className="aboutdeal__overview-social-links">
-                    <a href={instagram}>
-                      <img src={instagram_Img} />
+                    <a href={instagram} target="_blank" rel="noreferrer">
+                      <img src={instagram_Img} alt="insta-link" />
                     </a>
-                    <a href={linkedIn}>
-                      <img src={linkedIn_Img} />
+                    <a href={linkedIn} target="_blank" rel="noreferrer">
+                      <img src={linkedIn_Img} alt="linkedin-link" />
                     </a>
-                    <a href={twitter}>
-                      <img src={twitter_Img} />
+                    <a href={twitter} target="_blank" rel="noreferrer">
+                      <img src={twitter_Img} alt="twitter-link" />
                     </a>
                   </div>
                   <div className="aboutdeal__overview-social-tags">
                     <h4 style={{ marginLeft: 0 }}>Tech</h4>
                     <h4>Consumer electronics smart wearable</h4>
                   </div>
-                  <h3>Equity</h3>
+                  <h3>{type}</h3>
                   <h3 style={{ marginTop: "-4px" }}>
-                    <a href="www.zepp.com">{website}</a>
+                    <a href={`${website}`} target="_blank" rel="noreferrer">
+                      {website}
+                    </a>
                   </h3>
                   <h3>{incorporationDate}</h3>
                 </div>

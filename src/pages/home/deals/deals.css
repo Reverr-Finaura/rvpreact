@@ -28,7 +28,7 @@
 
 .deal-search__input {
   all: unset;
-  color: white;
+  color: #000;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   background: rgba(217, 217, 217, 0.6);

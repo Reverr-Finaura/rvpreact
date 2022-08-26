@@ -5,6 +5,9 @@
   margin: auto;
   border: 3px solid #0077b7;
   border-radius: 10px 10px 50px 50px;
+  position: sticky;
+  top: 150px;
+  margin-bottom: 2rem;
 }
 
 .NavLink {

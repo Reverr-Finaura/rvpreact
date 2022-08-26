@@ -23,10 +23,11 @@ const OnePager = () => {
     som,
     growthStategy,
     marketTraction,
-    fundingAmt
+    fundingAmt,
   } = onePage;
   const { name } = dealDetails;
-  console.log(deal);
+  const { founders } = deal;
+
   return (
     <>
       <LoggedInNavbar />
@@ -247,10 +248,9 @@ const OnePager = () => {
               Team
             </h1>
             <div className="one-pager__team-card-section">
-              <TeamCard />
-              <TeamCard />
-              <TeamCard />
-              <TeamCard />
+              {founders.map((data) => (
+                <TeamCard key={data.id} data={data} />
+              ))}
             </div>
           </div>
           <div className="one-pager__download-button">Download</div>

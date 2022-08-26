@@ -60,7 +60,11 @@ const DealSideNav = () => {
         <div className="interested__text">Interested</div>
       </NavLink>
 
-      <NavLink to="/deals" className="NavLink NavLink__Logout ">
+      <NavLink
+        to="/deals"
+        className="NavLink NavLink__Logout "
+        style={{ borderBottom: "none" }}
+      >
         Go back
       </NavLink>
     </div>
