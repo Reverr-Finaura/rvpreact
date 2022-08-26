@@ -76,19 +76,19 @@ export const confirmPaswdReset = (oobCode, newPassword) => {
 const database = getFirestore();
 
 // getInverstoDeals
-export const getInvestorDeals = async () => {
-  try {
-    let investorDeals = [];
-    await (
-      await getDocs(collection(database, `InvestorDeals`))
-    ).forEach((doc) => {
-      investorDeals.push({ ...doc.data() });
-    });
-    return investorDeals;
-  } catch (err) {
-    console.log("Err: ", err);
-  }
-};
+// export const getInvestorDeals = async () => {
+//   try {
+//     let investorDeals = [];
+//     await (
+//       await getDocs(collection(database, `InvestorDeals`))
+//     ).forEach((doc) => {
+//       investorDeals.push({ ...doc.data() });
+//     });
+//     return investorDeals;
+//   } catch (err) {
+//     console.log("Err: ", err);
+//   }
+// };
 
 // addUser
 export const addUserInDatabase = async (uid, data) => {
