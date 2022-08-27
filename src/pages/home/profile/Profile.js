@@ -7,10 +7,7 @@ import Logo from "../../../assets/img/Flag_of_India 2.png";
 import linkedIn_Img from "../../../assets/img/teamCard_icons/linkedin.png";
 import twitter_Img from "../../../assets/img/teamCard_icons/twitter.png";
 import instagram_Img from "../../../assets/img/teamCard_icons/instagram.png";
-import {
-  ImageFill,
-  Pencil,
-} from "react-bootstrap-icons";
+import { ImageFill, Pencil } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../../redux/user/userSlice";
@@ -19,6 +16,7 @@ const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+  console.log(user);
   const {
     firstName,
     lastName,
@@ -29,11 +27,12 @@ const Profile = () => {
     uid,
     amount,
     // userType,
-    linkedIn,
+    linkedInUrl,
     twitter,
     instagram,
     userDescription,
     userImg,
+    whenToStartInvesting,
   } = user;
 
   const [userImgFile, setUserImgFile] = useState("");
@@ -75,6 +74,7 @@ const Profile = () => {
     setIsLoading(true);
     if (true) {
       const userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
+
       const fullName = name.split(" ");
       const fName = fullName[0];
       const lName = fullName[1];
@@ -89,10 +89,10 @@ const Profile = () => {
         userImg: userImgUrl,
         amount: amt,
         userDescription: description,
-        linkedIn: linkedUrl,
+        linkedInUrl: linkedUrl,
         instagram: instagramUrl,
         twitter: twitterUrl,
-        whenToInvest,
+        whenToStartInvesting: whenToInvest,
       };
       await updateUserInDatabse(uid, updatedData);
       dispatch(updateUser(updatedData));
@@ -111,7 +111,7 @@ const Profile = () => {
     setAmt(amount);
     setDescription(userDescription);
     // setType(userType);
-    setLinkedUrl(linkedIn);
+    setLinkedUrl(linkedInUrl);
   };
 
   console.log(userDescription);
@@ -158,11 +158,11 @@ const Profile = () => {
                       placeholder="Change Name"
                       type="text"
                     />
-                    <input
+                    {/* <input
                       // onChange={(e) => setUserType(e.target.value)}
                       placeholder="Change Designation"
                       type="text"
-                    />
+                    /> */}
                     <input
                       value={from}
                       onChange={(e) => setFrom(e.target.value)}
@@ -216,6 +216,7 @@ const Profile = () => {
 
                   <h4>By when do you want to start Investing </h4>
                   <input
+                    value={whenToInvest}
                     onChange={(e) => setWhenToInvest(e.target.value)}
                     placeholder="Change answer"
                     type="text"
@@ -233,16 +234,19 @@ const Profile = () => {
                   <h2>Contacts</h2>
                   <div className="profile__contact-Imgedit">
                     <input
+                      value={linkedUrl}
                       onChange={(e) => setLinkedUrl(e.target.value)}
                       placeholder="LinkedIn"
                       type="text"
                     />
                     <input
+                      value={twitterUrl}
                       onChange={(e) => setTwitterUrl(e.target.value)}
                       placeholder="twitter"
                       type="text"
                     />
                     <input
+                      value={instagramUrl}
                       onChange={(e) => setInstagramUrl(e.target.value)}
                       placeholder="instagram"
                       type="text"
@@ -299,13 +303,26 @@ const Profile = () => {
               <div className="profile__social">
                 <div className="profile__stats ">
                   <h4>Sectors for Investment</h4>
-                  <h5>{sectorsOfInvesting} </h5>
+                  <h5>
+                    {sectorsOfInvesting.map((sector) => (
+                      <sapn
+                        style={{
+                          backgroundColor: "#535353",
+                          borderRadius: "5px",
+                          padding: "0 0.5rem",
+                          marginRight: "0.2rem",
+                        }}
+                      >
+                        {sector}
+                      </sapn>
+                    ))}
+                  </h5>
                   <h4>Preferred stage for Investment</h4>
                   <h5>{stageOfInvestment}</h5>
                   <h4>Amount you want Invest </h4>
-                  <h5>10 lakh - 50 lakh</h5>
+                  <h5>{amount}</h5>
                   <h4>By when do you want to start Investing </h4>
-                  <h5>Lorem Ipsum</h5>
+                  <h5>{whenToStartInvesting}</h5>
                   <h4>Years of experience in Investing </h4>
                   <h5>{experienceOfInvesting}</h5>
                 </div>
@@ -314,7 +331,7 @@ const Profile = () => {
                   <div className="profile__contact-Img">
                     <a
                       onClick={(e) => e.preventDefault()}
-                      href={linkedIn ? linkedIn : "#"}
+                      href={linkedInUrl ? linkedInUrl : "#"}
                     >
                       <img src={linkedIn_Img} />
                     </a>

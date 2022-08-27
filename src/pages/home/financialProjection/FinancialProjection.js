@@ -2,9 +2,13 @@
 import DealSideNav from "../../../components/dealsidenav/DealSideNav";
 import Footer from "../../../components/footer/Footer";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
+import { useSelector } from "react-redux";
 import "./financialProjection.css";
 
 const FinancialProjection = () => {
+  const deal = useSelector((state) => state.deal.deal);
+  const { projection } = deal;
+  const projectionUrl = projection.docUrl;
   return (
     <>
       <LoggedInNavbar />

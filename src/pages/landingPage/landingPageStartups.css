@@ -4,8 +4,13 @@
 
 .startups-pentagon-image {
   background: url("../../assets/img/pentagon.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: black;
 }
 

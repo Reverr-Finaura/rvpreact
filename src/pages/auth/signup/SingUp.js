@@ -80,7 +80,6 @@ const SignUp = () => {
       country,
       linkedInUrl,
       phoneNumber,
-      password,
       stageOfInvestment,
       amount,
       experienceOfInvesting,
