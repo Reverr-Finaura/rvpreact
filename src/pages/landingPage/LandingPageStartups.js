@@ -55,7 +55,7 @@ export const LandingPageStartups = () => {
         </div>
         <div className="investment__flow">
           <div className="investment__flow-card">
-            <div className="ellipse-image startups-pentagon-image">1.</div>
+            <div className="startups-pentagon-image">1.</div>
             <div style={{ fontSize: "25px", fontWeight: "900" }}>Apply</div>
             <div>
               Lorem Ipsum is simply dummy text of the printing and typesetting

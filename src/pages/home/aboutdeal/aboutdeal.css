@@ -91,16 +91,15 @@
 }
 .aboutdeal__overview-social-tags {
   display: flex;
-  justify-content: space-between;
-  padding: 0;
+  flex-wrap: wrap;
 }
 
-.aboutdeal__overview-social-tags h4 {
-  margin: 1.4rem 0rem 0rem 1rem;
-  background-color: #0077b7db;
-  padding: 4px;
-  border-radius: 3px;
-  color: white;
+.aboutdeal__overview-social-tag {
+  padding: 0.3rem 1rem;
+  background: rgba(0, 119, 183, 0.86);
+  border-radius: 8px;
+  color: #fff;
+  margin-right: 1rem;
 }
 
 .aboutdeal__overviewInterested-btn {

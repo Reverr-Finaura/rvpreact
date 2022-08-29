@@ -33,6 +33,7 @@ const AboutDeal = () => {
     firm,
     noOfEmployees,
     incorporationDate,
+    sectorsOfInvestment,
   } = dealDetails;
   const { videoLink, twitter, instagram, linkedIn, website } = Links;
   const { logo } = cardImages;
@@ -52,7 +53,15 @@ const AboutDeal = () => {
           <div className="aboutdeal__wrap">
             <div className="aboutdeal__head">
               <div className="aboutdeal__logo">
-                <img style={{ width: "100%" }} src={logo.logoUrl} alt="logo" />
+                <img
+                  style={{
+                    width: "100%",
+                    borderRadius: "50%",
+                    boxShadow: "0 0 3px #ccc",
+                  }}
+                  src={logo.logoUrl}
+                  alt="logo"
+                />
                 <h1>{name}</h1>
               </div>
 
@@ -127,8 +136,11 @@ const AboutDeal = () => {
                   <h3>Headquaters</h3>
                   <h3>Firm</h3>
                   <h3>Employee</h3>
+                  <br />
                   <h3>Social media</h3>
-                  <h3 style={{ marginTop: "24px" }}>Sector</h3>
+                  <br />
+                  <h3 style={{ marginTop: "10px" }}>Sector</h3>
+                  <br />
                   <h3>Type</h3>
                   <h3>Website</h3>
                   <h3>Incorporation date</h3>
@@ -137,6 +149,7 @@ const AboutDeal = () => {
                   <h3>{headquarter}</h3>
                   <h3>{firm}</h3>
                   <h3>{noOfEmployees}</h3>
+                  <br />
                   <div className="aboutdeal__overview-social-links">
                     <a href={instagram} target="_blank" rel="noreferrer">
                       <img src={instagram_Img} alt="insta-link" />
@@ -148,10 +161,15 @@ const AboutDeal = () => {
                       <img src={twitter_Img} alt="twitter-link" />
                     </a>
                   </div>
+                  <br />
                   <div className="aboutdeal__overview-social-tags">
-                    <h4 style={{ marginLeft: 0 }}>Tech</h4>
-                    <h4>Consumer electronics smart wearable</h4>
+                    {sectorsOfInvestment.map((data) => (
+                      <span className="aboutdeal__overview-social-tag">
+                        {data}
+                      </span>
+                    ))}
                   </div>
+                  <br />
                   <h3>{type}</h3>
                   <h3 style={{ marginTop: "-4px" }}>
                     <a href={`${website}`} target="_blank" rel="noreferrer">

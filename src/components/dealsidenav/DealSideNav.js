@@ -33,6 +33,10 @@ const DealSideNav = () => {
     }
   };
 
+  // Note jab user interested par click kar rha hai to interestedDeals me kya dalna hai uid,whole data of deal
+  // uid - exract which mathches uid of deal and it takes time...
+  // whole deal...
+
   console.log(deal);
   return (
     <div className="sideNav">

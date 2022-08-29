@@ -5,10 +5,11 @@ import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
-import { useCallback, useEffect, useState } from "react";
+import { forwardRef, useCallback, useEffect, useState } from "react";
 import {
   fetchDealsFromDatabase,
   getUserFromDatabase,
+  fetchBlogsFromDatabase,
 } from "../../../firebase/firebase";
 import leftBlogImage from "../../../assets/img/leftBlog.png";
 import rightBlogImage from "../../../assets/img/rightBlog.png";
@@ -26,14 +27,17 @@ import {
 } from "react-bootstrap-icons";
 import Accordian from "../../../components/accordian/Accordian";
 import { setDeals } from "../../../redux/deal/dealSlice";
+import { setBlog, setBlogs } from "../../../redux/blogs/blogsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../redux/user/userSlice";
+import { ArrowRepeat } from "react-bootstrap-icons";
+import BlogCard from "../../../components/blogCard/BlogCard";
 
 const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.user);
-  // console.log(user);
+  const [isLoading, setIsLoading] = useState(false);
+
   const uid = JSON.parse(localStorage.getItem("uid"));
   const fetchDeals = useCallback(async () => {
     const results = await fetchDealsFromDatabase();
@@ -47,35 +51,41 @@ const Dashboard = () => {
     console.log(user);
   };
 
+  const fetchBlogs = useCallback(async () => {
+    setIsLoading(true);
+    const results = await fetchBlogsFromDatabase();
+    dispatch(setBlogs(results));
+    setIsLoading(false);
+  }, []);
+
   useEffect(() => {
     fetchDeals();
     fetchUser();
+    fetchBlogs();
   }, []);
 
-  const data = [
+  const blogs = useSelector((state) => state.blogs.blogs);
+
+  const faqReverr = [
     {
       id: 1,
-      question: "What is Reverr Venture Partners ?",
-      answer:
-        "DOM stands for Document Object Model. The DOM represents an HTML document with a logical tree structure. Each branch of the tree ends in a node, and each node contains objects.",
+      Q: "What is Reverr Venture Partners ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     },
     {
       id: 2,
-      question: "What does Reverr Venture Partners offer ?",
-      answer:
-        "Install the create-react-app package using the command prompt or terminal.",
+      Q: "What does Reverr Venture Partners offer ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     },
     {
       id: 3,
-      question: "How is Reverr Venture Partners a solutions ?",
-      answer:
-        "An event is an action that a user or system may trigger, such as pressing a key, a mouse click, etc.",
+      Q: "How is Reverr Venture Partners a solutions ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     },
     {
       id: 4,
-      question: "What does Reverr Venture Partners makes it standout ?",
-      answer:
-        "Synthetic events combine the response of different browser's native events into one API, ensuring that the events are consistent across different browsers.",
+      Q: "What does Reverr Venture Partners makes it standout ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     },
   ];
   return (
@@ -175,53 +185,36 @@ const Dashboard = () => {
             }}
           />
 
-          <div className="dashboard-blogs">
-            <div className="dashboard__blogs-head">
-              <img className="dashboard__blogs-bgImage" src={bgImage} />
-              <h1 style={{ position: "absolute", left: "35%", top: "10%" }}>
-                Reverr Blogs
+          <div className="home__reverr-blogs" style={{ margin: "1rem 0" }}>
+            <div className="home__blogs-head">
+              <h1>REVERR BLOGS</h1>
+            </div>
+            <div>
+              <input
+                placeholder="Search"
+                className="home__blogs-search-input"
+              />
+            </div>
+            {isLoading ? (
+              <h1 style={{ opacity: "0.8" }}>
+                <ArrowRepeat className="loading-state" />
               </h1>
-              <img className="dashboard__blogs-leftImg" src={leftBlogImage} />
-              <input className="dashboard__blogs-input" placeholder="Search" />
-              <img className="dashboard__blogs-rightImg" src={rightBlogImage} />
-            </div>
-
-            <div className="dashboard__blogs-body">
-              <div className="dashboard__blogs__leftcontent">
-                <img
-                  className="dashboard__blogs__leftcontentImg"
-                  src={leftBlogBgImage}
-                />
-                <h2 style={{ color: "#2a72de" }}>
-                  Guide to help you build your business
-                </h2>
-                <p>
-                  orem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown{" "}
-                </p>
-
-                <p
-                  style={{
-                    textAlign: "right",
-                    margin: "30px 50px 0px 0px",
-                    color: "#2a72de",
-                  }}
-                >
-                  Read more...
-                </p>
+            ) : (
+              <div className="home__blogs-fetched">
+                {blogs.map((data) => (
+                  <Link
+                    onClick={() => {
+                      dispatch(setBlog(data));
+                    }}
+                    key={data.id}
+                    to={`${data.id}/blog`}
+                    className="blog-card__link"
+                  >
+                    <BlogCard key={data.id} data={data} />
+                  </Link>
+                ))}
               </div>
-              <div className="dashboard__blogs__rightcontent">
-                <div className="dahsboard__blogs_content1">
-                  <img src={rightBlogBgImage1} />
-                  <h4> build your business and Lorem Ipsum</h4>
-                </div>
-                <div className="dahsboard__blogs_content2">
-                  <img src={rightBlogBgImage2} />
-                  <h4> build your business and network</h4>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
 
           <hr
@@ -235,8 +228,8 @@ const Dashboard = () => {
 
           <div className="dashboard__faqs">
             <h1 style={{ color: "#2a72de", textAlign: "center" }}>FAQs</h1>
-            {data.map((data) => (
-              <Accordian key={data.id} {...data} />
+            {faqReverr.map((faq) => (
+              <Accordian key={faq.id} {...faq} />
             ))}
             <div className="dasboard__contact-wrap">
               <p style={{ marginBottom: "1rem" }}>

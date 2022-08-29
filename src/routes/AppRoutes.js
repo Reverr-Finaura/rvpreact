@@ -85,6 +85,7 @@ const AppRoutes = () => {
       />
       <Route path="/home" element={<HomePage />} />
       <Route path="/home/:blog_Id/blog" element={<Blogs />} />
+      <Route path="/dashboard/:blog_Id/blog" element={<Blogs />} />
       <Route
         path="/dashboard"
         element={
