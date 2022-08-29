@@ -4,15 +4,36 @@ import {
   sendInteredtedDealMail,
   sendUserInterestedDealToMail,
 } from "../../emailJs/emailJs";
+import { updateDealInDatabase } from "../../firebase/firebase";
 
 const DealSideNav = () => {
   const user = useSelector((state) => state.user.user);
   const deal = useSelector((state) => state.deal.deal);
-  const { firstName, lastName, email } = user;
-  console.log(deal);
-  const { dealDetails } = deal;
+  const { firstName, lastName, email, uid } = user;
+  const { dealDetails, meetings } = deal;
+  const { interestedUser, meetingDetails } = meetings;
   const { name } = dealDetails;
+  const addInterested = async () => {
+    for (let i = 0; i <= interestedUser.length; i++) {
+      if (interestedUser[i] === uid) {
+        console.log("Exist");
+        break;
+      } else {
+        await updateDealInDatabase(deal.id, {
+          ...deal,
+          meetings: [
+            {
+              ...meetings,
+              // meetingDetails: { time: "", desc: "", date: "", meetingLink: "" },
+              interestedUser: [uid, ...interestedUser],
+            },
+          ],
+        });
+      }
+    }
+  };
 
+  console.log(deal);
   return (
     <div className="sideNav">
       <NavLink
@@ -45,14 +66,15 @@ const DealSideNav = () => {
       </NavLink>
 
       <NavLink
-        onClick={async () => {
-          await sendInteredtedDealMail(firstName + " " + lastName, email, name);
-          await sendUserInterestedDealToMail(
-            name,
-            firstName + " " + lastName,
-            firstName + " " + lastName
-          );
-          alert("Email Sent SuccessFuly");
+        onClick={() => {
+          addInterested();
+          // await sendInteredtedDealMail(firstName + " " + lastName, email, name);
+          // await sendUserInterestedDealToMail(
+          //   name,
+          //   firstName + " " + lastName,
+          //   firstName + " " + lastName
+          // );
+          // alert("Email Sent SuccessFuly");
         }}
         to="/interested"
         className="NavLink-interested"

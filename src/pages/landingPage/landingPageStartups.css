@@ -7,6 +7,12 @@
   background-size: cover;
   background-position: center;
   color: black;
+  width: 90%;
+  height: 150px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landiing__startups-lifecycle {
