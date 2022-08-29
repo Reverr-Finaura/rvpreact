@@ -8,7 +8,8 @@ const BlogCard = ({ data }) => {
     <>
       <div className="blog-card">
         <img src={imageUrl} width="100%" alt="blog" />
-        <h1 style={{ textAlign: "center" }}>{data.heading}</h1>
+        <br />
+        <h3 style={{ textAlign: "center" }}>{data.heading}</h3>
         <p className="blog-body">{bodySliced}...</p>
         <br />
         <div className="blog-card__read-more">Read More</div>

@@ -45,7 +45,9 @@
 
 .profile__stats {
   width: 100%;
-  height: 350px;
+  height: max-content;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .profile__contact {
@@ -147,7 +149,7 @@ h3 {
 }
 
 .profile__statsedit {
-  height: 380px;
+  height: max-content;
 }
 
 .profile__contactedit {
@@ -155,7 +157,7 @@ h3 {
 }
 
 .profile__bio__content-edit {
-  background-color: #f6f6f6;
+  background-color: transparent;
   border: 5px solid #0077b7;
   border-radius: 8px;
   height: 150px;
@@ -223,6 +225,7 @@ h3 {
   font-weight: bold;
   font-size: 1rem;
   padding: 20px;
+  resize: vertical;
 }
 
 .profile__statsedit {

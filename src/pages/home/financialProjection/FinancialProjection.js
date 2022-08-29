@@ -36,7 +36,12 @@ const FinancialProjection = () => {
             style={{ borderRadius: "10px" }}
           ></iframe>
           <div className="financialprojection-downloadBtn">
-            <button className="financialprojection-btn">Download</button>
+            <button
+              className="financialprojection-btn"
+              onClick={() => window.open(projectionUrl, "_blank")}
+            >
+              Download
+            </button>
           </div>
         </div>
       </div>

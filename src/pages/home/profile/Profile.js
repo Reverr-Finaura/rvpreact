@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../../redux/user/userSlice";
 import { updateUserInDatabse, uploadMedia } from "../../../firebase/firebase";
+import Select from "react-select";
+
 const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   const user = useSelector((state) => state.user.user);
@@ -38,7 +40,7 @@ const Profile = () => {
   const [userImgFile, setUserImgFile] = useState("");
   const [name, setName] = useState("");
   const [experience, setExperience] = useState("");
-  const [sector, setSector] = useState("");
+  const [sector, setSector] = useState([]);
   const [stage, setStage] = useState("");
   const [amt, setAmt] = useState("");
   const [from, setFrom] = useState("");
@@ -112,9 +114,35 @@ const Profile = () => {
     setDescription(userDescription);
     // setType(userType);
     setLinkedUrl(linkedInUrl);
+    setWhenToInvest(whenToStartInvesting);
+    setInstagramUrl(instagram);
+    setTwitterUrl(twitter);
+    setUserImgFile(userImg);
   };
 
-  console.log(userDescription);
+  const sectorsList = [
+    { value: 1, label: "Agricultural" },
+    { value: 2, label: "Apparel & Accessories" },
+    { value: 3, label: "Automobile & Ancillaries" },
+    { value: 4, label: "Banking" },
+    { value: 5, label: "Consumer Durables" },
+    { value: 6, label: "Derived Materials" },
+    { value: 7, label: "Energy" },
+    { value: 8, label: "Financial" },
+    { value: 9, label: "FMCG" },
+    { value: 10, label: "Food and Beverages" },
+    { value: 11, label: "Healthcare" },
+    { value: 12, label: "Hospitality and Travel" },
+    { value: 13, label: "Industrial Products" },
+    { value: 14, label: "Industries" },
+    { value: 15, label: "IT Industry" },
+    { value: 16, label: "Logistics and Freight" },
+    { value: 17, label: "Media & Entertainment" },
+    { value: 18, label: "Raw Material" },
+    { value: 19, label: "Tele-Communication" },
+    { value: 20, label: "Textile Industry" },
+    { value: 21, label: "Others" },
+  ];
 
   return (
     <>
@@ -133,7 +161,7 @@ const Profile = () => {
                     <h3 className="profile__bio__content-editH3">
                       Edit picture
                     </h3>
-                    <label for="user-img">
+                    <label for="user-img" style={{ color: "#fff" }}>
                       {" "}
                       <ImageFill /> Add from device
                     </label>
@@ -191,12 +219,25 @@ const Profile = () => {
               <div className="profile__social">
                 <div className="profile__stats profile__statsedit">
                   <h4>Sectors for Investment</h4>
-                  <input
-                    value={sector}
-                    onChange={(e) => setSector(e.target.value)}
-                    placeholder="Change answer"
-                    type="text"
-                  />
+                  <div
+                    style={{
+                      color: "black",
+                      width: "200px",
+                      margin: "0.5rem auto",
+                    }}
+                  >
+                    <Select
+                      onChange={(e) => {
+                        setSector(
+                          Array.isArray(e) ? e.map((x) => x.label) : []
+                        );
+                      }}
+                      // defaultValue={sec}
+                      options={sectorsList}
+                      name="sectors"
+                      isMulti
+                    />
+                  </div>
 
                   <h4>Preferred stage for Investment</h4>
                   <input
@@ -265,7 +306,7 @@ const Profile = () => {
                 </div>
                 <div className="profile__bio-content">
                   <div className="profile__bio__content__img">
-                    {userImg.length ? (
+                    {userImg ? (
                       <img src={userImg} />
                     ) : (
                       <img src={Rectangle2764} />

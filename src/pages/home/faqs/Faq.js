@@ -7,7 +7,29 @@ import { useSelector } from "react-redux";
 const Faq = () => {
   const deal = useSelector((state) => state.deal.deal);
   const { faqs } = deal;
-  console.log(faqs);
+
+  const faqReverr = [
+    {
+      id: 1,
+      Q: "What is Reverr Venture Partners ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+    {
+      id: 2,
+      Q: "What does Reverr Venture Partners offer ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+    {
+      id: 3,
+      Q: "How is Reverr Venture Partners a solutions ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+    {
+      id: 4,
+      Q: "What does Reverr Venture Partners makes it standout ?",
+      A: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  ];
 
   return (
     <>
@@ -25,9 +47,9 @@ const Faq = () => {
           ))}
 
           <h1 style={{ color: "#2a72de", textAlign: "center" }}>
-            About Reverr venture partners
+            About Reverr Venture Partners
           </h1>
-          {faqs.map((data) => (
+          {faqReverr.map((data) => (
             <Accordian key={data.id} {...data} />
           ))}
 
