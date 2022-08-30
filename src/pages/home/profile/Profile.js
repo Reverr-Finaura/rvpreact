@@ -144,6 +144,20 @@ const Profile = () => {
     { value: 21, label: "Others" },
   ];
 
+  // Default value for sectors of investment (or pre-selected value)
+  let defaultValue = [];
+
+  for (let i = 0; i < sector.length; i++) {
+    for (let j = 0; j < 21; j++) {
+      if (sector[i] === sectorsList[j].label) {
+        defaultValue.push({
+          value: sectorsList[j].value,
+          label: sector[i],
+        });
+      }
+    }
+  }
+
   return (
     <>
       <LoggedInNavbar />
@@ -232,7 +246,7 @@ const Profile = () => {
                           Array.isArray(e) ? e.map((x) => x.label) : []
                         );
                       }}
-                      // defaultValue={sec}
+                      defaultValue={defaultValue}
                       options={sectorsList}
                       name="sectors"
                       isMulti

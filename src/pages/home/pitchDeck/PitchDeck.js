@@ -9,6 +9,19 @@ const PitchDeck = () => {
   const { pitchDeck } = deal;
   const pitchDeckUrl = pitchDeck.docUrl;
 
+  let meetings = [
+    {
+      meetingDetails: {
+        time: "",
+        date: "",
+        desc: "",
+        meetingLinks: "",
+        id: "",
+      },
+      interestedUser: [],
+    },
+  ];
+
   return (
     <>
       <LoggedInNavbar />
@@ -19,7 +32,7 @@ const PitchDeck = () => {
         <div className="pitchdeck__right-wrap">
           <iframe
             title="pitch-deck"
-            src={`https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Ffirebasestorage%2Egoogleapis%2Ecom%3A443%2Fv0%2Fb%2Freverr%2D25fb3%2Eappspot%2Ecom%2Fo%2FComponents%2520of%2520Financial%2520System%2Epptx%3Falt%3Dmedia%26token%3Dc5be1430%2D9b0d%2D4b6f%2D89a9%2Da24bc95d25fe&amp;wdAr=1.3333333333333333`}
+            src={`https://view.officeapps.live.com/op/embed.aspx?src=https://firebasestorage.googleapis.com/v0/b/reverr-25fb3.appspot.com/o/rvpDeal%2FpitchDecFiles%2FLinoui%20August%2026%2C%202022%20at%2009%3A14%3A14%20PM?alt=media&token=b83f6b6a-f393-4348-948a-8ab1a800010a`}
             width="100%"
             height="500px"
             frameborder="0"
