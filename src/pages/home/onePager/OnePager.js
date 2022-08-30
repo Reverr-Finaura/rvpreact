@@ -46,7 +46,8 @@ const OnePager = () => {
             >
               <img
                 style={{
-                  width: "30%",
+                  width: "150px",
+                  height: "150px",
                   boxShadow: "0 0 3px #ccc",
                   borderRadius: "10px",
                 }}

@@ -32,7 +32,7 @@ const PitchDeck = () => {
         <div className="pitchdeck__right-wrap">
           <iframe
             title="pitch-deck"
-            src={`https://view.officeapps.live.com/op/embed.aspx?src=https://firebasestorage.googleapis.com/v0/b/reverr-25fb3.appspot.com/o/rvpDeal%2FpitchDecFiles%2FLinoui%20August%2026%2C%202022%20at%2009%3A14%3A14%20PM?alt=media&token=b83f6b6a-f393-4348-948a-8ab1a800010a`}
+            src={pitchDeckUrl}
             width="100%"
             height="500px"
             frameborder="0"

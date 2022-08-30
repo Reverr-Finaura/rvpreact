@@ -18,6 +18,7 @@ const PartnerCard = ({ data }) => {
           <img
             style={{
               width: "115%",
+              height: "150px",
               transform: "translate(-1.12rem,-1.2rem)",
               border: "1px solid black",
             }}
@@ -37,7 +38,8 @@ const PartnerCard = ({ data }) => {
               src={logo.logoUrl}
               alt="partner"
               style={{
-                width: "30%",
+                width: "35%",
+                height: "35%",
                 transform: "translateY(-6rem)",
                 borderRadius: "50%",
                 border: "1px solid black",

@@ -27,9 +27,7 @@ const FinancialProjection = () => {
           <div className="financial-projections__preview">Preview</div>
           <iframe
             title="financial-projection"
-            src={
-              "https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fwww.mohfw.gov.in%2Fpdf%2FCOVID19DistrictWisePositivityAnalysis05July.xlsx&wdOrigin=BROWSELINK"
-            }
+            src={projectionUrl}
             width="100%"
             height="500px"
             frameBorder="0"

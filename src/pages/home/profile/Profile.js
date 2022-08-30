@@ -18,7 +18,7 @@ const Profile = () => {
   const [isEditable, setIsEditable] = useState(false);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  console.log(user);
+  // console.log(user);
   const {
     firstName,
     lastName,
@@ -75,8 +75,12 @@ const Profile = () => {
     // const checkFields = validateField();
     setIsLoading(true);
     if (true) {
-      const userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
-
+      let userImgUrl = await uploadMedia(userImgFile, "rvpDeal/userImages");
+      if (userImgFile === userImg) {
+        console.log("exec");
+        userImgUrl = userImg;
+      }
+      console.log(userImgUrl);
       const fullName = name.split(" ");
       const fName = fullName[0];
       const lName = fullName[1];

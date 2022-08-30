@@ -7,7 +7,7 @@ const BlogCard = ({ data }) => {
   return (
     <>
       <div className="blog-card">
-        <img src={imageUrl} width="100%" alt="blog" />
+        <img src={imageUrl} width="100%" height="200px" alt="blog" />
         <br />
         <h3 style={{ textAlign: "center" }}>{data.heading}</h3>
         <p className="blog-body">{bodySliced}...</p>

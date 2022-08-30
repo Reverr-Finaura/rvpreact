@@ -55,7 +55,8 @@ const AboutDeal = () => {
               <div className="aboutdeal__logo">
                 <img
                   style={{
-                    width: "100%",
+                    width: "80px",
+                    height: "80px",
                     borderRadius: "50%",
                     boxShadow: "0 0 3px #ccc",
                   }}
