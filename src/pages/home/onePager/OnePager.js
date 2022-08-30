@@ -27,7 +27,6 @@ const OnePager = () => {
   } = onePage;
   const { name } = dealDetails;
   const { founders } = deal;
-
   return (
     <>
       <LoggedInNavbar />

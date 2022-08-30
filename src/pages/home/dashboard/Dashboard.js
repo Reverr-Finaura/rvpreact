@@ -42,11 +42,13 @@ const Dashboard = () => {
   const fetchDeals = useCallback(async () => {
     const results = await fetchDealsFromDatabase();
     dispatch(setDeals(results));
+    console.log(results[0]);
   }, []);
 
   const fetchUser = async () => {
     const user = await getUserFromDatabase(uid);
     dispatch(login(user));
+    console.log(user);
   };
 
   const fetchBlogs = useCallback(async () => {

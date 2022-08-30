@@ -50,7 +50,6 @@ const PitchDeck = () => {
             >
               Office
             </a>
-            .
           </iframe>
         </div>
       </div>

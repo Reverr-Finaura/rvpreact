@@ -138,6 +138,14 @@ export const fetchDealsFromDatabase = async () => {
   }
 };
 
+export const updateDealInDatabase = async (uid, data) => {
+  try {
+    return await updateDoc(doc(database, "Investordeals", uid), data);
+  } catch (err) {
+    console.log("Err: ", err);
+  }
+};
+
 export const fetchBlogsFromDatabase = async () => {
   try {
     let blogs = [];
