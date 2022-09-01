@@ -124,6 +124,22 @@ export const getUserFromDatabase = async (uid) => {
   return User;
 };
 
+export const fetchDealFromDatabase = async (deal_Id) => {
+  try {
+    let Deal;
+    await (
+      await getDocs(
+        query(collection(database, `Investordeals`), where("id", "==", `${deal_Id}`))
+      )
+    ).forEach((doc) => {
+      Deal = { ...doc.data() };
+    });
+    return Deal;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const fetchDealsFromDatabase = async () => {
   try {
     let deals = [];

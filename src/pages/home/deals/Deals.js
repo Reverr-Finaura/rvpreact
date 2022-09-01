@@ -4,15 +4,29 @@ import logo from "../../../assets/vectors/logo.svg";
 import PartnerCard from "../../../components/partnerCard/PartnerCard";
 import { Link, NavLink } from "react-router-dom";
 import SideNav from "../../../components/sideNav/SideNav";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setDeal } from "../../../redux/deal/dealSlice";
 
 const Deals = () => {
   const dispatch = useDispatch();
-  const deals = useSelector((state) => state.deal.deals);
+  const [deals, setDeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const fetchDeals = useCallback(async () => {
+    setIsLoading(true);
+    const results = await fetchDealsFromDatabase();
+    if (results.length) {
+      setDeals([...results]);
+      console.log("Results", results);
+    }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchDeals();
+  }, []);
+  
 
   return (
     <>
@@ -49,18 +63,20 @@ const Deals = () => {
               </p>
             </div>
             <div className="deal__card">
-              {deals.map((data) => (
-                <Link
-                  onClick={(e) => {
-                    dispatch(setDeal(data));
-                  }}
-                  key={data.id}
-                  className="deal_card-link"
-                  to={`${data.id}/about`}
-                >
-                  <PartnerCard key={data.id} data={data} />
-                </Link>
-              ))}
+              {isLoading
+                ? "fetching deals..."
+                : deals.map((data) => (
+                    <Link
+                      onClick={(e) => {
+                        // dispatch(setDeal(data));
+                      }}
+                      key={data.id}
+                      className="deal_card-link"
+                      to={`${data.id}`}
+                    >
+                      <PartnerCard key={data.id} data={data} />
+                    </Link>
+                  ))}
             </div>
           </div>
           <hr
