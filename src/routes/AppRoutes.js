@@ -30,57 +30,57 @@ const AppRoutes = () => {
       <Route
         path="/"
         element={
-          <AuthRoute>
-            <SignIn />
-          </AuthRoute>
+          // <AuthRoute>
+          <SignIn />
+          // </AuthRoute>
         }
       />
       <Route
         path="/signUp"
         element={
-          <AuthRoute>
-            <SignUp />
-          </AuthRoute>
+          // <AuthRoute>
+          <SignUp />
+          // </AuthRoute>
         }
       />
       <Route
         path="/forgot-password"
         element={
-          <AuthRoute>
-            <ForgotPassword />
-          </AuthRoute>
+          // <AuthRoute>
+          <ForgotPassword />
+          // </AuthRoute>
         }
       />
       <Route
         path="/password-reset"
         element={
-          <AuthRoute>
-            <ResetPassword />
-          </AuthRoute>
+          // <AuthRoute>
+          <ResetPassword />
+          // </AuthRoute>
         }
       />
       <Route
         path="/otp-verify"
         element={
-          <AuthRoute>
-            <OtpVerification />
-          </AuthRoute>
+          // <AuthRoute>
+          <OtpVerification />
+          // </AuthRoute>
         }
       />
       <Route
         path="/investors"
         element={
-          <AuthRoute>
-            <LandingPageInvestors />
-          </AuthRoute>
+          // <AuthRoute>
+          <LandingPageInvestors />
+          // </AuthRoute>
         }
       />
       <Route
         path="/startups"
         element={
-          <AuthRoute>
-            <LandingPageStartups />
-          </AuthRoute>
+          // <AuthRoute>
+          <LandingPageStartups />
+          // </AuthRoute>
         }
       />
       <Route path="/home" element={<HomePage />} />
@@ -119,7 +119,7 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/deals/:deal_Id/about"
+        path="/deals/:deal_Id"
         element={
           <ProtectedRoute>
             <AboutDeal />

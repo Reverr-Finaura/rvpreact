@@ -39,11 +39,6 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const uid = JSON.parse(localStorage.getItem("uid"));
-  const fetchDeals = useCallback(async () => {
-    const results = await fetchDealsFromDatabase();
-    dispatch(setDeals(results));
-    console.log(results[0]);
-  }, []);
 
   const fetchUser = async () => {
     const user = await getUserFromDatabase(uid);
@@ -59,7 +54,6 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    fetchDeals();
     fetchUser();
     fetchBlogs();
   }, []);
