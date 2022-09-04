@@ -7,7 +7,7 @@ import topImage from "../../../assets/img/top-image.png";
 import { generateOtp } from "../../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser, setOtp } from "../../../redux/auth/newUserSlice";
-import { sendOtpToMail } from "../../../emailJs/emailJs";
+import { sendOtpToMail } from "../../../emailJs/emailjs";
 import OtpVerification from "../otpverification/OtpVerification";
 import Footer from "../../../components/footer/Footer";
 import { ToastContainer, toast } from "react-toastify";

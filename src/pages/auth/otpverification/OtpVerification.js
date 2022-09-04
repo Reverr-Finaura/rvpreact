@@ -6,12 +6,13 @@ import Footer from "../../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { delOtp, delUser } from "../../../redux/auth/newUserSlice";
-import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailJs";
+
 import { login } from "../../../redux/user/userSlice";
 import {
   addUserInDatabase,
   createUserWithEmailPassword,
 } from "../../../firebase/firebase";
+import { sendAccountHasBeenCreatedMail } from "../../../emailJs/emailjs";
 const OtpVerification = () => {
   const navigate = useNavigate();
   const [otpInput, setOtpInput] = useState("");
