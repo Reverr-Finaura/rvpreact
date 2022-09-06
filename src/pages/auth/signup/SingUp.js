@@ -84,6 +84,14 @@ const SignUp = () => {
       amount,
       experienceOfInvesting,
       sectorsOfInvesting,
+      calls: [],
+      interstedDeals: [],
+      whenToInvest: null,
+      userType: "Investor",
+      instagram: "",
+      userDescription: "",
+      twitter: "",
+      userImg: null,
     };
     const userName = firstName + " " + lastName;
     dispatch(createUser(user));

@@ -17,14 +17,14 @@ const AboutDeal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { deal_Id } = useParams();
-  // const deal = useSelector((state) => state.deal.deal);
-  const [deal, setDeal] = useState([]);
-  const fetchDeal = useCallback(async () => {
-    setIsLoading(true);
-    const results = await fetchDealFromDatabase(deal_Id);
-    setDeal(results);
-    setIsLoading(false);
-  }, []);
+  const deal = useSelector((state) => state.deal.deal);
+  // const [deal, setDeal] = useState([]);
+  // const fetchDeal = useCallback(async () => {
+  //   setIsLoading(true);
+  //   const results = await fetchDealFromDatabase(deal_Id);
+  //   setDeal(results);
+  //   setIsLoading(false);
+  // }, []);
 
   const {
     cardImages,
@@ -54,15 +54,17 @@ const AboutDeal = () => {
     return remainingDays;
   };
 
-  useEffect(() => {
-    fetchDeal();
-  }, []);
+  // useEffect(() => {
+  //   fetchDeal();
+  // }, []);
 
   return (
     <>
       <LoggedInNavbar />
       <div className="aboutdeal">
-        <div className="abousDeal-side__nav">{/* <DealSideNav /> */}</div>
+        <div className="abousDeal-side__nav">
+          <DealSideNav />
+        </div>
         <div className="aboutdeal__right-wrap">
           <div className="aboutdeal__wrap">
             {isLoading ? (

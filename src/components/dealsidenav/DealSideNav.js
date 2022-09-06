@@ -7,34 +7,24 @@ const DealSideNav = () => {
   const user = useSelector((state) => state.user.user);
   const deal = useSelector((state) => state.deal.deal);
   const { firstName, lastName, email, uid } = user;
-  const { dealDetails, meetings } = deal;
-  const { interestedUser, meetingDetails } = meetings;
+  const { dealDetails, meetings, interestedUsers, id } = deal;
+
   const { name } = dealDetails;
   const addInterested = async () => {
-    for (let i = 0; i <= interestedUser.length; i++) {
-      if (interestedUser[i] === uid) {
+    for (let i = 0; i <= interestedUsers.length; i++) {
+      if (interestedUsers[i] === uid) {
         console.log("Exist");
         break;
       } else {
-        await updateDealInDatabase(deal.id, {
+        await updateDealInDatabase(id, {
           ...deal,
-          meetings: [
-            {
-              ...meetings,
-              // meetingDetails: { time: "", desc: "", date: "", meetingLink: "" },
-              interestedUser: [uid, ...interestedUser],
-            },
-          ],
+          interestedUsers: [...interestedUsers, uid],
         });
       }
     }
   };
 
-  // Note jab user interested par click kar rha hai to interestedDeals me kya dalna hai uid,whole data of deal
-  // uid - exract which mathches uid of deal and it takes time...
-  // whole deal...
-
-  console.log(deal);
+  // console.log(user);
   return (
     <div className="sideNav">
       <NavLink

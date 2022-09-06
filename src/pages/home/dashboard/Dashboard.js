@@ -37,13 +37,15 @@ const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-
+  const [user, setUser] = useState([]);
+  const { calls } = user;
   const uid = JSON.parse(localStorage.getItem("uid"));
 
   const fetchUser = async () => {
-    const user = await getUserFromDatabase(uid);
-    dispatch(login(user));
-    console.log(user);
+    const results = await getUserFromDatabase("lQqFJTJBiAaaROvSfro0q8eXsB32");
+    dispatch(login(results));
+    setUser(results);
+    // console.log(user);
   };
 
   const fetchBlogs = useCallback(async () => {

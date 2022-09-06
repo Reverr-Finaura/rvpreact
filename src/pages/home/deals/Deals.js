@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from "react";
 import { fetchDealsFromDatabase } from "../../../firebase/firebase";
 import LoggedInNavbar from "../../../components/loggedInNavbar/LoggedInNavbar";
 import { useDispatch, useSelector } from "react-redux";
+import { setDeal } from "../../../redux/deal/dealSlice";
 
 const Deals = () => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ const Deals = () => {
                 : deals.map((data) => (
                     <Link
                       onClick={(e) => {
-                        // dispatch(setDeal(data));
+                        dispatch(setDeal(data));
                       }}
                       key={data.id}
                       className="deal_card-link"
