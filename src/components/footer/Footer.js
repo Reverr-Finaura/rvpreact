@@ -37,18 +37,34 @@ const Footer = () => {
         <div className="footer-social">
           <div style={{ fontWeight: "600", cursor: "default" }}>Social</div>
           <div className="footer__social-links">
-            <div className="footer__social-link">
-              <img src={instagram} alt="instagram" />
-            </div>
-            <div className="footer__social-link">
-              <img src={facebook} alt="instagram" />
-            </div>
-            <div className="footer__social-link">
-              <img src={linkedin} alt="instagram" />
-            </div>
-            <div className="footer__social-link">
-              <img src={twitter} alt="instagram" />
-            </div>
+            <a
+              href="https://www.instagram.com/reverrapp/?hl=en"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="footer__social-link">
+                <img src={instagram} alt="instagram" />
+              </div>
+            </a>
+            <a href="/" rel="noreferrer">
+              <div className="footer__social-link">
+                <img src={facebook} alt="facebook" />
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/reverr/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="footer__social-link">
+                <img src={linkedin} alt="linkedin" />
+              </div>
+            </a>
+            <a href="/" rel="noreferrer">
+              <div className="footer__social-link">
+                <img src={twitter} alt="twitter" />
+              </div>
+            </a>
           </div>
         </div>
       </div>
